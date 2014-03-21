@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
-//Hello
 
 @interface WordPlayRootViewController : UIViewController
 
