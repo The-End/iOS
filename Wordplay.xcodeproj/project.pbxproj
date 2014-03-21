@@ -23,6 +23,7 @@
 		3D4B13DD18DC7F40007D3C90 /* WordplayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B13DC18DC7F40007D3C90 /* WordplayTests.m */; };
 		3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */; };
 		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
+		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPlayRootViewController.h; sourceTree = "<group>"; };
 		3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPlayRootViewController.m; sourceTree = "<group>"; };
 		930BDC6518DCA1220025154C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				3D4B13C018DC7F40007D3C90 /* AppDelegate.h */,
 				3D4B13C118DC7F40007D3C90 /* AppDelegate.m */,
 				3D4B13C318DC7F40007D3C90 /* Main.storyboard */,
+				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
+				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
 				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
 				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
 				3D4B13C618DC7F40007D3C90 /* ViewController.h */,
@@ -259,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */,
 				3D4B13C818DC7F40007D3C90 /* ViewController.m in Sources */,
 				3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */,
 				3D4B13C218DC7F40007D3C90 /* AppDelegate.m in Sources */,
