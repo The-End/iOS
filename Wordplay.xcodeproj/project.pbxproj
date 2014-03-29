@@ -22,9 +22,19 @@
 		3D4B13DB18DC7F40007D3C90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B13D918DC7F40007D3C90 /* InfoPlist.strings */; };
 		3D4B13DD18DC7F40007D3C90 /* WordplayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B13DC18DC7F40007D3C90 /* WordplayTests.m */; };
 		3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */; };
-		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
-		93F761F318E71EBA006D8CB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F761F218E71EBA006D8CB4 /* Parse.framework */; };
+		93C2035818E720A900C4A994 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C2035718E720A900C4A994 /* Round.m */; };
+		93C2035C18E724C300C4A994 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2035B18E724C300C4A994 /* FacebookSDK.framework */; };
+		93C2035E18E7254900C4A994 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2035D18E7254900C4A994 /* Parse.framework */; };
+		93C2036018E725A400C4A994 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2035F18E725A400C4A994 /* AudioToolbox.framework */; };
+		93C2036218E725AC00C4A994 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2036118E725AC00C4A994 /* CFNetwork.framework */; };
+		93C2036418E725B900C4A994 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2036318E725B900C4A994 /* CoreLocation.framework */; };
+		93C2036618E725CA00C4A994 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2036518E725CA00C4A994 /* libz.dylib */; };
+		93C2036818E725D300C4A994 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2036718E725D300C4A994 /* MobileCoreServices.framework */; };
+		93C2036A18E725D900C4A994 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2036918E725D900C4A994 /* QuartzCore.framework */; };
+		93C2036C18E725E100C4A994 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2036B18E725E100C4A994 /* Security.framework */; };
+		93C2036E18E725E700C4A994 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2036D18E725E700C4A994 /* StoreKit.framework */; };
+		93C2037018E725EF00C4A994 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C2036F18E725EF00C4A994 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +69,21 @@
 		3D4B13DC18DC7F40007D3C90 /* WordplayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordplayTests.m; sourceTree = "<group>"; };
 		3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPlayRootViewController.h; sourceTree = "<group>"; };
 		3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPlayRootViewController.m; sourceTree = "<group>"; };
-		930BDC6518DCA1220025154C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		93C2035618E720A900C4A994 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
+		93C2035718E720A900C4A994 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
+		93C2035B18E724C300C4A994 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		93C2035D18E7254900C4A994 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Downloads/Parse.framework; sourceTree = "<group>"; };
+		93C2035F18E725A400C4A994 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		93C2036118E725AC00C4A994 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		93C2036318E725B900C4A994 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		93C2036518E725CA00C4A994 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		93C2036718E725D300C4A994 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		93C2036918E725D900C4A994 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		93C2036B18E725E100C4A994 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		93C2036D18E725E700C4A994 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		93C2036F18E725EF00C4A994 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		93F761F218E71EBA006D8CB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,11 +92,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C2037018E725EF00C4A994 /* SystemConfiguration.framework in Frameworks */,
+				93C2036E18E725E700C4A994 /* StoreKit.framework in Frameworks */,
+				93C2036C18E725E100C4A994 /* Security.framework in Frameworks */,
+				93C2036A18E725D900C4A994 /* QuartzCore.framework in Frameworks */,
+				93C2036818E725D300C4A994 /* MobileCoreServices.framework in Frameworks */,
+				93C2036618E725CA00C4A994 /* libz.dylib in Frameworks */,
+				93C2036418E725B900C4A994 /* CoreLocation.framework in Frameworks */,
+				93C2036218E725AC00C4A994 /* CFNetwork.framework in Frameworks */,
+				93C2036018E725A400C4A994 /* AudioToolbox.framework in Frameworks */,
+				93C2035E18E7254900C4A994 /* Parse.framework in Frameworks */,
+				93C2035C18E724C300C4A994 /* FacebookSDK.framework in Frameworks */,
 				3D4B13B418DC7F40007D3C90 /* CoreGraphics.framework in Frameworks */,
-				930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */,
 				3D4B13B618DC7F40007D3C90 /* UIKit.framework in Frameworks */,
 				3D4B13B218DC7F40007D3C90 /* Foundation.framework in Frameworks */,
-				93F761F318E71EBA006D8CB4 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,8 +144,18 @@
 		3D4B13B018DC7F40007D3C90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93C2036F18E725EF00C4A994 /* SystemConfiguration.framework */,
+				93C2036D18E725E700C4A994 /* StoreKit.framework */,
+				93C2036B18E725E100C4A994 /* Security.framework */,
+				93C2036918E725D900C4A994 /* QuartzCore.framework */,
+				93C2036718E725D300C4A994 /* MobileCoreServices.framework */,
+				93C2036518E725CA00C4A994 /* libz.dylib */,
+				93C2036318E725B900C4A994 /* CoreLocation.framework */,
+				93C2036118E725AC00C4A994 /* CFNetwork.framework */,
+				93C2035F18E725A400C4A994 /* AudioToolbox.framework */,
+				93C2035D18E7254900C4A994 /* Parse.framework */,
+				93C2035B18E724C300C4A994 /* FacebookSDK.framework */,
 				93F761F218E71EBA006D8CB4 /* Parse.framework */,
-				930BDC6518DCA1220025154C /* FacebookSDK.framework */,
 				3D4B13B118DC7F40007D3C90 /* Foundation.framework */,
 				3D4B13B318DC7F40007D3C90 /* CoreGraphics.framework */,
 				3D4B13B518DC7F40007D3C90 /* UIKit.framework */,
@@ -137,6 +178,8 @@
 				3D4B13C718DC7F40007D3C90 /* ViewController.m */,
 				3D4B13C918DC7F40007D3C90 /* Images.xcassets */,
 				3D4B13B818DC7F40007D3C90 /* Supporting Files */,
+				93C2035618E720A900C4A994 /* Round.h */,
+				93C2035718E720A900C4A994 /* Round.m */,
 			);
 			path = Wordplay;
 			sourceTree = "<group>";
@@ -268,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C2035818E720A900C4A994 /* Round.m in Sources */,
 				93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */,
 				3D4B13C818DC7F40007D3C90 /* ViewController.m in Sources */,
 				3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */,
@@ -404,6 +448,8 @@
 					"$(inherited)",
 					/afs/cs.wisc.edu/u/b/l/blakem/Desktop/Wordplay/FacebookSDK,
 					"$(PROJECT_DIR)",
+					"/Users/mann-wood/Documents/FacebookSDK",
+					"/Users/mann-wood/Downloads",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wordplay/Wordplay-Prefix.pch";
@@ -424,6 +470,8 @@
 					"$(inherited)",
 					/afs/cs.wisc.edu/u/b/l/blakem/Desktop/Wordplay/FacebookSDK,
 					"$(PROJECT_DIR)",
+					"/Users/mann-wood/Documents/FacebookSDK",
+					"/Users/mann-wood/Downloads",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wordplay/Wordplay-Prefix.pch";
