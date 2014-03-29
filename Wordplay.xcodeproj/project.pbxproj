@@ -24,6 +24,7 @@
 		3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */; };
 		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
+		93F761F318E71EBA006D8CB4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F761F218E71EBA006D8CB4 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		930BDC6518DCA1220025154C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		93F761F218E71EBA006D8CB4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */,
 				3D4B13B618DC7F40007D3C90 /* UIKit.framework in Frameworks */,
 				3D4B13B218DC7F40007D3C90 /* Foundation.framework in Frameworks */,
+				93F761F318E71EBA006D8CB4 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +113,7 @@
 		3D4B13B018DC7F40007D3C90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93F761F218E71EBA006D8CB4 /* Parse.framework */,
 				930BDC6518DCA1220025154C /* FacebookSDK.framework */,
 				3D4B13B118DC7F40007D3C90 /* Foundation.framework */,
 				3D4B13B318DC7F40007D3C90 /* CoreGraphics.framework */,
