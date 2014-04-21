@@ -7,6 +7,7 @@
 //
 
 #import "LoginController.h"
+#import "WordPlayRootViewController.h"
 
 @interface LoginController ()
 
@@ -18,7 +19,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -31,6 +31,10 @@
     facebook = [[FBLoginView alloc] init];
     facebook.readPermissions = @[@"basic_info", @"email"];
     facebook.delegate = self;
+    firstLogin = YES;
+    
+    
+    
     
 }
 
@@ -42,6 +46,14 @@
 
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+    
+    if (firstLogin) {
+   
+    //UINavigationController *navController = self.navigationController;
+    //[navController popViewControllerAnimated:NO];
+    [self performSegueWithIdentifier:@"transition" sender:nil];
+        firstLogin = NO;
+    }
     //self.profilePictureView.profileID = user.id;
     //self.nameLabel.text = user.name;
 }

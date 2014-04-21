@@ -12,6 +12,7 @@
 @interface LoginController : UIViewController <FBLoginViewDelegate>{
     
     FBLoginView *facebook;
+    BOOL firstLogin;
     
 }
 
