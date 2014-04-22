@@ -29,7 +29,6 @@
     [super viewDidLoad];
 
     if(![PFUser currentUser]){
-        
         [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
     }
     
