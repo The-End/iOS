@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 @interface LoginController : UIViewController <FBLoginViewDelegate>{
     
-    FBLoginView *facebook;
-    BOOL firstLogin;
-    
 }
+- (IBAction)fabookLoginButton:(id)sender;
 
 @end

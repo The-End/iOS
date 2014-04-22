@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
+#import "LoginController.h"
 
 @interface WordPlayRootViewController : UIViewController
+
+- (IBAction)LogOutButtonAction:(id)sender;
 
 @end

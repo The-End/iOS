@@ -8,6 +8,7 @@
 
 #import "WordPlayRootViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+
 @interface WordPlayRootViewController ()
 
 @end
@@ -25,12 +26,13 @@
 
 - (void)viewDidLoad
 {
-    NSMutableArray *VCs = [self.navigationController.viewControllers mutableCopy];
-    [VCs removeObjectAtIndex:[VCs count] - 2];
-    self.navigationController.viewControllers = VCs;
     [super viewDidLoad];
-    FBLoginView *loginView2 = [[FBLoginView alloc] init];
-    [self.view addSubview:loginView2];
+
+    if(![PFUser currentUser]){
+        
+        [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
+    }
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -40,4 +42,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)LogOutButtonAction:(id)sender {
+    
+    [PFUser logOut];
+    
+    [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
+    
+}
 @end
