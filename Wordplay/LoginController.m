@@ -60,16 +60,6 @@
         }
     }];
     
-    if (firstLogin) {
-   
-    //UINavigationController *navController = self.navigationController;
-    //[navController popViewControllerAnimated:NO];
-    [self performSegueWithIdentifier:@"transition" sender:nil];
-        firstLogin = NO;
-        NSLog(@"Poop");
-    }
-    //self.profilePictureView.profileID = user.id;
-    //self.nameLabel.text = user.name;
 }
 
 /*

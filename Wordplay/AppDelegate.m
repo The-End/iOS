@@ -18,7 +18,8 @@
     
     [FBLoginView class];
     [Parse setApplicationId: @"i0BQPtE6jNDt4xdqELQ31zQ6OvjhTeSPBvYKwbpe" clientKey:@"gfn5MdJW8gyHLb9NJCU4EiaozJlHA6oNLdIksudR"];
-    FBCacheDescriptor *cacheDescriptor = [FBFriendPickerViewController cacheDescriptor];
+    
+    [PFFacebookUtils initializeFacebook];
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|
