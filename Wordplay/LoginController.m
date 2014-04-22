@@ -27,15 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    facebook = [[FBLoginView alloc] init];
-    facebook.readPermissions = @[@"basic_info", @"email"];
-    facebook.delegate = self;
-    firstLogin = YES;
-    
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,18 +35,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-// This method will be called when the user information has been fetched
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+-(IBAction)fabookLoginButton:(id)sender
+{
+
+    // The permissions requested from the user
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
     
-    if (firstLogin) {
-   
-    //UINavigationController *navController = self.navigationController;
-    //[navController popViewControllerAnimated:NO];
-    [self performSegueWithIdentifier:@"transition" sender:nil];
-        firstLogin = NO;
-    }
-    //self.profilePictureView.profileID = user.id;
-    //self.nameLabel.text = user.name;
+    // Login PFUser using Facebook
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+//        [_activityIndicator stopAnimating]; // Hide loading indicator
+        
+        if (!user) {
+            if (!error) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            } else {
+                NSLog(@"Uh oh. An error occurred: %@", error);
+            }
+        } else if (user.isNew) {
+            [self.navigationController popViewControllerAnimated:YES];
+//            [self performSegueWithIdentifier:@"transition" sender:nil];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+//            [self performSegueWithIdentifier:@"transition" sender:nil];
+        }
+    }];
+    
 }
 
 /*
