@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="467" y="374"/>
         </scene>
-        <!--Friend Picker View Controller-->
+        <!--Friends View Controller-->
         <scene sceneID="cej-cS-eWd">
             <objects>
-                <viewController id="K7Q-cT-5F8" customClass="FBFriendPickerViewController" sceneMemberID="viewController">
+                <viewController id="K7Q-cT-5F8" customClass="FBFriendsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fPF-3n-gOn"/>
                         <viewControllerLayoutGuide type="bottom" id="NVm-13-8ay"/>
