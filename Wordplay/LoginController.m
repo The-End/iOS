@@ -7,7 +7,6 @@
 //
 
 #import "LoginController.h"
-#import "WordPlayRootViewController.h"
 
 @interface LoginController ()
 
@@ -30,9 +29,6 @@
     [super viewDidLoad];
     
     [self.navigationItem setHidesBackButton:YES];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    context = [appDelegate managedObjectContext];
     
     // Do any additional setup after loading the view.
 }
@@ -89,6 +85,7 @@
             [user setFacebookId: userData[@"id"]];
             [user setBirthday: userData[@"birthday"]];
             [user setUsername: userData[@"name"]];
+            [user setMainUser: [NSNumber numberWithBool:YES]];
             [user save: context];
             
         }

@@ -12,10 +12,10 @@
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "User.h"
+#import "WordPlayMasterViewController.h"
 
-@interface LoginController : UIViewController{
-    NSManagedObjectContext *context;
-}
+@interface LoginController : WordPlayMasterViewController
+
 - (IBAction)fabookLoginButton:(id)sender;
 
 @end

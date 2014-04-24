@@ -59,18 +59,20 @@
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mainUser == YES"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mainUser == %@", [NSNumber numberWithBool:YES]];
     
-    [userFetch setEntity: entity];
     [userFetch setPredicate:predicate];
+    [userFetch setEntity: entity];
     
     NSError *error = nil;
     NSArray *results = [context executeFetchRequest:userFetch error:&error];
     
     if([results count] == 0){
+        NSLog(@"No users found, returning nil");
         return nil;
     }
     
+    NSLog(@"User found, returning user");
     return [results objectAtIndex:0];
 }
 
@@ -79,10 +81,12 @@
     return [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
 }
 
-+ (void) deleteMainUser:(NSManagedObjectContext *)context
++ (void) deleteMainUser:(NSManagedObjectContext *) context
 {
-    [context deleteObject: [User loadMainUser:context]];
+    [context deleteObject: [User loadMainUser: context]];
     
+    NSError *error;
+    if (![context save:&error]) NSLog(@"ERROR saving: %@", [error localizedDescription]);
 }
 
 @end

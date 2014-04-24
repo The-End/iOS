@@ -10,10 +10,10 @@
 #import <Parse/Parse.h>
 #import "LoginController.h"
 #import <CoreData/CoreData.h>
+#import "WordPlayMasterViewController.h"
 
-@interface WordPlayRootViewController : UIViewController<NSURLConnectionDelegate>
+@interface WordPlayRootViewController : WordPlayMasterViewController<NSURLConnectionDelegate>
 {
-    NSManagedObjectContext *context;
     NSMutableData *profilePictureData;
 }
 

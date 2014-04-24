@@ -28,9 +28,6 @@
 {
     [super viewDidLoad];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    context = [appDelegate managedObjectContext];
-
     User *user = [User loadMainUser: context];
     
     if(user == nil){
@@ -60,7 +57,7 @@
 - (IBAction)LogOutButtonAction:(id)sender {
     
     [PFUser logOut];
-    [User deleteMainUser:context];
+    [User deleteMainUser: context];
     
     [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
     
