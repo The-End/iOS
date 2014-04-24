@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
+#import "User.h"
 
-@interface LoginController : UIViewController <FBLoginViewDelegate>{
-    
+@interface LoginController : UIViewController{
+    NSManagedObjectContext *context;
 }
 - (IBAction)fabookLoginButton:(id)sender;
 

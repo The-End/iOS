@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
 
-@interface NewGameViewController : UIViewController
+@interface NewGameViewController : UIViewController{
+    
+    __weak IBOutlet UILabel *outputLabel;
+}
 
 @end

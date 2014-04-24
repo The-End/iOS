@@ -26,8 +26,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"Hey");
-	// Do any additional setup after loading the view.
+    
+    FBRequest *request = [FBRequest requestForGraphPath:@"/me/friends?fields=installed"];
+    
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result is a dictionary with the user's Facebook data
+            NSDictionary *userData = (NSDictionary *) result;
+            
+            for(NSString *key in [userData allKeys] )
+            {
+                NSLog(@"%@", [userData objectForKey:key]);
+            }
+            
+            
+            
+            // Now add the data to the UI elements
+            // ...
+        }
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -37,14 +37,14 @@
     [self.friendPickerController loadData];
     [self.friendPickerController clearSelection];
     
-    [self presentViewController:self.friendPickerController animated:YES completion:nil];
+    [self presentViewController: self.friendPickerController animated:YES completion:nil];
 
 }
 
 - (void)viewDidUnload {
-    self.friendPickerController = nil;
-    
     [super viewDidUnload];
+    
+    self.friendPickerController = nil;
 }
 
 - (void)didReceiveMemoryWarning

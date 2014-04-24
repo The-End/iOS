@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "LoginController.h"
+#import <CoreData/CoreData.h>
 
-@interface WordPlayRootViewController : UIViewController
+@interface WordPlayRootViewController : UIViewController<NSURLConnectionDelegate>
+{
+    NSManagedObjectContext *context;
+    NSMutableData *profilePictureData;
+}
 
 - (IBAction)LogOutButtonAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 
 @end

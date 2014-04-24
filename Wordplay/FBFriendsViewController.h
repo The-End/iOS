@@ -7,6 +7,7 @@
 //
 
 #import <FacebookSDK/FacebookSDK.h>
+#import <CoreData/CoreData.h>
 
 @interface FBFriendsViewController : FBFriendPickerViewController
 
