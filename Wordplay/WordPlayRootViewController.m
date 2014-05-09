@@ -42,10 +42,9 @@
         NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:profileUrl
                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                               timeoutInterval:2.0f];
-        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+        [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     }
     
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

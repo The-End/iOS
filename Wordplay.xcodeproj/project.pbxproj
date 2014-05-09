@@ -39,8 +39,10 @@
 		3D73306A1904B6CB00EBD44C /* FBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */; };
 		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
 		9321D9541909D999003B7C15 /* WordPlayMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */; };
-		9338AC9A19089C780028120B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9338AC9819089C780028120B /* Model.xcdatamodeld */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
+		93CAE07E190F0E8D0046A811 /* PFGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE07D190F0E8D0046A811 /* PFGame.m */; };
+		93CAE081190F0E990046A811 /* PFMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE080190F0E990046A811 /* PFMove.m */; };
+		93CAE084190F0EA80046A811 /* PFPlayerMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE083190F0EA80046A811 /* PFPlayerMove.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
 		93E9C1121909C66A005A0499 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9C1111909C66A005A0499 /* User.m */; };
 /* End PBXBuildFile section */
@@ -98,9 +100,14 @@
 		930BDC6518DCA1220025154C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9321D9521909D999003B7C15 /* WordPlayMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPlayMasterViewController.h; sourceTree = "<group>"; };
 		9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPlayMasterViewController.m; sourceTree = "<group>"; };
-		9338AC9919089C780028120B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		93CAE07C190F0E8D0046A811 /* PFGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGame.h; sourceTree = "<group>"; };
+		93CAE07D190F0E8D0046A811 /* PFGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGame.m; sourceTree = "<group>"; };
+		93CAE07F190F0E990046A811 /* PFMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMove.h; sourceTree = "<group>"; };
+		93CAE080190F0E990046A811 /* PFMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMove.m; sourceTree = "<group>"; };
+		93CAE082190F0EA80046A811 /* PFPlayerMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPlayerMove.h; sourceTree = "<group>"; };
+		93CAE083190F0EA80046A811 /* PFPlayerMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPlayerMove.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		93E9C1101909C66A005A0499 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		93E9C1111909C66A005A0499 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -191,28 +198,14 @@
 		3D4B13B718DC7F40007D3C90 /* Wordplay */ = {
 			isa = PBXGroup;
 			children = (
+				93CAE086190F115E0046A811 /* PFContainers */,
+				93CAE057190EF90B0046A811 /* Data Containers */,
+				93CAE056190EF8CE0046A811 /* View Controllers */,
 				3D4B13C018DC7F40007D3C90 /* AppDelegate.h */,
 				3D4B13C118DC7F40007D3C90 /* AppDelegate.m */,
 				3D4B13C318DC7F40007D3C90 /* Main.storyboard */,
-				3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */,
-				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
-				3D6BCF3F18E72045000B879B /* PastGamesViewController.h */,
-				3D6BCF4018E72045000B879B /* PastGamesViewController.m */,
-				3D6BCF3918E71FD2000B879B /* NewGameViewController.h */,
-				3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */,
-				3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */,
-				3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */,
-				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
-				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
-				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
-				9338AC9819089C780028120B /* Model.xcdatamodeld */,
-				93E9C1101909C66A005A0499 /* User.h */,
-				93E9C1111909C66A005A0499 /* User.m */,
-				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
 				3D4B13C918DC7F40007D3C90 /* Images.xcassets */,
 				3D4B13B818DC7F40007D3C90 /* Supporting Files */,
-				9321D9521909D999003B7C15 /* WordPlayMasterViewController.h */,
-				9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */,
 			);
 			path = Wordplay;
 			sourceTree = "<group>";
@@ -244,6 +237,49 @@
 				3D4B13D918DC7F40007D3C90 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93CAE056190EF8CE0046A811 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9321D9521909D999003B7C15 /* WordPlayMasterViewController.h */,
+				9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */,
+				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
+				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
+				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
+				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
+				3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */,
+				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
+				3D6BCF3F18E72045000B879B /* PastGamesViewController.h */,
+				3D6BCF4018E72045000B879B /* PastGamesViewController.m */,
+				3D6BCF3918E71FD2000B879B /* NewGameViewController.h */,
+				3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */,
+				3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */,
+				3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		93CAE057190EF90B0046A811 /* Data Containers */ = {
+			isa = PBXGroup;
+			children = (
+				93E9C1101909C66A005A0499 /* User.h */,
+				93E9C1111909C66A005A0499 /* User.m */,
+			);
+			name = "Data Containers";
+			sourceTree = "<group>";
+		};
+		93CAE086190F115E0046A811 /* PFContainers */ = {
+			isa = PBXGroup;
+			children = (
+				93CAE07C190F0E8D0046A811 /* PFGame.h */,
+				93CAE07D190F0E8D0046A811 /* PFGame.m */,
+				93CAE07F190F0E990046A811 /* PFMove.h */,
+				93CAE080190F0E990046A811 /* PFMove.m */,
+				93CAE082190F0EA80046A811 /* PFPlayerMove.h */,
+				93CAE083190F0EA80046A811 /* PFPlayerMove.m */,
+			);
+			name = PFContainers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93CAE081190F0E990046A811 /* PFMove.m in Sources */,
 				93E9C1121909C66A005A0499 /* User.m in Sources */,
 				9321D9541909D999003B7C15 /* WordPlayMasterViewController.m in Sources */,
 				3D4B13C218DC7F40007D3C90 /* AppDelegate.m in Sources */,
@@ -351,9 +388,10 @@
 				3D73306A1904B6CB00EBD44C /* FBFriendsViewController.m in Sources */,
 				93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */,
 				3D6BCF3B18E71FD2000B879B /* NewGameViewController.m in Sources */,
-				9338AC9A19089C780028120B /* Model.xcdatamodeld in Sources */,
 				3D6BCF3E18E7200C000B879B /* ActiveGamesViewController.m in Sources */,
 				3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */,
+				93CAE084190F0EA80046A811 /* PFPlayerMove.m in Sources */,
+				93CAE07E190F0E8D0046A811 /* PFGame.m in Sources */,
 				3D4B13BE18DC7F40007D3C90 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,19 +629,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9338AC9819089C780028120B /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9338AC9919089C780028120B /* Model.xcdatamodel */,
-			);
-			currentVersion = 9338AC9919089C780028120B /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3D4B13A618DC7F40007D3C90 /* Project object */;
 }
