@@ -37,18 +37,33 @@
     [super viewDidLoad];
 
     if(![PFUser currentUser]){
+        NSLog(@"Going to Login Controller");
         [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
     } else {
         
+        NSLog(@"Have user, loading");
         
+        FBRequest *request = [FBRequest requestForMe];
         
-        NSURL *profileUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", user.facebookId]];
+        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            
+            if(error){
+                NSLog(@"Error getting me from Facebook via Parse");
+            } else {
+                NSDictionary *userData = (NSDictionary *) result;
+                
+                NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
+                
+                
+                _profilePictureData = [[NSMutableData alloc] init];
+                NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
+                                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                                      timeoutInterval:2.0f];
+                [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+            }
+            
+        }];
         
-        profilePictureData = [[NSMutableData alloc] init];
-        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:profileUrl
-                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                              timeoutInterval:2.0f];
-        [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     }
     
 }
@@ -102,7 +117,6 @@
 - (IBAction)LogOutButtonAction:(id)sender {
     
     [PFUser logOut];
-    [User deleteMainUser: context];
     
     [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
     
@@ -217,6 +231,17 @@
 
     [self.navigationController pushViewController:temp animated:YES];
     
+}
+
+// Called every time a chunk of the data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [_profilePictureData appendData:data]; // Build the image
+}
+
+// Called when the entire image is finished downloading
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // Set the image in the header imageView
+    _profilePicture.image = [UIImage imageWithData:_profilePictureData];
 }
 
 

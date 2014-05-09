@@ -50,14 +50,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyg-Ef-84a">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uL-aS-E3e">
                                 <rect key="frame" x="89" y="269" width="143" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login with Facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="fabookLoginButton:" destination="0sa-bN-3Wr" eventType="touchUpInside" id="l8B-Rd-29I"/>
+                                    <action selector="facebookLoginButton:" destination="0sa-bN-3Wr" eventType="touchUpInside" id="od1-gA-LSr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -190,11 +190,16 @@
                                     <segue destination="mjN-sp-6Mi" kind="push" id="tSc-iR-BFh"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9A6-TJ-FIG">
+                                <rect key="frame" x="40" y="99" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hZI-d0-WUy"/>
                     <connections>
+                        <outlet property="profilePicture" destination="9A6-TJ-FIG" id="14b-he-4MJ"/>
                         <segue destination="0sa-bN-3Wr" kind="push" identifier="goToLoginController" id="oRa-jA-Pap"/>
                     </connections>
                 </viewController>

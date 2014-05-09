@@ -37,6 +37,8 @@
 		3D7330651904AC4C00EBD44C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330641904AC4C00EBD44C /* Social.framework */; };
 		3D7330671904AC5200EBD44C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330661904AC5200EBD44C /* Accounts.framework */; };
 		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
+		9362F39E191D6FB800BD61C9 /* WordPlayRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F39D191D6FB800BD61C9 /* WordPlayRootViewController.m */; };
+		9362F3A1191D722B00BD61C9 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3A0191D722B00BD61C9 /* LoginController.m */; };
 		93CAE07E190F0E8D0046A811 /* PFGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE07D190F0E8D0046A811 /* PFGame.m */; };
 		93CAE084190F0EA80046A811 /* PFPlayerMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAE083190F0EA80046A811 /* PFPlayerMove.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
@@ -78,8 +80,6 @@
 		3D4B13D818DC7F40007D3C90 /* WordplayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WordplayTests-Info.plist"; sourceTree = "<group>"; };
 		3D4B13DA18DC7F40007D3C90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3D4B13DC18DC7F40007D3C90 /* WordplayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordplayTests.m; sourceTree = "<group>"; };
-		3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordPlayRootViewController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/WordPlayRootViewController.h"; sourceTree = "<absolute>"; };
-		3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordPlayRootViewController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/WordPlayRootViewController.m"; sourceTree = "<absolute>"; };
 		3D6BCF3918E71FD2000B879B /* NewGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewGameViewController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/NewGameViewController.h"; sourceTree = "<absolute>"; };
 		3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewGameViewController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/NewGameViewController.m"; sourceTree = "<absolute>"; };
 		3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveGamesViewController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/ActiveGamesViewController.h"; sourceTree = "<absolute>"; };
@@ -102,10 +102,10 @@
 		3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBFriendsViewController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/FBFriendsViewController.m"; sourceTree = "<absolute>"; };
 		3DCDA44B1909CF2A00C57A14 /* FriendProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendProtocols.h; sourceTree = "<group>"; };
 		930BDC6518DCA1220025154C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		9321D9521909D999003B7C15 /* WordPlayMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPlayMasterViewController.h; sourceTree = "<group>"; };
-		9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPlayMasterViewController.m; sourceTree = "<group>"; };
-		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/LoginController.h"; sourceTree = "<absolute>"; };
-		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/LoginController.m"; sourceTree = "<absolute>"; };
+		9362F39C191D6FB800BD61C9 /* WordPlayRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPlayRootViewController.h; sourceTree = "<group>"; };
+		9362F39D191D6FB800BD61C9 /* WordPlayRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPlayRootViewController.m; sourceTree = "<group>"; };
+		9362F39F191D722B00BD61C9 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		9362F3A0191D722B00BD61C9 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		93CAE07C190F0E8D0046A811 /* PFGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGame.h; sourceTree = "<group>"; };
 		93CAE07D190F0E8D0046A811 /* PFGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGame.m; sourceTree = "<group>"; };
 		93CAE07F190F0E990046A811 /* PFMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMove.h; sourceTree = "<group>"; };
@@ -245,6 +245,10 @@
 		93CAE056190EF8CE0046A811 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9362F39F191D722B00BD61C9 /* LoginController.h */,
+				9362F3A0191D722B00BD61C9 /* LoginController.m */,
+				9362F39C191D6FB800BD61C9 /* WordPlayRootViewController.h */,
+				9362F39D191D6FB800BD61C9 /* WordPlayRootViewController.m */,
 				3D3619361914754E006FB734 /* InviteFriendsViewController.h */,
 				3D3619371914754E006FB734 /* InviteFriendsViewController.m */,
 				3D41309F1911AA0200389CBA /* FBFriendPickerAppInstalled.h */,
@@ -252,12 +256,6 @@
 				3DCDA44B1909CF2A00C57A14 /* FriendProtocols.h */,
 				3D22F7CF191D5C52000D6157 /* ContinuedGameViewController.h */,
 				3D22F7D0191D5C52000D6157 /* ContinuedGameViewController.m */,
-				9321D9521909D999003B7C15 /* WordPlayMasterViewController.h */,
-				9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */,
-				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
-				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
-				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
-				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
 				3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */,
 				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
 				3D6BCF3F18E72045000B879B /* PastGamesViewController.h */,
@@ -385,6 +383,8 @@
 				3D4B13C218DC7F40007D3C90 /* AppDelegate.m in Sources */,
 				3D4B13BE18DC7F40007D3C90 /* main.m in Sources */,
 				3D3619381914754E006FB734 /* InviteFriendsViewController.m in Sources */,
+				9362F39E191D6FB800BD61C9 /* WordPlayRootViewController.m in Sources */,
+				9362F3A1191D722B00BD61C9 /* LoginController.m in Sources */,
 				3D22F7D1191D5C52000D6157 /* ContinuedGameViewController.m in Sources */,
 				3D4130A11911AA0200389CBA /* FBFriendPickerAppInstalled.m in Sources */,
 				93CAE084190F0EA80046A811 /* PFPlayerMove.m in Sources */,

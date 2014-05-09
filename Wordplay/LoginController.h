@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "WordPlayMasterViewController.h"
 
-@interface LoginController : WordPlayMasterViewController
+@interface LoginController : UIViewController
 
-- (IBAction)fabookLoginButton:(id)sender;
+- (IBAction)facebookLoginButton:(id)sender;
 
 @end

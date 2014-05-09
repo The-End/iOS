@@ -37,10 +37,8 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)fabookLoginButton:(id)sender
+- (IBAction)facebookLoginButton:(id)sender
 {
-
-    // The permissions requested from the user
     NSArray *permissionsArray = @[ @"user_about_me",
                                    @"user_relationships",
                                    @"user_birthday"];
@@ -59,18 +57,5 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
-    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
