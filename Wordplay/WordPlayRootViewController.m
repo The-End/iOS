@@ -40,6 +40,16 @@
     if(![PFUser currentUser]){
         
         [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
+        
+    } else {
+        
+        NSURL *profileUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", user.facebookId]];
+        
+        profilePictureData = [[NSMutableData alloc] init];
+        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:profileUrl
+                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                              timeoutInterval:2.0f];
+        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     }
     
     
@@ -95,6 +105,7 @@
 - (IBAction)LogOutButtonAction:(id)sender {
     
     [PFUser logOut];
+    [User deleteMainUser: context];
     
     [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
     

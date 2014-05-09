@@ -7,9 +7,10 @@
 //
 
 #import "LoginController.h"
-#import "WordPlayRootViewController.h"
 
 @interface LoginController ()
+
+- (void)loadUserData;
 
 @end
 
@@ -26,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.navigationItem setHidesBackButton:YES];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -39,11 +43,13 @@
 {
 
     // The permissions requested from the user
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"user_about_me",
+                                   @"user_relationships",
+                                   @"user_birthday",
+                                   @"user_location",
+                                   @"friends_likes"];
     
-    // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-//        [_activityIndicator stopAnimating]; // Hide loading indicator
         
         if (!user) {
             if (!error) {
@@ -54,15 +60,35 @@
         } else if (user.isNew) {
             
             [self.navigationController popViewControllerAnimated:YES];
-//            [self performSegueWithIdentifier:@"transition" sender:nil];
+            
         } else {
             NSLog(@"%@", user.username);
             NSLog(@"YEPPPP");
             [self.navigationController popViewControllerAnimated:YES];
-//            [self performSegueWithIdentifier:@"transition" sender:nil];
         }
     }];
     
+}
+
+- (void)loadUserData
+{
+    FBRequest *request = [FBRequest requestForMe];
+    
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+            // result is a dictionary with the user's Facebook data
+            NSDictionary *userData = (NSDictionary *)result;
+            
+            User *user = [User createNewUser: context];
+            
+            [user setFacebookId: userData[@"id"]];
+            [user setBirthday: userData[@"birthday"]];
+            [user setUsername: userData[@"name"]];
+            [user setMainUser: [NSNumber numberWithBool:YES]];
+            [user save: context];
+            
+        }
+    }];
 }
 
 /*

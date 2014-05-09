@@ -50,9 +50,9 @@ NSMutableArray *SelectedFriendsID;
 }
 
 - (void)viewDidUnload {
-    self.friendPickerController = nil;
-    
     [super viewDidUnload];
+    
+    self.friendPickerController = nil;
 }
 
 - (void)didReceiveMemoryWarning

@@ -18,7 +18,6 @@
 		3D4B13BE18DC7F40007D3C90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B13BD18DC7F40007D3C90 /* main.m */; };
 		3D4B13C218DC7F40007D3C90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B13C118DC7F40007D3C90 /* AppDelegate.m */; };
 		3D4B13C518DC7F40007D3C90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B13C318DC7F40007D3C90 /* Main.storyboard */; };
-		3D4B13C818DC7F40007D3C90 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B13C718DC7F40007D3C90 /* ViewController.m */; };
 		3D4B13CA18DC7F40007D3C90 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B13C918DC7F40007D3C90 /* Images.xcassets */; };
 		3D4B13D118DC7F40007D3C90 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4B13D018DC7F40007D3C90 /* XCTest.framework */; };
 		3D4B13D218DC7F40007D3C90 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4B13B118DC7F40007D3C90 /* Foundation.framework */; };
@@ -43,7 +42,11 @@
 		3D7330671904AC5200EBD44C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330661904AC5200EBD44C /* Accounts.framework */; };
 		3D73306A1904B6CB00EBD44C /* FBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */; };
 		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
+		9321D9541909D999003B7C15 /* WordPlayMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */; };
+		9338AC9A19089C780028120B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9338AC9819089C780028120B /* Model.xcdatamodeld */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
+		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
+		93E9C1121909C66A005A0499 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9C1111909C66A005A0499 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +79,6 @@
 		3D4B13C018DC7F40007D3C90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D4B13C118DC7F40007D3C90 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3D4B13C418DC7F40007D3C90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3D4B13C618DC7F40007D3C90 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D4B13C718DC7F40007D3C90 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3D4B13C918DC7F40007D3C90 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3D4B13CF18DC7F40007D3C90 /* WordplayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordplayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D4B13D018DC7F40007D3C90 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -108,8 +109,14 @@
 		3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFriendsViewController.m; sourceTree = "<group>"; };
 		3DCDA44B1909CF2A00C57A14 /* FriendProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendProtocols.h; sourceTree = "<group>"; };
 		930BDC6518DCA1220025154C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		9321D9521909D999003B7C15 /* WordPlayMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPlayMasterViewController.h; sourceTree = "<group>"; };
+		9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPlayMasterViewController.m; sourceTree = "<group>"; };
+		9338AC9919089C780028120B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		93E9C1101909C66A005A0499 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		93E9C1111909C66A005A0499 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E9B714190897F60064F384 /* CoreData.framework in Frameworks */,
 				3D7330671904AC5200EBD44C /* Accounts.framework in Frameworks */,
 				3D7330651904AC4C00EBD44C /* Social.framework in Frameworks */,
 				3D7330611904A94200EBD44C /* AudioToolbox.framework in Frameworks */,
@@ -171,6 +179,7 @@
 		3D4B13B018DC7F40007D3C90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93E9B713190897F60064F384 /* CoreData.framework */,
 				3D7330661904AC5200EBD44C /* Accounts.framework */,
 				3D7330641904AC4C00EBD44C /* Social.framework */,
 				3D7330621904ABC600EBD44C /* Parse.framework */,
@@ -218,11 +227,14 @@
 				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
 				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
 				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
+				9338AC9819089C780028120B /* Model.xcdatamodeld */,
+				93E9C1101909C66A005A0499 /* User.h */,
+				93E9C1111909C66A005A0499 /* User.m */,
 				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
-				3D4B13C618DC7F40007D3C90 /* ViewController.h */,
-				3D4B13C718DC7F40007D3C90 /* ViewController.m */,
 				3D4B13C918DC7F40007D3C90 /* Images.xcassets */,
 				3D4B13B818DC7F40007D3C90 /* Supporting Files */,
+				9321D9521909D999003B7C15 /* WordPlayMasterViewController.h */,
+				9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */,
 			);
 			path = Wordplay;
 			sourceTree = "<group>";
@@ -603,6 +615,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9338AC9819089C780028120B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9338AC9919089C780028120B /* Model.xcdatamodel */,
+			);
+			currentVersion = 9338AC9919089C780028120B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3D4B13A618DC7F40007D3C90 /* Project object */;
 }
