@@ -1,25 +1,23 @@
 //
-//  NewGameViewController.m
+//  ContinuedGameViewController.m
 //  Wordplay
 //
-//  Created by Blake Martin on 3/29/14.
+//  Created by Blake Martin on 5/9/14.
 //  Copyright (c) 2014 Blake Martin. All rights reserved.
 //
 
-#import "customButton.h"
-#import "NewGameViewController.h"
-#import "FBFriendPickerAppInstalled.h"
-#import "WordPlayRootViewController.h"
+#import "CustomButton.h"
+#import "ContinuedGameViewController.h"
 
-@interface NewGameViewController (){
+@interface ContinuedGameViewController (){
 
-    NSMutableArray *moves;
-    NSMutableArray *buttonArray;
-    
+NSMutableArray *moves;
+NSMutableArray *buttonArray;
+
 }
 @end
 
-@implementation NewGameViewController
+@implementation ContinuedGameViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +40,6 @@
     [moves addObject:@"Insert Before"];
     [moves addObject:@"Close"];
     
-    FBRequest *request = [FBRequest requestForGraphPath:@"/me/friends?fields=installed"];
     
     NSString *testString = [NSString stringWithFormat:@"This is a test string for our app This is a test string for our app This is a test string for our app"];
     NSArray *testArray = [testString componentsSeparatedByString: @" "];
@@ -53,12 +50,12 @@
             [locked addObject:@"locked"];
         }
         else {
-        
+            
             [locked addObject:@"npot"];
         }
     }
     [self displaySentencefromArray:test withMoves: locked];
-
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -69,32 +66,32 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
-
-
+    
+    
 }
 
 /*-(void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        [self.navigationController popViewControllerAnimated:NO];
-        //FBFriendPickerAppInstalled *newFBFPAppInstalled = [[FBFriendPickerAppInstalled alloc] init];
-        //[self.navigationController pushViewController:newFBFPAppInstalled animated:YES];
-    }
-    [super viewWillDisappear:animated];
-}*/
+ if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+ [self.navigationController popViewControllerAnimated:NO];
+ //FBFriendPickerAppInstalled *newFBFPAppInstalled = [[FBFriendPickerAppInstalled alloc] init];
+ //[self.navigationController pushViewController:newFBFPAppInstalled animated:YES];
+ }
+ [super viewWillDisappear:animated];
+ }*/
 
 -(void) viewWillAppear:(BOOL)animated{
-
+    
     //NSMutableArray *VCs = [self.navigationController.viewControllers mutableCopy];
     //[VCs removeObjectAtIndex:[VCs count] - 2];
     //self.navigationController.viewControllers = VCs;
-
+    
 }
 
 -(void) buttonMethod:(id)sender{
     
     UIScrollView *optionsMenu;
     CustomButton *selected = (CustomButton *)sender;
-
+    
     for (int i = 0; i < buttonArray.count; i++) {
         CustomButton *temp = [buttonArray objectAtIndex:i];
         if (temp.pressed == YES) {
@@ -110,7 +107,7 @@
     CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
     if ((selected.frame.origin.x + longestSize.width) > (self.view.frame.origin.x + self.view.frame.size.width)){
         optionsMenu = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - (longestSize.width+10)),(selected.frame.origin.y + selected.frame.size.height),longestSize.width + 10,(moves.count*longestSize.height + (moves.count + 1)*5))];
-    
+        
     }
     else{
         optionsMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(selected.frame.origin.x,(selected.frame.origin.y + selected.frame.size.height),longestSize.width + 10,(moves.count*longestSize.height + (moves.count + 1)*5))];
@@ -134,7 +131,7 @@
     }
     [self.view addSubview:optionsMenu];
     selected.associatedView = optionsMenu;
-
+    
 }
 
 -(void) activitySelected:(id)sender{
@@ -143,7 +140,7 @@
     CustomButton *selected = (CustomButton *)sender;
     
     if ([selected.titleLabel.text isEqualToString:@"Change"]){
-    
+        
         NSLog(@"SHOULD GO AWAY");
         NSString *text = [[NSString alloc] init];
         [selected setBackgroundColor:[UIColor greenColor]];
@@ -151,7 +148,7 @@
             [[buttonArray objectAtIndex:i] removeFromSuperview];
             [self.view addSubview:[buttonArray objectAtIndex:i]];
         }
-    
+        
     }
     
     [selected.superview removeFromSuperview];
@@ -212,7 +209,7 @@
             CGSize stringsize = [[toPrint objectAtIndex: i] sizeWithFont:[UIFont systemFontOfSize:15]];
             if ((previousButton.frame.origin.x + previousButton.frame.size.width + 10 + button.frame.size.width) > (self.view.frame.size.width - 20)){
                 
-            
+                
                 yadd = previousButton.frame.size.height + 10;
                 xcoord = 20;
                 
@@ -231,7 +228,7 @@
     }
     
     
-
+    
 }
 
 

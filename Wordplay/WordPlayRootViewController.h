@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "LoginController.h"
-#import <CoreData/CoreData.h>
-#import "WordPlayMasterViewController.h"
+#import <Foundation/Foundation.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "FriendProtocols.h"
 
-@interface WordPlayRootViewController : WordPlayMasterViewController<NSURLConnectionDelegate>
-{
-    NSMutableData *profilePictureData;
-}
+@interface WordPlayRootViewController : UIViewController <FBFriendPickerDelegate>
+- (IBAction)InviteFriends:(id)sender;
+- (IBAction)NewGame:(id)sender;
 
 - (IBAction)LogOutButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+
+@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
+-(void) goToNewGame;
+
 
 @end
