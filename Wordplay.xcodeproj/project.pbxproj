@@ -395,12 +395,12 @@
 			files = (
 				3D3F2742191C09E300302971 /* CustomButton.m in Sources */,
 				3D4B13C218DC7F40007D3C90 /* AppDelegate.m in Sources */,
+				3D4B13BE18DC7F40007D3C90 /* main.m in Sources */,
 				3D3619381914754E006FB734 /* InviteFriendsViewController.m in Sources */,
 				3D22F7D1191D5C52000D6157 /* ContinuedGameViewController.m in Sources */,
 				3D4130A11911AA0200389CBA /* FBFriendPickerAppInstalled.m in Sources */,
 				93CAE084190F0EA80046A811 /* PFPlayerMove.m in Sources */,
 				93CAE07E190F0E8D0046A811 /* PFGame.m in Sources */,
-				3D4B13BE18DC7F40007D3C90 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
