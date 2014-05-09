@@ -17,7 +17,6 @@
 @dynamic facebookId;
 @dynamic birthday;
 
-
 - (void) setUsername:(NSString *)username
 {
     [self willChangeValueForKey:@"username"];

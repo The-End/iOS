@@ -17,7 +17,6 @@
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSNumber * mainUser;
 
-
 - (void) setUsername:(NSString *)username;
 - (void) setFacebookId:(NSString *)facebookId;
 - (void) setBirthday:(NSString *)birthday;
