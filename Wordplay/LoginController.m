@@ -59,19 +59,19 @@
             }
         } else if (user.isNew) {
             
-            [self loadUserData];
+            //[self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
             
         } else {
             
-            [self loadUserData];
+            //[self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
     
 }
 
-- (void)loadUserData
+/*- (void)loadUserData
 {
     FBRequest *request = [FBRequest requestForMe];
     
@@ -90,8 +90,7 @@
             
         }
     }];
-}
-
+}*/
 /*
 #pragma mark - Navigation
 

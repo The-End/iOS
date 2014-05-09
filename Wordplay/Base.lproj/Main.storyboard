@@ -80,20 +80,9 @@
                     <view key="view" contentMode="scaleToFill" id="WUd-Uo-sNe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsi-2V-RXU">
-                                <rect key="frame" x="20" y="84" width="280" height="464"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="inF-8k-XPE"/>
-                    <connections>
-                        <outlet property="outputLabel" destination="bsi-2V-RXU" id="IOy-B8-kxB"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dn-yA-e0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,7 +91,7 @@
         <!--Continued Game View Controller-->
         <scene sceneID="77c-xl-jS4">
             <objects>
-                <viewController id="mjN-sp-6Mi" customClass="ContinuedGameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContinuedGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mjN-sp-6Mi" customClass="ContinuedGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rf7-Uw-Nwn"/>
                         <viewControllerLayoutGuide type="bottom" id="kY2-Eo-zZ0"/>
@@ -116,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-JU-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="-335"/>
+            <point key="canvasLocation" x="1791" y="-413"/>
         </scene>
         <!--Word Play Root View Controller-->
         <scene sceneID="JUg-Vq-MwO">
@@ -195,7 +184,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="hZI-d0-WUy"/>
                     <connections>
-                        <outlet property="profilePicture" destination="YAy-cb-59O" id="2dQ-EO-wdc"/>
                         <segue destination="0sa-bN-3Wr" kind="push" identifier="goToLoginController" id="oRa-jA-Pap"/>
                     </connections>
                 </viewController>

@@ -11,8 +11,10 @@
 
 @interface ContinuedGameViewController (){
 
-NSMutableArray *moves;
-NSMutableArray *buttonArray;
+    NSMutableArray *moves;
+    NSMutableArray *buttonArray;
+    int numberToPassToAlertView;
+    NSString *wordToPassToAlertView;
 
 }
 @end
@@ -23,7 +25,8 @@ NSMutableArray *buttonArray;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        self.lockedArray = [[NSMutableArray alloc] init];
+        self.toDisplay = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -37,13 +40,16 @@ NSMutableArray *buttonArray;
     [moves addObject:@"Lock"];
     [moves addObject:@"Change"];
     [moves addObject:@"Insert After"];
-    [moves addObject:@"Insert Before"];
     [moves addObject:@"Close"];
     
     
     NSString *testString = [NSString stringWithFormat:@"This is a test string for our app This is a test string for our app This is a test string for our app"];
     NSArray *testArray = [testString componentsSeparatedByString: @" "];
-    NSMutableArray *test = [testArray mutableCopy];
+    
+    if (self.toDisplay == Nil) {
+        self.toDisplay = [testArray mutableCopy];
+    }
+    
     NSMutableArray *locked = [[NSMutableArray alloc] init];
     for (int i = 0; i < testArray.count; i++) {
         if (i % 2) {
@@ -54,7 +60,7 @@ NSMutableArray *buttonArray;
             [locked addObject:@"npot"];
         }
     }
-    [self displaySentencefromArray:test withMoves: locked];
+    [self displaySentencefromArray:self.toDisplay withMoves: locked];
     
 	// Do any additional setup after loading the view.
 }
@@ -103,7 +109,7 @@ NSMutableArray *buttonArray;
     
     
     
-    NSString *longest = @"Insert Before";
+    NSString *longest = @"Insert After";
     CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
     if ((selected.frame.origin.x + longestSize.width) > (self.view.frame.origin.x + self.view.frame.size.width)){
         optionsMenu = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - (longestSize.width+10)),(selected.frame.origin.y + selected.frame.size.height),longestSize.width + 10,(moves.count*longestSize.height + (moves.count + 1)*5))];
@@ -125,7 +131,8 @@ NSMutableArray *buttonArray;
         
         button.frame = CGRectMake(5, (5+i*23), stringsize.width, stringsize.height);
         [button setBackgroundColor:[UIColor whiteColor]];
-        
+        button.numberInSentence = selected.numberInSentence;
+        button.word = selected.titleLabel.text;
         
         [optionsMenu addSubview:button];
     }
@@ -139,17 +146,42 @@ NSMutableArray *buttonArray;
     
     CustomButton *selected = (CustomButton *)sender;
     
-    if ([selected.titleLabel.text isEqualToString:@"Change"]){
+    if ([selected.titleLabel.text isEqualToString:@"Delete"]){
         
-        NSLog(@"SHOULD GO AWAY");
-        NSString *text = [[NSString alloc] init];
-        [selected setBackgroundColor:[UIColor greenColor]];
-        for (int i = 0; i < buttonArray.count; i++) {
-            [[buttonArray objectAtIndex:i] removeFromSuperview];
-            [self.view addSubview:[buttonArray objectAtIndex:i]];
-        }
+        
+        
+        wordToPassToAlertView = @"Delete";
+        numberToPassToAlertView =selected.numberInSentence;
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Are you sure you want to delete the word \""];
+        NSLog(text);
+        [text appendString:selected.word];
+        NSLog(text);
+        [text appendString:@"\""];
+        NSLog(text);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:text
+                                                        message:@"HEY"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Yes"
+                                              otherButtonTitles:@"No", nil];
+        [alert show];
+        
+        
+        
+        
+        
         
     }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Change"]){
+        
+        wordToPassToAlertView = @"Change";
+        numberToPassToAlertView = selected.numberInSentence;
+        
+        
+        
+    }
+    
     
     [selected.superview removeFromSuperview];
 }
@@ -229,6 +261,19 @@ NSMutableArray *buttonArray;
     
     
     
+}
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [alertView cancelButtonIndex]){
+        NSMutableArray *toPass = [[NSMutableArray alloc] init];
+        [self.toDisplay removeObjectAtIndex:numberToPassToAlertView];
+        toPass =self.toDisplay;
+        ContinuedGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
+        temp.toDisplay = toPass;
+        
+        [self.navigationController pushViewController:temp animated:NO];
+    }else{
+    }
 }
 
 

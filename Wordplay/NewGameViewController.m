@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     NSLog(@"STEP 2");
     moves = [[NSMutableArray alloc] init];
     [moves addObject:@"Delete"];
     [moves addObject:@"Lock"];
@@ -42,7 +43,7 @@
     [moves addObject:@"Insert Before"];
     [moves addObject:@"Close"];
     
-    FBRequest *request = [FBRequest requestForGraphPath:@"/me/friends?fields=installed"];
+    //FBRequest *request = [FBRequest requestForGraphPath:@"/me/friends?fields=installed"];
     
     NSString *testString = [NSString stringWithFormat:@"This is a test string for our app This is a test string for our app This is a test string for our app"];
     NSArray *testArray = [testString componentsSeparatedByString: @" "];

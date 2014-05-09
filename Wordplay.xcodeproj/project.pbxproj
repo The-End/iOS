@@ -42,11 +42,8 @@
 		3D7330671904AC5200EBD44C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330661904AC5200EBD44C /* Accounts.framework */; };
 		3D73306A1904B6CB00EBD44C /* FBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */; };
 		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
-		9321D9541909D999003B7C15 /* WordPlayMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */; };
-		9338AC9A19089C780028120B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9338AC9819089C780028120B /* Model.xcdatamodeld */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
-		93E9C1121909C66A005A0499 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9C1111909C66A005A0499 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,14 +224,14 @@
 				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
 				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
 				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
+				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
 				9338AC9819089C780028120B /* Model.xcdatamodeld */,
 				93E9C1101909C66A005A0499 /* User.h */,
 				93E9C1111909C66A005A0499 /* User.m */,
-				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
-				3D4B13C918DC7F40007D3C90 /* Images.xcassets */,
-				3D4B13B818DC7F40007D3C90 /* Supporting Files */,
 				9321D9521909D999003B7C15 /* WordPlayMasterViewController.h */,
 				9321D9531909D999003B7C15 /* WordPlayMasterViewController.m */,
+				3D4B13C918DC7F40007D3C90 /* Images.xcassets */,
+				3D4B13B818DC7F40007D3C90 /* Supporting Files */,
 			);
 			path = Wordplay;
 			sourceTree = "<group>";
@@ -374,7 +371,6 @@
 				3D22F7D1191D5C52000D6157 /* ContinuedGameViewController.m in Sources */,
 				93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */,
 				3D6BCF3B18E71FD2000B879B /* NewGameViewController.m in Sources */,
-				3D4B13C818DC7F40007D3C90 /* ViewController.m in Sources */,
 				3D4130A11911AA0200389CBA /* FBFriendPickerAppInstalled.m in Sources */,
 				3D6BCF3E18E7200C000B879B /* ActiveGamesViewController.m in Sources */,
 				3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */,

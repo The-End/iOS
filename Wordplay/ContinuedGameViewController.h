@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContinuedGameViewController : UIViewController
+@interface ContinuedGameViewController : UIViewController <UIAlertViewDelegate>
 
 
 @property(nonatomic) NSArray *selectedFriendsNewGame;
+@property(nonatomic) NSMutableArray *toDisplay;
+@property(nonatomic) NSMutableArray *lockedArray;
+
 -(void) buttonMethod:(id)sender;
 -(void)activitySelected:(id)sender;
 -(void) displaySentencefromArray:(NSMutableArray *)toPrint withMoves:(NSMutableArray *)associatedMoves;

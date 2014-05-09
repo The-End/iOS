@@ -14,7 +14,7 @@
 #import "User.h"
 #import "WordPlayMasterViewController.h"
 
-@interface LoginController : WordPlayMasterViewController
+@interface LoginController : UIViewController
 
 - (IBAction)fabookLoginButton:(id)sender;
 
