@@ -59,11 +59,12 @@
             }
         } else if (user.isNew) {
             
+            [self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
             
         } else {
-            NSLog(@"%@", user.username);
-            NSLog(@"YEPPPP");
+            
+            [self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];

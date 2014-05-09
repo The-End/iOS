@@ -42,6 +42,7 @@
     [moves addObject:@"Insert Before"];
     [moves addObject:@"Close"];
     
+    FBRequest *request = [FBRequest requestForGraphPath:@"/me/friends?fields=installed"];
     
     NSString *testString = [NSString stringWithFormat:@"This is a test string for our app This is a test string for our app This is a test string for our app"];
     NSArray *testArray = [testString componentsSeparatedByString: @" "];
