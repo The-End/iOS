@@ -9,9 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "LoginController.h"
+#import <Foundation/Foundation.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "FriendProtocols.h"
 
-@interface WordPlayRootViewController : UIViewController
+@interface WordPlayRootViewController : UIViewController <FBFriendPickerDelegate>
+- (IBAction)InviteFriends:(id)sender;
+- (IBAction)NewGame:(id)sender;
 
 - (IBAction)LogOutButtonAction:(id)sender;
+
+@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
+-(void) goToNewGame;
+
 
 @end

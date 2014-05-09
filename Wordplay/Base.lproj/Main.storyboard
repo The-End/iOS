@@ -72,7 +72,7 @@
         <!--New Game View Controller-->
         <scene sceneID="Y60-dz-COL">
             <objects>
-                <viewController id="YaF-LU-tSN" customClass="NewGameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YaF-LU-tSN" customClass="NewGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uYV-dd-ziC"/>
                         <viewControllerLayoutGuide type="bottom" id="9FI-cd-Uis"/>
@@ -80,21 +80,32 @@
                     <view key="view" contentMode="scaleToFill" id="WUd-Uo-sNe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsi-2V-RXU">
-                                <rect key="frame" x="139" y="213" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="inF-8k-XPE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dn-yA-e0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2571" y="-1095"/>
+            <point key="canvasLocation" x="2547" y="-1095"/>
+        </scene>
+        <!--Continued Game View Controller-->
+        <scene sceneID="77c-xl-jS4">
+            <objects>
+                <viewController id="mjN-sp-6Mi" customClass="ContinuedGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rf7-Uw-Nwn"/>
+                        <viewControllerLayoutGuide type="bottom" id="kY2-Eo-zZ0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qmv-iL-uRr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hWZ-Ef-c4i"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-JU-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489" y="-335"/>
         </scene>
         <!--Word Play Root View Controller-->
         <scene sceneID="JUg-Vq-MwO">
@@ -115,7 +126,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YaF-LU-tSN" kind="push" id="7ak-Ee-Q3N"/>
+                                    <action selector="NewGame:" destination="PFY-fw-Ndj" eventType="touchUpInside" id="gpY-XB-Iyj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-4g-V4p">
@@ -141,11 +152,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9E-N0-gd2">
                                 <rect key="frame" x="20" y="395" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Find Friends">
+                                <state key="normal" title="Invite Friends">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="K7Q-cT-5F8" kind="push" id="Zug-eC-Qqc"/>
+                                    <action selector="InviteFriends:" destination="PFY-fw-Ndj" eventType="touchUpInside" id="E2s-59-sc0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXp-ay-4nT">
@@ -156,6 +167,16 @@
                                 </state>
                                 <connections>
                                     <action selector="LogOutButtonAction:" destination="PFY-fw-Ndj" eventType="touchUpInside" id="DiV-WI-8iE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSu-1U-W5C">
+                                <rect key="frame" x="137" y="235" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="TEMP">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mjN-sp-6Mi" kind="push" id="tSc-iR-BFh"/>
                                 </connections>
                             </button>
                         </subviews>

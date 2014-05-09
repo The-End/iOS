@@ -52,9 +52,12 @@
                 NSLog(@"Uh oh. An error occurred: %@", error);
             }
         } else if (user.isNew) {
+            
             [self.navigationController popViewControllerAnimated:YES];
 //            [self performSegueWithIdentifier:@"transition" sender:nil];
         } else {
+            NSLog(@"%@", user.username);
+            NSLog(@"YEPPPP");
             [self.navigationController popViewControllerAnimated:YES];
 //            [self performSegueWithIdentifier:@"transition" sender:nil];
         }
