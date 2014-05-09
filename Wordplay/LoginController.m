@@ -10,8 +10,6 @@
 
 @interface LoginController ()
 
-- (void)loadUserData;
-
 @end
 
 @implementation LoginController
@@ -45,9 +43,7 @@
     // The permissions requested from the user
     NSArray *permissionsArray = @[ @"user_about_me",
                                    @"user_relationships",
-                                   @"user_birthday",
-                                   @"user_location",
-                                   @"friends_likes"];
+                                   @"user_birthday"];
     
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         
@@ -58,38 +54,12 @@
                 NSLog(@"Uh oh. An error occurred: %@", error);
             }
         } else if (user.isNew) {
-            
-            [self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
-            
         } else {
-            
-            [self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
     
-}
-
-- (void)loadUserData
-{
-    FBRequest *request = [FBRequest requestForMe];
-    
-    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error) {
-            // result is a dictionary with the user's Facebook data
-            NSDictionary *userData = (NSDictionary *)result;
-            
-            User *user = [User createNewUser: context];
-            
-            [user setFacebookId: userData[@"id"]];
-            [user setBirthday: userData[@"birthday"]];
-            [user setUsername: userData[@"name"]];
-            [user setMainUser: [NSNumber numberWithBool:YES]];
-            [user save: context];
-            
-        }
-    }];
 }
 
 /*

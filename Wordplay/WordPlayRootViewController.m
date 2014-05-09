@@ -36,12 +36,11 @@
 {
     [super viewDidLoad];
 
-
     if(![PFUser currentUser]){
-        
         [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
-        
     } else {
+        
+        
         
         NSURL *profileUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", user.facebookId]];
         

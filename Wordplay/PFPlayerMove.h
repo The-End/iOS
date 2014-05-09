@@ -7,13 +7,13 @@
 //
 
 #import <Parse/Parse.h>
-#import "User.h"
+#import <Parse/PFUser.h>
 #import <Parse/PFObject+Subclass.h>
 
 @interface PFPlayerMove : PFObject<PFSubclassing>
 
 @property NSArray *moves;
-@property User *player;
+@property PFUser *player;
 @property int moveNumber;
 @property NSDate *time;
 

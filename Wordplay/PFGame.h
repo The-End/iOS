@@ -7,7 +7,7 @@
 //
 
 #import <Parse/Parse.h>
-#import "User.h"
+#import <Parse/PFUser.h>
 #import <Parse/PFObject+Subclass.h>
 
 @interface PFGame : PFObject<PFSubclassing>
@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSDate * created;
 @property (nonatomic, retain) NSDate * modified;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) User * owner;
+@property (nonatomic, retain) PFUser * owner;
 @property (nonatomic, retain) NSSet * playerMoves;
 @property (nonatomic, retain) NSSet * players;
 

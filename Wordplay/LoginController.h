@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
-#import <CoreData/CoreData.h>
-#import "AppDelegate.h"
-#import "User.h"
 #import "WordPlayMasterViewController.h"
 
 @interface LoginController : WordPlayMasterViewController

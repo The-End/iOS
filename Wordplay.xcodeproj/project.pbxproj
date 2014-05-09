@@ -113,8 +113,6 @@
 		93CAE082190F0EA80046A811 /* PFPlayerMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPlayerMove.h; sourceTree = "<group>"; };
 		93CAE083190F0EA80046A811 /* PFPlayerMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPlayerMove.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		93E9C1101909C66A005A0499 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/User.h"; sourceTree = "<absolute>"; };
-		93E9C1111909C66A005A0499 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/User.m"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				93CAE086190F115E0046A811 /* PFContainers */,
-				93CAE057190EF90B0046A811 /* Data Containers */,
 				93CAE056190EF8CE0046A811 /* View Controllers */,
 				3D4B13C018DC7F40007D3C90 /* AppDelegate.h */,
 				3D4B13C118DC7F40007D3C90 /* AppDelegate.m */,
@@ -271,15 +268,6 @@
 				3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */,
 			);
 			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		93CAE057190EF90B0046A811 /* Data Containers */ = {
-			isa = PBXGroup;
-			children = (
-				93E9C1101909C66A005A0499 /* User.h */,
-				93E9C1111909C66A005A0499 /* User.m */,
-			);
-			name = "Data Containers";
 			sourceTree = "<group>";
 		};
 		93CAE086190F115E0046A811 /* PFContainers */ = {
