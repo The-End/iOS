@@ -27,18 +27,16 @@
 {
     [super viewDidLoad];
     
-    [PFGame loadActive:YES GamesWithBlock:^(NSArray *array, NSError *error){
+    [self.gamesTable setDataSource:self];
+    [self.gamesTable setDelegate:self];
+    
+    [PFGame loadActive:YES GamesWithBlock:^(NSArray *returnedGames, NSError *error){
         
         if(!error){
             
-            PFGame *game = [array objectAtIndex: 0];
+            pastGames = returnedGames;
             
-            [PFGame loadGame:game WithBlock:^(PFGame *foundGame, NSError *newError){
-                if(!newError){
-                    NSLog(@"%@", foundGame);
-                }
-            }];
-            
+            [self.gamesTable reloadData];
         }
         
     }];
@@ -50,6 +48,26 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [pastGames count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    PFGame *game = [pastGames objectAtIndex:indexPath.row];
+    cell.textLabel.text = game.name;
+    return cell;
 }
 
 @end

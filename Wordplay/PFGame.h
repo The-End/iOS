@@ -21,6 +21,8 @@
 @property NSMutableArray * moves;
 @property PFUser * player;
 
+-(void) setGameAsFinished;
+
 -(void) setupNewGameWithPlayer:(PFUser *) user;
 
 -(void) newCreateMoveWithWord:(NSString *) word;

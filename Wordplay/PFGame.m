@@ -30,6 +30,12 @@
     
 }
 
+-(void) setGameAsFinished
+{
+    self.active = NO;
+    [self saveGame];
+}
+
 -(void) newCreateMoveWithWord:(NSString *) word
 {
     PFMove *createMove = [PFMove newCreateMove:word];
