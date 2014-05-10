@@ -22,6 +22,8 @@
     NSMutableArray *moveTypes;
     CustomButton *buttonForAlertView;
     NSString *actionAfterAlertView;
+    BOOL textInputUp;
+    NSString *inputType;
     
 }
 
@@ -30,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIView *parentViewOfText;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLeftLabel;
+
 
 -(void)displayScore;
 
