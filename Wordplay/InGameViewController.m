@@ -467,6 +467,7 @@
         UITextField *inputText = [[UITextField alloc] initWithFrame:textRect];
         [inputText setBackgroundColor:[UIColor whiteColor]];
         [inputText setAlpha:0.5];
+        inputText.autocapitalizationType = UITextAutocapitalizationTypeNone;
         [self.parentViewOfText addSubview:inputText];
         self.inputTextField = inputText;
         [self.inputTextField setDelegate:self];

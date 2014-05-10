@@ -33,6 +33,9 @@
 
 -(BOOL)isMyTurn
 {
+    
+    NSLog(@"ActivePlayer: %@", self.activePlayer.objectId);
+    
     PFUser *currentUser = [PFUser currentUser];
     if([currentUser.objectId isEqualToString:self.activePlayer.objectId]){
         return YES;
