@@ -122,6 +122,7 @@
 - (IBAction)LogOutButtonAction:(id)sender {
     
     [PFUser logOut];
+    //[User deleteMainUser: context];
     
     [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
     
@@ -222,17 +223,13 @@
     return YES;
 }
 
-
-
-
-
 -(void) goToNewGame{
     
     NewGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"NewGameViewController"];
     NSDictionary *friendData = [selectedFriends objectAtIndex:0];
     NSString *facebookId = [friendData objectForKey:@"id"];
     temp.selectedFriendFacebookId = facebookId;
-    
+
     [self.navigationController pushViewController:temp animated:YES];
     
 }
@@ -247,6 +244,5 @@
     // Set the image in the header imageView
     _profilePicture.image = [UIImage imageWithData:_profilePictureData];
 }
-
 
 @end

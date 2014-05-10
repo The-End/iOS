@@ -7,7 +7,6 @@
 //
 
 #import "PFGame.h"
-#import "PFPlayerMove.h"
 #import "PFMove.h"
 
 @implementation PFGame
@@ -17,7 +16,7 @@
 @dynamic modified;
 @dynamic name;
 @dynamic owner;
-@dynamic playerMoves;
+@dynamic moves;
 @dynamic player;
 
 -(void) setupNewGameWithPlayer:(PFUser *) user;
@@ -26,115 +25,83 @@
     self.created = [NSDate date];
     self.modified = [NSDate date];
     self.owner = [PFUser currentUser];
-    self.playerMoves = [[NSMutableArray alloc] init];
+    self.moves = [[NSMutableArray alloc] init];
     self.player = user;
     
 }
 
--(PFPlayerMove *) newCreateMoveWithWord:(NSString *) word forPlayer:(PFPlayerMove *) playerMove
+-(void) setGameAsFinished
 {
-    
-    if(!playerMove){
-        playerMove = [self initializePlayerMove];
-    }
-    
+    self.active = NO;
+    [self saveGame];
+}
+
+-(void) newCreateMoveWithWord:(NSString *) word
+{
     PFMove *createMove = [PFMove newCreateMove:word];
-    [playerMove giveMove: createMove];
-    [self.playerMoves addObject:playerMove];
-    
-    return playerMove;
+    createMove.moveNumber = [self.moves count];
+    [self.moves addObject:createMove];
 }
 
--(PFPlayerMove *) newDeleteMove:(PFMove *) move forPlayer:(PFPlayerMove *) playerMove
+-(void) newDeleteMove:(PFMove *) move
 {
     
-    if(!playerMove){
-        playerMove = [self initializePlayerMove];
-    }
-    
-    [playerMove giveMove: [PFMove newDeleteMove: move]];
-    [self.playerMoves addObject:playerMove];
-    
-    return playerMove;
+    PFMove *deleteMove = [PFMove newDeleteMove:move];
+    deleteMove.moveNumber = [self.moves count];
+    [self.moves addObject:deleteMove];
 }
 
--(PFPlayerMove *) newInsertWord:(NSString *) word beforeMove:(PFMove *) beforeMove forPlayer:(PFPlayerMove *) playerMove
+-(void) newInsertWord:(NSString *) word beforeMove:(PFMove *) beforeMove
 {
-    
-    if(!playerMove){
-        playerMove = [self initializePlayerMove];
-    }
-    
-    
-    [playerMove giveMove:[PFMove newInsertBeforeMove:word afterId:beforeMove]];
-    [self.playerMoves addObject:playerMove];
-    
-    return playerMove;
+    PFMove *insertMove = [PFMove newInsertMove:word beforeId:beforeMove];
+    insertMove.moveNumber = [self.moves count];
+    [self.moves addObject:insertMove];
 }
 
--(PFPlayerMove *) newInsertWord:(NSString *) word afterMove:(PFMove *) afterMove forPlayer:(PFPlayerMove *) playerMove
+-(void) newInsertWord:(NSString *) word afterMove:(PFMove *) afterMove
 {
-    
-    if(!playerMove){
-        playerMove = [self initializePlayerMove];
-    }
-    
-    
-    [playerMove giveMove:[PFMove newInsertAfterMove:word afterId:afterMove]];
-    [self.playerMoves addObject:playerMove];
-    
-    return playerMove;
+    PFMove *insertMove = [PFMove newInsertMove:word afterId:afterMove];
+    insertMove.moveNumber = [self.moves count];
+    [self.moves addObject:insertMove];
 }
 
--(PFPlayerMove *) newLockMove:(PFMove *) lockedMove forPlayer:(PFPlayerMove *) playerMove
+-(void) newLockMove:(PFMove *) lockedMove
 {
-    
-    if(!playerMove){
-        playerMove = [self initializePlayerMove];
-    }
-    
-    
-    [playerMove giveMove: [PFMove newLockMove:lockedMove]];
-    [self.playerMoves addObject:playerMove];
-    
-    return playerMove;
+    PFMove *lockMove = [PFMove newLockMove:lockedMove];
+    lockMove.moveNumber = [self.moves count];
+    [self.moves addObject:lockMove];
 }
 
--(PFPlayerMove *) newSwitchMove:(PFMove *) switched forWord:(NSString *) word forPlayer:(PFPlayerMove *) playerMove
+-(void) newSwitchMove:(PFMove *) switched forWord:(NSString *) word
 {
-    
-    if(!playerMove){
-        playerMove = [self initializePlayerMove];
-    }
-    
-    
-    [playerMove giveMove:[PFMove newSwitchMove:word onMove:switched]];
-    [self.playerMoves addObject:playerMove];
-    
-    return playerMove;
-}
-
--(PFPlayerMove *) initializePlayerMove
-{
-    PFPlayerMove *playerMove = [PFPlayerMove object];
-    playerMove.player = [PFUser currentUser];
-    playerMove.moveNumber = [self.playerMoves count];
-    playerMove.time = [NSDate date];
-    return playerMove;
+    PFMove *switchMove = [PFMove newSwitchMove:word onMove:switched];
+    switchMove.moveNumber = [self.moves count];
+    [self.moves addObject:switchMove];
 }
 
 -(void) saveGame
 {
     [self saveInBackground];
-    for(PFPlayerMove *move in self.playerMoves){
-        [move saveMoves];
+    for(PFMove *move in self.moves){
+        [move saveInBackground];
     }
+}
+
+-(NSArray *) getMovesInOrder
+{
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"moveNumber"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    return [self.moves sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 +(void) loadActive:(BOOL)active GamesWithBlock:(void(^)(NSArray *array, NSError *error))block
 {
     PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
     [gameQuery whereKey:@"active" equalTo:[NSNumber numberWithBool:active]];
+    [gameQuery includeKey:@"player"];
+    [gameQuery includeKey:@"owner"];
     
     [gameQuery findObjectsInBackgroundWithBlock:block];
 }
@@ -143,18 +110,17 @@
 {
     PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
     [gameQuery whereKey:@"objectId" equalTo:game.objectId];
-    [gameQuery includeKey:@"playerMoves"];
+    [gameQuery includeKey:@"moves"];
+    [gameQuery includeKey:@"player"];
+    [gameQuery includeKey:@"owner"];
     
     [gameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *firstError) {
         
         if(firstError){
+            NSLog(@"%@", firstError);
             block(nil, firstError);
         } else {
-            
-            for(PFGame *pfGame in objects){
-                NSLog(@"%@", pfGame);
-            }
-            
+            block([objects objectAtIndex:0], nil);
         }
         
     }];

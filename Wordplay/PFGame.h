@@ -10,7 +10,6 @@
 #import <Parse/PFUser.h>
 #import <Parse/PFObject+Subclass.h>
 #import "PFMove.h"
-#import "PFPlayerMove.h"
 
 @interface PFGame : PFObject<PFSubclassing>
 
@@ -19,26 +18,28 @@
 @property NSDate * modified;
 @property NSString * name;
 @property PFUser * owner;
-@property NSMutableArray * playerMoves;
+@property NSMutableArray * moves;
 @property PFUser * player;
+
+-(void) setGameAsFinished;
 
 -(void) setupNewGameWithPlayer:(PFUser *) user;
 
--(PFPlayerMove *) newCreateMoveWithWord:(NSString *) word forPlayer:(PFPlayerMove *) playerMove;
+-(void) newCreateMoveWithWord:(NSString *) word;
 
--(PFPlayerMove *) newDeleteMove:(PFMove *) move forPlayer:(PFPlayerMove *) playerMove;
+-(void) newDeleteMove:(PFMove *) move;
 
--(PFPlayerMove *) newInsertWord:(NSString *) word beforeMove:(PFMove *) beforeMove forPlayer:(PFPlayerMove *) playerMove;
+-(void) newInsertWord:(NSString *) word beforeMove:(PFMove *) beforeMove;
 
--(PFPlayerMove *) newInsertWord:(NSString *) word afterMove:(PFMove *) afterMove forPlayer:(PFPlayerMove *) playerMove;
+-(void) newInsertWord:(NSString *) word afterMove:(PFMove *) afterMove;
 
--(PFPlayerMove *) newLockMove:(PFMove *) lockedMove forPlayer:(PFPlayerMove *) playerMove;
+-(void) newLockMove:(PFMove *) lockedMove;
 
--(PFPlayerMove *) newSwitchMove:(PFMove *) switched forWord:(NSString *) word forPlayer:(PFPlayerMove *) playerMove;
-
--(PFPlayerMove *) initializePlayerMove;
+-(void) newSwitchMove:(PFMove *) switched forWord:(NSString *) word;
 
 -(void) saveGame;
+
+-(NSArray *) getMovesInOrder;
 
 +(void) loadActive:(BOOL)active GamesWithBlock:(void(^)(NSArray *array, NSError *error))block;
 

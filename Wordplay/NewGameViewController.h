@@ -15,7 +15,6 @@
 @property NSString * selectedFriendFacebookId;
 @property (strong) PFGame * game;
 
-
 @property (weak, nonatomic) IBOutlet UITextField *gameNameField;
 @property (weak, nonatomic) IBOutlet UITextField *firstMoveField;
 

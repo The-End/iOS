@@ -24,6 +24,10 @@
 		3D4B13D318DC7F40007D3C90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4B13B518DC7F40007D3C90 /* UIKit.framework */; };
 		3D4B13DB18DC7F40007D3C90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B13D918DC7F40007D3C90 /* InfoPlist.strings */; };
 		3D4B13DD18DC7F40007D3C90 /* WordplayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B13DC18DC7F40007D3C90 /* WordplayTests.m */; };
+		3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */; };
+		3D6BCF3B18E71FD2000B879B /* NewGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */; };
+		3D6BCF3E18E7200C000B879B /* ActiveGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */; };
+		3D6BCF4118E72045000B879B /* PastGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BCF4018E72045000B879B /* PastGamesViewController.m */; };
 		3D7330511904A90100EBD44C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330501904A90100EBD44C /* SystemConfiguration.framework */; };
 		3D7330531904A90900EBD44C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330521904A90900EBD44C /* StoreKit.framework */; };
 		3D7330551904A90E00EBD44C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330541904A90E00EBD44C /* Security.framework */; };
@@ -36,13 +40,11 @@
 		3D7330631904ABC600EBD44C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330621904ABC600EBD44C /* Parse.framework */; };
 		3D7330651904AC4C00EBD44C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330641904AC4C00EBD44C /* Social.framework */; };
 		3D7330671904AC5200EBD44C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7330661904AC5200EBD44C /* Accounts.framework */; };
+		3D73306A1904B6CB00EBD44C /* FBFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */; };
+		3DE47B7A191DE16700AE9B23 /* PFGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE47B77191DE16700AE9B23 /* PFGame.m */; };
+		3DE47B7B191DE16700AE9B23 /* PFMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE47B79191DE16700AE9B23 /* PFMove.m */; };
 		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
-		9362F39E191D6FB800BD61C9 /* WordPlayRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F39D191D6FB800BD61C9 /* WordPlayRootViewController.m */; };
-		9362F3A1191D722B00BD61C9 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3A0191D722B00BD61C9 /* LoginController.m */; };
-		9362F3A7191D78B500BD61C9 /* NewGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3A6191D78B500BD61C9 /* NewGameViewController.m */; };
-		9362F3AA191D974500BD61C9 /* PFMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3A9191D974500BD61C9 /* PFMove.m */; };
-		9362F3AD191DA86600BD61C9 /* PFGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3AC191DA86600BD61C9 /* PFGame.m */; };
-		9362F3B0191DADD900BD61C9 /* PFPlayerMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3AF191DADD900BD61C9 /* PFPlayerMove.m */; };
+		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
 		E4E38BCD191DC97F00C85DE9 /* WordPlayLoginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BCC191DC97F00C85DE9 /* WordPlayLoginScreen.png */; };
 		E4E38BD1191DCE0100C85DE9 /* fbLoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BD0191DCE0100C85DE9 /* fbLoginButton.png */; };
@@ -86,10 +88,14 @@
 		3D4B13D818DC7F40007D3C90 /* WordplayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WordplayTests-Info.plist"; sourceTree = "<group>"; };
 		3D4B13DA18DC7F40007D3C90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3D4B13DC18DC7F40007D3C90 /* WordplayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordplayTests.m; sourceTree = "<group>"; };
-		3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveGamesViewController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/ActiveGamesViewController.h"; sourceTree = "<absolute>"; };
-		3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveGamesViewController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/ActiveGamesViewController.m"; sourceTree = "<absolute>"; };
-		3D6BCF3F18E72045000B879B /* PastGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PastGamesViewController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/PastGamesViewController.h"; sourceTree = "<absolute>"; };
-		3D6BCF4018E72045000B879B /* PastGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PastGamesViewController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/PastGamesViewController.m"; sourceTree = "<absolute>"; };
+		3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPlayRootViewController.h; sourceTree = "<group>"; };
+		3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPlayRootViewController.m; sourceTree = "<group>"; };
+		3D6BCF3918E71FD2000B879B /* NewGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGameViewController.h; sourceTree = "<group>"; };
+		3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGameViewController.m; sourceTree = "<group>"; };
+		3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveGamesViewController.h; sourceTree = "<group>"; };
+		3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveGamesViewController.m; sourceTree = "<group>"; };
+		3D6BCF3F18E72045000B879B /* PastGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastGamesViewController.h; sourceTree = "<group>"; };
+		3D6BCF4018E72045000B879B /* PastGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastGamesViewController.m; sourceTree = "<group>"; };
 		3D7330501904A90100EBD44C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3D7330521904A90900EBD44C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3D7330541904A90E00EBD44C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -102,22 +108,17 @@
 		3D7330621904ABC600EBD44C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3D7330641904AC4C00EBD44C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3D7330661904AC5200EBD44C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBFriendsViewController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/FBFriendsViewController.h"; sourceTree = "<absolute>"; };
-		3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBFriendsViewController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/FBFriendsViewController.m"; sourceTree = "<absolute>"; };
+		3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFriendsViewController.h; sourceTree = "<group>"; };
+		3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFriendsViewController.m; sourceTree = "<group>"; };
 		3DCDA44B1909CF2A00C57A14 /* FriendProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendProtocols.h; sourceTree = "<group>"; };
+		3DE47B76191DE16700AE9B23 /* PFGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGame.h; sourceTree = "<group>"; };
+		3DE47B77191DE16700AE9B23 /* PFGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGame.m; sourceTree = "<group>"; };
+		3DE47B78191DE16700AE9B23 /* PFMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMove.h; sourceTree = "<group>"; };
+		3DE47B79191DE16700AE9B23 /* PFMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMove.m; sourceTree = "<group>"; };
 		930BDC6518DCA1220025154C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		9362F39C191D6FB800BD61C9 /* WordPlayRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordPlayRootViewController.h; sourceTree = "<group>"; };
-		9362F39D191D6FB800BD61C9 /* WordPlayRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordPlayRootViewController.m; sourceTree = "<group>"; };
-		9362F39F191D722B00BD61C9 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
-		9362F3A0191D722B00BD61C9 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		9362F3A5191D78B500BD61C9 /* NewGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGameViewController.h; sourceTree = "<group>"; };
-		9362F3A6191D78B500BD61C9 /* NewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGameViewController.m; sourceTree = "<group>"; };
-		9362F3A8191D974500BD61C9 /* PFMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMove.h; sourceTree = "<group>"; };
-		9362F3A9191D974500BD61C9 /* PFMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMove.m; sourceTree = "<group>"; };
-		9362F3AB191DA86600BD61C9 /* PFGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGame.h; sourceTree = "<group>"; };
-		9362F3AC191DA86600BD61C9 /* PFGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGame.m; sourceTree = "<group>"; };
-		9362F3AE191DADD900BD61C9 /* PFPlayerMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPlayerMove.h; sourceTree = "<group>"; };
-		9362F3AF191DADD900BD61C9 /* PFPlayerMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPlayerMove.m; sourceTree = "<group>"; };
+		9338AC9919089C780028120B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E4E38BCC191DC97F00C85DE9 /* WordPlayLoginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WordPlayLoginScreen.png; path = ../../../Pictures/WordPlayLoginScreen.png; sourceTree = "<group>"; };
 		E4E38BD0191DCE0100C85DE9 /* fbLoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fbLoginButton.png; path = ../../../Pictures/fbLoginButton.png; sourceTree = "<group>"; };
@@ -210,13 +211,35 @@
 		3D4B13B718DC7F40007D3C90 /* Wordplay */ = {
 			isa = PBXGroup;
 			children = (
-				93CAE086190F115E0046A811 /* PFContainers */,
-				93CAE056190EF8CE0046A811 /* View Controllers */,
+				3DE47B76191DE16700AE9B23 /* PFGame.h */,
+				3DE47B77191DE16700AE9B23 /* PFGame.m */,
+				3DE47B78191DE16700AE9B23 /* PFMove.h */,
+				3DE47B79191DE16700AE9B23 /* PFMove.m */,
 				3D4B13C018DC7F40007D3C90 /* AppDelegate.h */,
 				3D4B13C118DC7F40007D3C90 /* AppDelegate.m */,
 				3D4B13C318DC7F40007D3C90 /* Main.storyboard */,
+				3D3619361914754E006FB734 /* InviteFriendsViewController.h */,
+				3D3619371914754E006FB734 /* InviteFriendsViewController.m */,
+				3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */,
+				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
+				3D41309F1911AA0200389CBA /* FBFriendPickerAppInstalled.h */,
+				3D4130A01911AA0200389CBA /* FBFriendPickerAppInstalled.m */,
+				3DCDA44B1909CF2A00C57A14 /* FriendProtocols.h */,
+				3D6BCF3F18E72045000B879B /* PastGamesViewController.h */,
+				3D6BCF4018E72045000B879B /* PastGamesViewController.m */,
+				3D6BCF3918E71FD2000B879B /* NewGameViewController.h */,
+				3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */,
+				3D22F7CF191D5C52000D6157 /* ContinuedGameViewController.h */,
+				3D22F7D0191D5C52000D6157 /* ContinuedGameViewController.m */,
 				3D3F2740191C09E300302971 /* CustomButton.h */,
 				3D3F2741191C09E300302971 /* CustomButton.m */,
+				3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */,
+				3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */,
+				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
+				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
+				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
+				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
+				9338AC9819089C780028120B /* Model.xcdatamodeld */,
 				3D4B13C918DC7F40007D3C90 /* Images.xcassets */,
 				3D4B13B818DC7F40007D3C90 /* Supporting Files */,
 			);
@@ -254,45 +277,6 @@
 				3D4B13D918DC7F40007D3C90 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		93CAE056190EF8CE0046A811 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				9362F3A5191D78B500BD61C9 /* NewGameViewController.h */,
-				9362F3A6191D78B500BD61C9 /* NewGameViewController.m */,
-				9362F39F191D722B00BD61C9 /* LoginController.h */,
-				9362F3A0191D722B00BD61C9 /* LoginController.m */,
-				9362F39C191D6FB800BD61C9 /* WordPlayRootViewController.h */,
-				9362F39D191D6FB800BD61C9 /* WordPlayRootViewController.m */,
-				3D3619361914754E006FB734 /* InviteFriendsViewController.h */,
-				3D3619371914754E006FB734 /* InviteFriendsViewController.m */,
-				3D41309F1911AA0200389CBA /* FBFriendPickerAppInstalled.h */,
-				3D4130A01911AA0200389CBA /* FBFriendPickerAppInstalled.m */,
-				3DCDA44B1909CF2A00C57A14 /* FriendProtocols.h */,
-				3D22F7CF191D5C52000D6157 /* ContinuedGameViewController.h */,
-				3D22F7D0191D5C52000D6157 /* ContinuedGameViewController.m */,
-				3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */,
-				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
-				3D6BCF3F18E72045000B879B /* PastGamesViewController.h */,
-				3D6BCF4018E72045000B879B /* PastGamesViewController.m */,
-				3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */,
-				3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */,
-			);
-			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		93CAE086190F115E0046A811 /* PFContainers */ = {
-			isa = PBXGroup;
-			children = (
-				9362F3AB191DA86600BD61C9 /* PFGame.h */,
-				9362F3AC191DA86600BD61C9 /* PFGame.m */,
-				9362F3AE191DADD900BD61C9 /* PFPlayerMove.h */,
-				9362F3AF191DADD900BD61C9 /* PFPlayerMove.m */,
-				9362F3A8191D974500BD61C9 /* PFMove.h */,
-				9362F3A9191D974500BD61C9 /* PFMove.m */,
-			);
-			name = PFContainers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,16 +383,18 @@
 			files = (
 				3D3F2742191C09E300302971 /* CustomButton.m in Sources */,
 				3D4B13C218DC7F40007D3C90 /* AppDelegate.m in Sources */,
-				3D4B13BE18DC7F40007D3C90 /* main.m in Sources */,
+				3D6BCF4118E72045000B879B /* PastGamesViewController.m in Sources */,
 				3D3619381914754E006FB734 /* InviteFriendsViewController.m in Sources */,
-				9362F3AA191D974500BD61C9 /* PFMove.m in Sources */,
-				9362F39E191D6FB800BD61C9 /* WordPlayRootViewController.m in Sources */,
-				9362F3A1191D722B00BD61C9 /* LoginController.m in Sources */,
-				9362F3B0191DADD900BD61C9 /* PFPlayerMove.m in Sources */,
-				9362F3AD191DA86600BD61C9 /* PFGame.m in Sources */,
+				3DE47B7A191DE16700AE9B23 /* PFGame.m in Sources */,
+				3D73306A1904B6CB00EBD44C /* FBFriendsViewController.m in Sources */,
 				3D22F7D1191D5C52000D6157 /* ContinuedGameViewController.m in Sources */,
-				9362F3A7191D78B500BD61C9 /* NewGameViewController.m in Sources */,
+				93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */,
+				3D6BCF3B18E71FD2000B879B /* NewGameViewController.m in Sources */,
 				3D4130A11911AA0200389CBA /* FBFriendPickerAppInstalled.m in Sources */,
+				3D6BCF3E18E7200C000B879B /* ActiveGamesViewController.m in Sources */,
+				3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */,
+				3DE47B7B191DE16700AE9B23 /* PFMove.m in Sources */,
+				3D4B13BE18DC7F40007D3C90 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +631,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9338AC9819089C780028120B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9338AC9919089C780028120B /* Model.xcdatamodel */,
+			);
+			currentVersion = 9338AC9919089C780028120B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3D4B13A618DC7F40007D3C90 /* Project object */;
 }

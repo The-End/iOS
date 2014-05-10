@@ -103,7 +103,7 @@
  * Event: Cancel button clicked
  */
 - (void)facebookViewControllerCancelWasPressed:(id)sender {
-    NSLog(@"Canceled");
+    
     // Dismiss the friend picker
     [[sender presentingViewController] dismissViewControllerAnimated:YES completion:nil];
     

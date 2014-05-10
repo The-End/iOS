@@ -87,33 +87,9 @@
                     <view key="view" contentMode="scaleToFill" id="WUd-Uo-sNe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uEe-lh-fdD">
-                                <rect key="frame" x="20" y="152" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="gameFirstMove:" destination="YaF-LU-tSN" eventType="editingDidEnd" id="vPh-RU-tIx"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w1g-5D-Hxz">
-                                <rect key="frame" x="20" y="109" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="gameNameField:" destination="YaF-LU-tSN" eventType="editingDidEnd" id="cQE-Z7-tbJ"/>
-                                </connections>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="inF-8k-XPE"/>
-                    <connections>
-                        <outlet property="firstMoveField" destination="uEe-lh-fdD" id="vc1-aU-0ZD"/>
-                        <outlet property="gameNameField" destination="w1g-5D-Hxz" id="DwE-dm-TXG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dn-yA-e0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +98,7 @@
         <!--Continued Game View Controller-->
         <scene sceneID="77c-xl-jS4">
             <objects>
-                <viewController id="mjN-sp-6Mi" customClass="ContinuedGameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContinuedGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mjN-sp-6Mi" customClass="ContinuedGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rf7-Uw-Nwn"/>
                         <viewControllerLayoutGuide type="bottom" id="kY2-Eo-zZ0"/>
@@ -146,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-JU-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="-335"/>
+            <point key="canvasLocation" x="1791" y="-413"/>
         </scene>
         <!--Word Play Root View Controller-->
         <scene sceneID="JUg-Vq-MwO">
@@ -245,7 +221,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="3R6-Nn-lJ9"/>
                     <connections>
-                        <outlet property="profilePicture" destination="9A6-TJ-FIG" id="14b-he-4MJ"/>
                         <segue destination="0sa-bN-3Wr" kind="push" identifier="goToLoginController" id="oRa-jA-Pap"/>
                     </connections>
                 </viewController>
@@ -274,6 +249,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Up4-Oi-qUb"/>
+                    <connections>
+                        <outlet property="gamesTable" destination="I3a-ub-7K9" id="P6E-ms-CVY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cn-pm-f44" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
