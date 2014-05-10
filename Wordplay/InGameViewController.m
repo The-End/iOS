@@ -93,6 +93,7 @@
 
 -(void)showGame
 {
+    buttons = [[NSArray alloc] init];
     [self makeButtonsFromGame];
     
     for(CustomButton *button in buttons){
@@ -128,7 +129,6 @@
         [button removeFromSuperview];
     }
     
-    
     NSString *announcement;
     if(!game.active){
         announcement = @"The End";
@@ -139,8 +139,10 @@
         PFUser *me =[PFUser currentUser];
         if([me.objectId isEqualToString:game.owner.objectId]){
             announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.player];
+            NSLog(@"It's %@\'s turn", game.player[@"name"]);
         } else {
             announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.owner];
+            NSLog(@"It's %@\'s turn", game.player[@"name"]);
         }
     }
     
@@ -305,23 +307,6 @@
         }
     }
     
-    if([actionAfterAlertView isEqualToString:@"Change"]){
-        
-        pointsLeft -= 15;
-        //[game newSwitchMove:buttonForAlertView.move forWord:[alertView textFieldAtIndex:0].text];
-        [self refreshGame];
-    }
-    
-    if([actionAfterAlertView isEqualToString:@"Insert Before"]){
-        
-
-    }
-    
-    if([actionAfterAlertView isEqualToString:@"Insert After"]){
-        
-
-    }
-    
     if([actionAfterAlertView isEqualToString:@"Lock"] && buttonIndex == [alertView cancelButtonIndex]){
         
         pointsLeft -= 7;
@@ -351,38 +336,34 @@
         if([move.type isEqualToString:@"CREATE"]){
             [displayedMoves addObject:move];
         } else if([move.type isEqualToString:@"INSERT_BEFORE"]){
-            NSLog(@"INSERT_BEFORE");
             
             int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
             [displayedMoves insertObject:move atIndex:index];
             
         } else if([move.type isEqualToString:@"INSERT_AFTER"]){
-            NSLog(@"INSERT_AFTER");
             
             int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
             [displayedMoves insertObject:move atIndex:index + 1];
             
         } else if([move.type isEqualToString:@"SWITCH"]){
-            NSLog(@"SWITCH");
             
             int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
             [displayedMoves removeObjectAtIndex:index];
             [displayedMoves insertObject:move atIndex:index];
             
         } else if([move.type isEqualToString:@"DELETE"]){
-            NSLog(@"DELETE");
+            
             int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
             [displayedMoves removeObjectAtIndex:index];
         }if([move.type isEqualToString:@"LOCK"]){
+            
             [displayedMoves addObject:move];
-            NSLog(@"found lock move in moves");
         }
     }
     
     for(PFMove *move in displayedMoves){
         
         if([move.type isEqualToString:@"LOCK"]){
-            NSLog(@"Found Lock Move in displayed Moves");
             CustomButton *button = [self findButtonInArray:buttonsArray WithMove:move.affectedMove];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             button.locked = YES;

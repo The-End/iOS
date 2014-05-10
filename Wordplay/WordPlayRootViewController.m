@@ -64,6 +64,7 @@
                 
                 PFUser *user = [PFUser currentUser];
                 [user setObject:userData[@"id"] forKey:@"facebookId"];
+                [user setObject:userData[@"name"] forKey:@"name"];
             }
             
         }];
