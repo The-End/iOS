@@ -52,6 +52,9 @@
             } else {
                 NSDictionary *userData = (NSDictionary *) result;
                 
+                PFUser *user = [PFUser currentUser];
+                [user setObject:userData[@"id"] forKey:@"facebookId"];
+                
                 NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
                 
                 
@@ -183,8 +186,6 @@
             [temp addObject:user];
             }
         selectedFriends = temp;
-        NSLog(@"DONE BUTTON");
-        NSLog(@"Selected friends: %@", selectedFriends);
         [[sender presentingViewController] dismissViewControllerAnimated:YES completion:nil];
         [self goToNewGame];
     
@@ -226,9 +227,10 @@
 -(void) goToNewGame{
     
     NewGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"NewGameViewController"];
-    temp.selectedFriendsNewGame = selectedFriends;
-    NSLog(@"Selected friends: %@", temp.selectedFriendsNewGame);
-
+    NSDictionary *friendData = [selectedFriends objectAtIndex:0];
+    NSString *facebookId = [friendData objectForKey:@"id"];
+    temp.selectedFriendFacebookId = facebookId;
+    
     [self.navigationController pushViewController:temp animated:YES];
     
 }

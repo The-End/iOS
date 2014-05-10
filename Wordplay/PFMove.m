@@ -10,47 +10,58 @@
 
 @implementation PFMove
 
+@dynamic moveNumber;
 @dynamic type;
 @dynamic word;
-@dynamic affectedId;
+@dynamic affectedMove;
 
 +(PFMove *) newCreateMove:(NSString *) word
 {
-    PFMove *newMove = [[PFMove alloc] init];
+    PFMove *newMove = [PFMove object];
     newMove.word = word;
     newMove.type = @"CREATE";
     return newMove;
 }
 
-+(PFMove *) newDeleteMove:(NSString *) affectedId
++(PFMove *) newDeleteMove:(PFMove *) affectedMove
 {
-    PFMove *newMove = [[PFMove alloc] init];
-    newMove.affectedId = affectedId;
+    PFMove *newMove = [PFMove object];
+    newMove.affectedMove = affectedMove;
     newMove.type = @"DELETE";
     return newMove;
 }
 
-+(PFMove *) newInsertMove:(NSString *) word afterId:(NSString *) afterId
++(PFMove *) newInsertBeforeMove:(NSString *) word afterId:(PFMove *) afterMove
 {
-    PFMove *newMove = [[PFMove alloc] init];
+    PFMove *newMove = [PFMove object];
     newMove.word = word;
-    newMove.affectedId = afterId;
-    newMove.type = @"INSERT";
+    newMove.affectedMove = afterMove;
+    newMove.type = @"INSERT_BEFORE";
     return newMove;
 }
 
-+(PFMove *) newLockMove:(NSString *) affectedId
++(PFMove *) newInsertAferMove:(NSString *) word afterId:(PFMove *) afterMove
 {
-    PFMove *newMove = [[PFMove alloc] init];
-    newMove.affectedId = affectedId;
+    PFMove *newMove = [PFMove object];
+    newMove.word = word;
+    newMove.affectedMove = afterMove;
+    newMove.type = @"INSERT_AFTER";
+    return newMove;
+}
+
+
++(PFMove *) newLockMove:(PFMove *) lockedMove
+{
+    PFMove *newMove = [PFMove object];
+    newMove.affectedMove = lockedMove;
     newMove.type = @"LOCK";
     return newMove;
 }
 
-+(PFMove *) newSwitchMove:(NSString *) word onMove:(NSString *) affectedId
++(PFMove *) newSwitchMove:(NSString *) word onMove:(PFMove *) switchedMove
 {
-    PFMove *newMove = [[PFMove alloc] init];
-    newMove.affectedId = affectedId;
+    PFMove *newMove = [PFMove object];
+    newMove.affectedMove = switchedMove;
     newMove.word = word;
     newMove.type = @"SWITCH";
     return newMove;

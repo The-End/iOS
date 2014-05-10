@@ -11,19 +11,22 @@
 
 @interface PFMove : PFObject<PFSubclassing>
 
+@property int moveNumber;
 @property NSString * type;
 @property NSString * word;
-@property NSString * affectedId;
+@property PFMove * affectedMove;
 
 +(PFMove *) newCreateMove:(NSString *) word;
 
-+(PFMove *) newDeleteMove:(NSString *) affectedId;
++(PFMove *) newDeleteMove:(PFMove *) affectedId;
 
-+(PFMove *) newInsertMove:(NSString *) word afterId:(NSString *) afterId;
++(PFMove *) newInsertBeforeMove:(NSString *) word afterId:(PFMove *) afterId;
 
-+(PFMove *) newLockMove:(NSString *) affectedId;
++(PFMove *) newInsertAfterMove:(NSString *) word afterId:(PFMove *) afterId;
 
-+(PFMove *) newSwitchMove:(NSString *) word onMove:(NSString *) affectedId;
++(PFMove *) newLockMove:(PFMove *) affectedId;
+
++(PFMove *) newSwitchMove:(NSString *) word onMove:(PFMove *) affectedId;
 
 +(NSString * )parseClassName;
 
