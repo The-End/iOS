@@ -9,12 +9,16 @@
 #import "CustomButton.h"
 #import "ContinuedGameViewController.h"
 
-@interface ContinuedGameViewController (){
+@interface ContinuedGameViewController ()
+
+{
 
     NSMutableArray *moves;
     NSMutableArray *buttonArray;
     int numberToPassToAlertView;
     NSString *wordToPassToAlertView;
+    BOOL textview;
+    
 
 }
 @end
@@ -39,28 +43,44 @@
     [moves addObject:@"Delete"];
     [moves addObject:@"Lock"];
     [moves addObject:@"Change"];
+    [moves addObject:@"Insert Before"];
     [moves addObject:@"Insert After"];
     [moves addObject:@"Close"];
     
-    
-    NSString *testString = [NSString stringWithFormat:@"This is a test string for our app This is a test string for our app This is a test string for our app"];
+    NSMutableArray *locked = [[NSMutableArray alloc] init];
+    NSString *testString = [NSString stringWithFormat:@"This is a test string for our app This is a test string for our app This is a test string for our"];
     NSArray *testArray = [testString componentsSeparatedByString: @" "];
+    
     
     if (self.toDisplay == Nil) {
         self.toDisplay = [testArray mutableCopy];
     }
     
-    NSMutableArray *locked = [[NSMutableArray alloc] init];
-    for (int i = 0; i < testArray.count; i++) {
-        if (i % 2) {
-            [locked addObject:@"locked"];
+    if (self.lockedArray == nil){
+        
+        for (int i = 0; i < testArray.count; i++) {
+            if (i % 2) {
+                [locked addObject:@"locked"];
+            }
+            else {
+                [locked addObject:@"lsdfaocked"];
+            }
         }
-        else {
-            
-            [locked addObject:@"npot"];
-        }
+        self.lockedArray = locked;
     }
-    [self displaySentencefromArray:self.toDisplay withMoves: locked];
+    
+   
+    if(!self.reenter){
+        self.pointsLeft = 16;
+    }
+    UITextView *score = [[UITextView alloc] initWithFrame:CGRectMake(self.navigationController.navigationBar.frame.origin.x + 10, self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height + 5, self.view.frame.size.width - 20, 30)];
+    [score setBackgroundColor:[UIColor orangeColor]];
+    score.font = [UIFont systemFontOfSize:14];
+    NSString *pointsRemaining = [NSString stringWithFormat: @"You have %i points remaining this round", self.pointsLeft];
+    
+    [score setText:pointsRemaining];
+    [self.view addSubview:score];
+    [self displaySentencefromArray:self.toDisplay];
     
 	// Do any additional setup after loading the view.
 }
@@ -76,21 +96,16 @@
     
 }
 
-/*-(void) viewWillDisappear:(BOOL)animated {
- if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
- [self.navigationController popViewControllerAnimated:NO];
- //FBFriendPickerAppInstalled *newFBFPAppInstalled = [[FBFriendPickerAppInstalled alloc] init];
- //[self.navigationController pushViewController:newFBFPAppInstalled animated:YES];
- }
- [super viewWillDisappear:animated];
- }*/
+
 
 -(void) viewWillAppear:(BOOL)animated{
     
-    //NSMutableArray *VCs = [self.navigationController.viewControllers mutableCopy];
-    //[VCs removeObjectAtIndex:[VCs count] - 2];
-    //self.navigationController.viewControllers = VCs;
-    
+    if (self.reenter) {
+        
+        NSMutableArray *VCs = [self.navigationController.viewControllers mutableCopy];
+        [VCs removeObjectAtIndex:[VCs count] - 2];
+        self.navigationController.viewControllers = VCs;
+    }
 }
 
 -(void) buttonMethod:(id)sender{
@@ -109,12 +124,13 @@
     
     
     
-    NSString *longest = @"Insert After";
+    NSString *longest = @"Insert Before";
     CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
     if ((selected.frame.origin.x + longestSize.width) > (self.view.frame.origin.x + self.view.frame.size.width)){
         optionsMenu = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - (longestSize.width+10)),(selected.frame.origin.y + selected.frame.size.height),longestSize.width + 10,(moves.count*longestSize.height + (moves.count + 1)*5))];
         
     }
+    
     else{
         optionsMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(selected.frame.origin.x,(selected.frame.origin.y + selected.frame.size.height),longestSize.width + 10,(moves.count*longestSize.height + (moves.count + 1)*5))];
     }
@@ -146,6 +162,30 @@
     
     CustomButton *selected = (CustomButton *)sender;
     
+    if ([selected.titleLabel.text isEqualToString:@"Lock"]){
+        
+        
+        
+        wordToPassToAlertView = @"Lock";
+        numberToPassToAlertView =selected.numberInSentence;
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Are you sure you want to lock the word \""];
+        [text appendString:selected.word];
+        [text appendString:@"\"?"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:text
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"Yes"
+                                              otherButtonTitles:@"No", nil];
+        [alert show];
+        
+        
+        
+        
+        
+        
+    }
+    
     if ([selected.titleLabel.text isEqualToString:@"Delete"]){
         
         
@@ -154,13 +194,10 @@
         numberToPassToAlertView =selected.numberInSentence;
         NSMutableString *text = [[NSMutableString alloc] init];
         [text appendString:@"Are you sure you want to delete the word \""];
-        NSLog(text);
         [text appendString:selected.word];
-        NSLog(text);
-        [text appendString:@"\""];
-        NSLog(text);
+        [text appendString:@"\"?"];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:text
-                                                        message:@"HEY"
+                                                        message:nil
                                                        delegate:self
                                               cancelButtonTitle:@"Yes"
                                               otherButtonTitles:@"No", nil];
@@ -177,8 +214,54 @@
         
         wordToPassToAlertView = @"Change";
         numberToPassToAlertView = selected.numberInSentence;
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Change \""];
+        [text appendString:selected.word];
+        [text appendString:@"\" To:"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Change" otherButtonTitles:@"Cancel", nil];
+        UITextField * alertTextField = [[UITextField alloc] init];
+        alertTextField.placeholder = @"Your input must be one word!";
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+        [alertTextField becomeFirstResponder];
+        [alert show];
         
         
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Insert Before"]) {
+        
+        wordToPassToAlertView = @"Insert Before";
+        numberToPassToAlertView = selected.numberInSentence;
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Enter word to insert before \""];
+        [text appendString:selected.word];
+        [text appendString:@"\":"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Insert" otherButtonTitles:@"Cancel", nil];
+        UITextField * alertTextField = [[UITextField alloc] init];
+        alertTextField.placeholder = @"Your input must be one word!";
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+        [alertTextField becomeFirstResponder];
+        [alert show];
+        
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Insert After"]) {
+        
+        wordToPassToAlertView = @"Insert After";
+        numberToPassToAlertView = selected.numberInSentence;
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Enter word to insert After \""];
+        [text appendString:selected.word];
+        [text appendString:@"\":"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Insert" otherButtonTitles:@"Cancel", nil];
+        UITextField * alertTextField = [[UITextField alloc] init];
+        alertTextField.placeholder = @"Your input must be one word!";
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+        [alertTextField becomeFirstResponder];
+        [alert show];
         
     }
     
@@ -186,7 +269,7 @@
     [selected.superview removeFromSuperview];
 }
 
--(void) displaySentencefromArray:(NSMutableArray *)toPrint withMoves:(NSMutableArray *)associatedMoves{
+-(void) displaySentencefromArray:(NSMutableArray *)toPrint{
     
     buttonArray = [[NSMutableArray alloc] init];
     CustomButton *previousButton;
@@ -202,7 +285,7 @@
             CustomButton *button = [CustomButton buttonWithType:UIButtonTypeRoundedRect];
             button.numberInSentence = i;
             button.sentence = toPrint;
-            if ([[associatedMoves objectAtIndex:i]  isEqual: @"locked"]) {
+            if ([[self.lockedArray objectAtIndex:i]  isEqual:@"locked"]) {
                 [button setBackgroundColor:[UIColor redColor]];
                 button.locked = YES;
                 button.userInteractionEnabled = NO;
@@ -229,7 +312,7 @@
             CustomButton *button = [CustomButton buttonWithType:UIButtonTypeRoundedRect];
             button.numberInSentence = i;
             button.sentence = toPrint;
-            if ([[associatedMoves objectAtIndex:i]  isEqual: @"locked"]) {
+            if ([[self.lockedArray objectAtIndex:i]  isEqual:@"locked"]) {
                 [button setBackgroundColor:[UIColor redColor]];
                 button.locked = YES;
                 button.userInteractionEnabled = NO;
@@ -257,23 +340,150 @@
             previousButton = button;
         }
         
+        if (i == toPrint.count-1){
+            NSLog(@"TextField");
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, (previousButton.frame.origin.y + previousButton.frame.size.height + 10), (self.view.frame.size.width - 20),previousButton.frame.size.height)];
+            [textField addTarget:self
+                               action:@selector(textFieldFinished:)
+                     forControlEvents:UIControlEventEditingDidEndOnExit];
+            textField.borderStyle = UITextBorderStyleRoundedRect;
+            textField.font = [UIFont systemFontOfSize:14];
+            textField.placeholder = @"Enter up to (3- Change When calculated) words";
+            textField.autocorrectionType = UITextAutocorrectionTypeNo;
+            textField.keyboardType = UIKeyboardTypeDefault;
+            textField.returnKeyType = UIReturnKeyDone;
+            textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+            textField.delegate = self;
+            [self.view addSubview:textField];
+        
+        }
+        
     }
     
     
     
 }
-- (void)alertView:(UIAlertView *)alertView
-clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
     if (buttonIndex == [alertView cancelButtonIndex]){
-        NSMutableArray *toPass = [[NSMutableArray alloc] init];
-        [self.toDisplay removeObjectAtIndex:numberToPassToAlertView];
-        toPass =self.toDisplay;
-        ContinuedGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
-        temp.toDisplay = toPass;
         
-        [self.navigationController pushViewController:temp animated:NO];
-    }else{
+        if ([wordToPassToAlertView isEqualToString:@"Delete"]){
+            
+            
+            NSMutableArray *toPassDisplay = [[NSMutableArray alloc]init];
+            toPassDisplay = self.toDisplay;
+            NSMutableArray *toPassLocked = [[NSMutableArray alloc]init];
+            toPassLocked = self.lockedArray;
+            [toPassDisplay removeObjectAtIndex:numberToPassToAlertView];
+            [toPassLocked removeObjectAtIndex:numberToPassToAlertView];
+            ContinuedGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
+            temp.toDisplay = toPassDisplay;
+            temp.lockedArray = toPassLocked;
+            temp.reenter = YES;
+            temp.pointsLeft = self.pointsLeft - 10;
+            [self.navigationController pushViewController:temp animated:NO];
+            
+            
+            
+        }
     }
+    
+        if([wordToPassToAlertView isEqualToString:@"Change"]){
+            
+            [self.toDisplay replaceObjectAtIndex:numberToPassToAlertView withObject:[alertView textFieldAtIndex:0].text];
+            ContinuedGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
+            temp.toDisplay = self.toDisplay;
+            temp.lockedArray = self.lockedArray;
+            temp.reenter = YES;
+            temp.pointsLeft = self.pointsLeft - 15;
+            [self.navigationController pushViewController:temp animated:NO];
+            
+        
+        }
+    
+        if([wordToPassToAlertView isEqualToString:@"Insert Before"]){
+        
+            [self.toDisplay insertObject:[alertView textFieldAtIndex:0].text atIndex:numberToPassToAlertView];
+            [self.lockedArray insertObject:@"notLocked" atIndex:numberToPassToAlertView];
+            
+            ContinuedGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
+            temp.toDisplay = self.toDisplay;
+            temp.lockedArray = self.lockedArray;
+            temp.reenter = YES;
+            temp.pointsLeft = self.pointsLeft - 5;
+            [self.navigationController pushViewController:temp animated:NO];
+        
+        
+        }
+    
+        if([wordToPassToAlertView isEqualToString:@"Insert After"]){
+        
+            [self.toDisplay insertObject:[alertView textFieldAtIndex:0].text atIndex:(numberToPassToAlertView + 1)];
+            [self.lockedArray insertObject:@"notLocked" atIndex:(numberToPassToAlertView + 1)];
+        
+            ContinuedGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
+            temp.toDisplay = self.toDisplay;
+            temp.lockedArray = self.lockedArray;
+            temp.reenter = YES;
+            temp.pointsLeft = self.pointsLeft - 5;
+            [self.navigationController pushViewController:temp animated:NO];
+        
+        
+        }
+    
+        if([wordToPassToAlertView isEqualToString:@"Lock"]){
+        
+            [self.lockedArray replaceObjectAtIndex:numberToPassToAlertView withObject:@"locked"];
+            ContinuedGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
+            temp.toDisplay = self.toDisplay;
+            temp.lockedArray = self.lockedArray;
+            temp.reenter = YES;
+            temp.pointsLeft = self.pointsLeft - 7;
+            [self.navigationController pushViewController:temp animated:NO];
+        
+        
+        }
+    
+        if (textview){
+    
+            [self.lockedArray addObject:wordToPassToAlertView];
+        
+        }
+}
+
+
+
+-(BOOL) textFieldFinished:(id)sender{
+    UITextField *temp = sender;
+    NSMutableString *text = [[NSMutableString alloc] init];
+    
+    if ([temp.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid input."
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return YES;
+    }
+    [text appendString:@"Are you sure you want to add \""];
+    [text appendString:temp.text];
+    [text appendString:@"\"?"];
+    textview = YES;
+    wordToPassToAlertView = temp.text;
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:text
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:@"Yes"
+                                          otherButtonTitles:@"No", nil];
+    [alert show];
+    
+    
+    
+    [sender resignFirstResponder];
+    return YES;
 }
 
 

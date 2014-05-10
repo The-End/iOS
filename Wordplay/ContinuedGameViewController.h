@@ -14,9 +14,13 @@
 @property(nonatomic) NSArray *selectedFriendsNewGame;
 @property(nonatomic) NSMutableArray *toDisplay;
 @property(nonatomic) NSMutableArray *lockedArray;
+@property(nonatomic) BOOL reenter;
+@property(nonatomic) int pointsLeft;
+
 
 -(void) buttonMethod:(id)sender;
 -(void)activitySelected:(id)sender;
--(void) displaySentencefromArray:(NSMutableArray *)toPrint withMoves:(NSMutableArray *)associatedMoves;
+-(void) displaySentencefromArray:(NSMutableArray *)toPrint;
+-(BOOL) textFieldFinished:(id)sender;
 
 @end
