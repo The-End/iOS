@@ -37,9 +37,8 @@
     [super viewDidLoad];
 
     if(![PFUser currentUser]){
-        
+        NSLog(@"Going to Login Controller");
         [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
-        
     } else {
         
         /*NSURL *profileUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", user.facebookId]];
@@ -51,8 +50,6 @@
         NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];*/
     }
     
-    
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -171,8 +168,6 @@
             [temp addObject:user];
             }
         selectedFriends = temp;
-        NSLog(@"DONE BUTTON");
-        NSLog(@"Selected friends: %@", selectedFriends);
         [[sender presentingViewController] dismissViewControllerAnimated:YES completion:nil];
         [self goToNewGame];
     
@@ -207,10 +202,6 @@
     return YES;
 }
 
-
-
-
-
 -(void) goToNewGame{
     
     NewGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"NewGameViewController"];
@@ -220,6 +211,17 @@
 
     [self.navigationController pushViewController:temp animated:YES];
     
+}
+
+// Called every time a chunk of the data is received
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [_profilePictureData appendData:data]; // Build the image
+}
+
+// Called when the entire image is finished downloading
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // Set the image in the header imageView
+    _profilePicture.image = [UIImage imageWithData:_profilePictureData];
 }
 
 

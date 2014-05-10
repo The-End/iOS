@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+#import "PFGame.h"
 
-@interface PastGamesViewController : UIViewController
+@interface PastGamesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
+    
+    NSArray *pastGames;
+    
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *gamesTable;
 
 @end

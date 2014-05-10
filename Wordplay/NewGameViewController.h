@@ -8,18 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import <CoreData/CoreData.h>
+#import "PFGame.h"
 
-@interface NewGameViewController : UIViewController{
+@interface NewGameViewController : UIViewController //<UITextFieldDelegate>
+ 
+@property NSString * selectedFriendFacebookId;
+@property (strong) PFGame * game;
 
-
-
-
-}
-
-@property(nonatomic) NSArray *selectedFriendsNewGame;
--(void) buttonMethod:(id)sender;
--(void)activitySelected:(id)sender;
--(void) displaySentencefromArray:(NSMutableArray *)toPrint withMoves:(NSMutableArray *)associatedMoves;
+@property (weak, nonatomic) IBOutlet UITextField *gameNameField;
+@property (weak, nonatomic) IBOutlet UITextField *firstMoveField;
 
 @end

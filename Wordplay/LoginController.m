@@ -10,8 +10,6 @@
 
 @interface LoginController ()
 
-- (void)loadUserData;
-
 @end
 
 @implementation LoginController
@@ -39,15 +37,11 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)fabookLoginButton:(id)sender
+- (IBAction)facebookLoginButton:(id)sender
 {
-
-    // The permissions requested from the user
     NSArray *permissionsArray = @[ @"user_about_me",
                                    @"user_relationships",
-                                   @"user_birthday",
-                                   @"user_location",
-                                   @"friends_likes"];
+                                   @"user_birthday"];
     
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         
@@ -61,7 +55,6 @@
             
             //[self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
-            
         } else {
             
             //[self loadUserData];

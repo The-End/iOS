@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFGame.h"
+#import "PFMove.h"
 #import <CoreData/CoreData.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
