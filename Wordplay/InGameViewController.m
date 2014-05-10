@@ -80,6 +80,7 @@
         [UIView commitAnimations];
     }
     
+    [self changeTurn];
     [game saveGame];
 }
 
@@ -130,6 +131,12 @@
         [button removeFromSuperview];
     }
     
+    
+    if(pointsLeft < 4){
+        [self changeTurn];
+        [self setupViewElements];
+    }
+    
     NSString *announcement;
     if(!game.active){
         announcement = @"The End";
@@ -143,20 +150,6 @@
         } else {
             announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.owner[@"name"]];
         }
-    }
-    
-    if(pointsLeft < 4){
-        myTurn = NO;
-        PFUser *user;
-        PFUser *me = [PFUser currentUser];
-        if([me.objectId isEqualToString:game.owner.objectId]){
-            user = game.player;
-        } else {
-            user = game.owner;
-        }
-        [game setActivePlayer:user];
-        [game saveGame];
-        [self setupViewElements];
     }
     
     [self.pointsLeftLabel setText:announcement];
@@ -521,6 +514,7 @@
         UITextField *inputText = [[UITextField alloc] initWithFrame:textRect];
         [inputText setBackgroundColor:[UIColor whiteColor]];
         [inputText setAlpha:0.5];
+        inputText.autocapitalizationType = UITextAutocapitalizationTypeNone;
         [self.parentViewOfText addSubview:inputText];
         self.inputTextField = inputText;
         [self.inputTextField setDelegate:self];
@@ -686,6 +680,20 @@
     }
     }
     return YES;
+}
+
+-(void)changeTurn
+{
+    myTurn = NO;
+    PFUser *user;
+    PFUser *me = [PFUser currentUser];
+    if([me.objectId isEqualToString:game.owner.objectId]){
+        user = game.player;
+    } else {
+        user = game.owner;
+    }
+    [game setActivePlayer:user];
+    [game saveGame];
 }
 /*
 #pragma mark - Navigation
