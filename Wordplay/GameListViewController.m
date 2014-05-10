@@ -1,24 +1,24 @@
 //
-//  PastGamesViewController.m
+//  GameListViewController.m
 //  Wordplay
 //
-//  Created by Blake Martin on 3/29/14.
+//  Created by Marshall Mann-Wood on 5/10/14.
 //  Copyright (c) 2014 Blake Martin. All rights reserved.
 //
 
-#import "PastGamesViewController.h"
+#import "GameListViewController.h"
 
-@interface PastGamesViewController ()
+@interface GameListViewController ()
 
 @end
 
-@implementation PastGamesViewController
+@implementation GameListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.active = false;
     }
     return self;
 }
@@ -27,21 +27,20 @@
 {
     [super viewDidLoad];
     
-    [self.gamesTable setDataSource:self];
-    [self.gamesTable setDelegate:self];
+    [self.gameTable setDataSource:self];
+    [self.gameTable setDelegate:self];
     
-    [PFGame loadActive:YES GamesWithBlock:^(NSArray *returnedGames, NSError *error){
+    [PFGame loadActive:self.active GamesWithBlock:^(NSArray *returnedGames, NSError *error){
         
         if(!error){
             
-            pastGames = returnedGames;
+            games = returnedGames;
             
-            [self.gamesTable reloadData];
+            [self.gameTable reloadData];
         }
         
     }];
-    	
-	// Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +51,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [pastGames count];
+    return [games count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,9 +64,20 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    PFGame *game = [pastGames objectAtIndex:indexPath.row];
+    PFGame *game = [games objectAtIndex:indexPath.row];
     cell.textLabel.text = game.name;
     return cell;
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

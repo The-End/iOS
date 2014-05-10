@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "FriendProtocols.h"
+#import "GameListViewController.h"
 
 @interface WordPlayRootViewController : UIViewController <FBFriendPickerDelegate>
 - (IBAction)InviteFriends:(id)sender;
@@ -24,5 +25,7 @@
 
 @property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
 -(void) goToNewGame;
+- (IBAction)pastGamesButtonPushed:(id)sender;
+- (IBAction)activeGamesButtonPushed:(id)sender;
 
 @end

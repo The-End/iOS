@@ -16,7 +16,6 @@
 
     NSArray *selectedFriends;
     BOOL newGameButtonSelected;
- 
 
 }
 @end
@@ -203,10 +202,6 @@
     NSLog(@"Canceled");
     // Dismiss the friend picker
     [[sender presentingViewController] dismissViewControllerAnimated:YES completion:nil];
-    
-    
-    
-    
 }
 
 - (BOOL)friendPickerViewController:(FBFriendPickerViewController *)friendPicker
@@ -231,6 +226,21 @@
 
     [self.navigationController pushViewController:temp animated:YES];
     
+}
+
+- (IBAction)pastGamesButtonPushed:(id)sender
+{
+    GameListViewController *pastGames = [self.storyboard instantiateViewControllerWithIdentifier:@"GameListViewController"];
+    pastGames.active = false;
+    [self.navigationController pushViewController:pastGames animated:YES];
+    
+}
+
+- (IBAction)activeGamesButtonPushed:(id)sender
+{
+    GameListViewController *activeGames = [self.storyboard instantiateViewControllerWithIdentifier:@"GameListViewController"];
+    activeGames.active = YES;
+    [self.navigationController pushViewController:activeGames animated:YES];
 }
 
 // Called every time a chunk of the data is received

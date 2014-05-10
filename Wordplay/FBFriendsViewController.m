@@ -13,7 +13,7 @@
 @interface FBFriendsViewController () <FBFriendPickerDelegate>{
 
 
-NSMutableArray *SelectedFriendsID;
+    NSMutableArray *SelectedFriendsID;
 
 }
 @end
