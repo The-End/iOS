@@ -76,8 +76,6 @@
     
     NSLog(@"%@", _firstMoveField.text);
     
-    [_game newCreateMoveWithWord: _firstMoveField.text];
-    [_game saveGame];
     
 }
 - (IBAction)gameNameField:(id)sender
@@ -87,8 +85,15 @@
         return;
     }
     
-    _game.name = _gameNameField.text;
 
     
+}
+
+- (IBAction)sendData:(id)sender
+{
+    
+    [_game newCreateMoveWithWord: _firstMoveField.text];
+    _game.name = _gameNameField.text;
+    [_game saveGame];
 }
 @end
