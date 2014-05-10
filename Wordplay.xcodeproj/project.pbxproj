@@ -44,12 +44,12 @@
 		3DE47B7A191DE16700AE9B23 /* PFGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE47B77191DE16700AE9B23 /* PFGame.m */; };
 		3DE47B7B191DE16700AE9B23 /* PFMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE47B79191DE16700AE9B23 /* PFMove.m */; };
 		930BDC6618DCA1220025154C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930BDC6518DCA1220025154C /* FacebookSDK.framework */; };
+		9362F3C0191E50DF00BD61C9 /* fbLoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9362F3BC191E50DF00BD61C9 /* fbLoginButton.png */; };
+		9362F3C1191E50DF00BD61C9 /* Wordplay.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 9362F3BD191E50DF00BD61C9 /* Wordplay.mobileprovision */; };
+		9362F3C2191E50DF00BD61C9 /* WordPlayBackDrop1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9362F3BE191E50DF00BD61C9 /* WordPlayBackDrop1.png */; };
+		9362F3C3191E50DF00BD61C9 /* WordPlayLoginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 9362F3BF191E50DF00BD61C9 /* WordPlayLoginScreen.png */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
-		E4E38BCD191DC97F00C85DE9 /* WordPlayLoginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BCC191DC97F00C85DE9 /* WordPlayLoginScreen.png */; };
-		E4E38BD1191DCE0100C85DE9 /* fbLoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BD0191DCE0100C85DE9 /* fbLoginButton.png */; };
-		E4E38BD3191DD3A400C85DE9 /* WordPlayBackDrop1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BD2191DD3A400C85DE9 /* WordPlayBackDrop1.png */; };
-		E4E38BD5191DDD8E00C85DE9 /* WordAppTextScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BD4191DDD8E00C85DE9 /* WordAppTextScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,13 +117,13 @@
 		3DE47B79191DE16700AE9B23 /* PFMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMove.m; sourceTree = "<group>"; };
 		930BDC6518DCA1220025154C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		9338AC9919089C780028120B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9362F3BC191E50DF00BD61C9 /* fbLoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbLoginButton.png; sourceTree = "<group>"; };
+		9362F3BD191E50DF00BD61C9 /* Wordplay.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wordplay.mobileprovision; sourceTree = "<group>"; };
+		9362F3BE191E50DF00BD61C9 /* WordPlayBackDrop1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordPlayBackDrop1.png; sourceTree = "<group>"; };
+		9362F3BF191E50DF00BD61C9 /* WordPlayLoginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordPlayLoginScreen.png; sourceTree = "<group>"; };
 		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		E4E38BCC191DC97F00C85DE9 /* WordPlayLoginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WordPlayLoginScreen.png; path = ../../../Pictures/WordPlayLoginScreen.png; sourceTree = "<group>"; };
-		E4E38BD0191DCE0100C85DE9 /* fbLoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fbLoginButton.png; path = ../../../Pictures/fbLoginButton.png; sourceTree = "<group>"; };
-		E4E38BD2191DD3A400C85DE9 /* WordPlayBackDrop1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WordPlayBackDrop1.png; path = ../../../Pictures/WordPlayBackDrop1.png; sourceTree = "<group>"; };
-		E4E38BD4191DDD8E00C85DE9 /* WordAppTextScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WordAppTextScreen.png; path = ../../../Pictures/WordAppTextScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,10 +249,10 @@
 		3D4B13B818DC7F40007D3C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E4E38BD4191DDD8E00C85DE9 /* WordAppTextScreen.png */,
-				E4E38BD2191DD3A400C85DE9 /* WordPlayBackDrop1.png */,
-				E4E38BD0191DCE0100C85DE9 /* fbLoginButton.png */,
-				E4E38BCC191DC97F00C85DE9 /* WordPlayLoginScreen.png */,
+				9362F3BC191E50DF00BD61C9 /* fbLoginButton.png */,
+				9362F3BD191E50DF00BD61C9 /* Wordplay.mobileprovision */,
+				9362F3BE191E50DF00BD61C9 /* WordPlayBackDrop1.png */,
+				9362F3BF191E50DF00BD61C9 /* WordPlayLoginScreen.png */,
 				3D4B13B918DC7F40007D3C90 /* Wordplay-Info.plist */,
 				3D4B13BA18DC7F40007D3C90 /* InfoPlist.strings */,
 				3D4B13BD18DC7F40007D3C90 /* main.m */,
@@ -357,12 +357,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4B13CA18DC7F40007D3C90 /* Images.xcassets in Resources */,
-				E4E38BD5191DDD8E00C85DE9 /* WordAppTextScreen.png in Resources */,
-				E4E38BD1191DCE0100C85DE9 /* fbLoginButton.png in Resources */,
+				9362F3C2191E50DF00BD61C9 /* WordPlayBackDrop1.png in Resources */,
+				9362F3C0191E50DF00BD61C9 /* fbLoginButton.png in Resources */,
 				3D4B13BC18DC7F40007D3C90 /* InfoPlist.strings in Resources */,
-				E4E38BCD191DC97F00C85DE9 /* WordPlayLoginScreen.png in Resources */,
+				9362F3C1191E50DF00BD61C9 /* Wordplay.mobileprovision in Resources */,
+				9362F3C3191E50DF00BD61C9 /* WordPlayLoginScreen.png in Resources */,
 				3D4B13C518DC7F40007D3C90 /* Main.storyboard in Resources */,
-				E4E38BD3191DD3A400C85DE9 /* WordPlayBackDrop1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
