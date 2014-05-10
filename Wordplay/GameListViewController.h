@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PFGame.h"
+#import "ContinuedGameViewController.h"
 
 @interface GameListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *games;

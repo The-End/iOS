@@ -95,35 +95,6 @@
             </objects>
             <point key="canvasLocation" x="2547" y="-375"/>
         </scene>
-        <!--Continued Game View Controller-->
-        <scene sceneID="77c-xl-jS4">
-            <objects>
-                <viewController storyboardIdentifier="ContinuedGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mjN-sp-6Mi" customClass="ContinuedGameViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rf7-Uw-Nwn"/>
-                        <viewControllerLayoutGuide type="bottom" id="kY2-Eo-zZ0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qmv-iL-uRr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordPlayBackDrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="T4H-Kv-Xb2">
-                                <rect key="frame" x="-7" y="-18" width="334" height="598"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordAppTextScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-I2-z5s">
-                                <rect key="frame" x="-13" y="57" width="347" height="221"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="hWZ-Ef-c4i"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-JU-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1887" y="-375"/>
-        </scene>
         <!--Word Play Root View Controller-->
         <scene sceneID="JUg-Vq-MwO">
             <objects>
@@ -200,20 +171,8 @@
                                     <action selector="LogOutButtonAction:" destination="PFY-fw-Ndj" eventType="touchUpInside" id="DiV-WI-8iE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSu-1U-W5C">
-                                <rect key="frame" x="20" y="235" width="280" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="TEMP" backgroundImage="fbLoginButton.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mjN-sp-6Mi" kind="push" id="tSc-iR-BFh"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9A6-TJ-FIG">
-                                <rect key="frame" x="80" y="77" width="149" height="150"/>
+                                <rect key="frame" x="86" y="94" width="149" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -259,7 +218,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WordAppTextScreen.png" width="294" height="188"/>
         <image name="WordPlayBackDrop1.png" width="334" height="598"/>
         <image name="WordPlayLoginScreen.png" width="334" height="598"/>
         <image name="fbLoginButton.png" width="334" height="96"/>

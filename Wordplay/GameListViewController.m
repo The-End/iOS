@@ -51,8 +51,12 @@
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
-    PFGame *goToGame = [games objectAtIndex:indexPath.row];
-    NSLog(@"Game Tapped: %@", goToGame.name);
+    
+    ContinuedGameViewController *gameController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
+    [gameController giveGame:[games objectAtIndex:indexPath.row]];
+    
+    [self.navigationController pushViewController:gameController animated:YES];
+    
 }
 
 

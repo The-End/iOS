@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFGame.h"
 
 @interface ContinuedGameViewController : UIViewController <UIAlertViewDelegate>
+{
+    
+    PFGame *game;
+    NSMutableArray *moves;
+    NSMutableArray *buttonArray;
+    int numberToPassToAlertView;
+    NSString *wordToPassToAlertView;
+    BOOL textview;
+}
 
 
 @property(nonatomic) NSArray *selectedFriendsNewGame;
@@ -22,5 +32,6 @@
 -(void)activitySelected:(id)sender;
 -(void) displaySentencefromArray:(NSMutableArray *)toPrint;
 -(BOOL) textFieldFinished:(id)sender;
+-(void)giveGame:(PFGame *)newGame;
 
 @end

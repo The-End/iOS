@@ -11,16 +11,6 @@
 
 @interface ContinuedGameViewController ()
 
-{
-
-    NSMutableArray *moves;
-    NSMutableArray *buttonArray;
-    int numberToPassToAlertView;
-    NSString *wordToPassToAlertView;
-    BOOL textview;
-    
-
-}
 @end
 
 @implementation ContinuedGameViewController
@@ -485,6 +475,11 @@
     
     [sender resignFirstResponder];
     return YES;
+}
+
+-(void)giveGame:(PFGame *)newGame
+{
+    game = newGame;
 }
 
 
