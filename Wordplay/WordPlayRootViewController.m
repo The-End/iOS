@@ -39,8 +39,18 @@
     if(![PFUser currentUser]){
         NSLog(@"Going to Login Controller");
         [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
+    }
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    if(![PFUser currentUser]){
+        NSLog(@"Going to Login Controller");
+        [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
     } else {
         
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
         NSLog(@"Have user, loading");
         
         FBRequest *request = [FBRequest requestForMe];
@@ -68,7 +78,6 @@
         }];
         
     }
-    
 }
 
 - (void)didReceiveMemoryWarning
