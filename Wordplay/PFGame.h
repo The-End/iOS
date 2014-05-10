@@ -20,6 +20,7 @@
 @property PFUser * owner;
 @property NSMutableArray * moves;
 @property PFUser * player;
+@property PFUser * activePlayer;
 
 -(BOOL) isMyTurn;
 
