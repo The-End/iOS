@@ -520,7 +520,19 @@
     NSArray *temp = [word componentsSeparatedByString:@" "];
     NSLog(@"%@ HERE", inputType);
    
+    if (temp.count > pointsLeft/4){
     
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Invalid Move. You cannot add more than %i moves!", pointsLeft/4]
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        inputType = @"Create";
+        [textField setText:@""];
+        return YES;
+    
+    }
     if ([inputType isEqualToString:@"Change"] && [word isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Move. Cannot change word to nothing! Duh!"
                                                         message:nil
