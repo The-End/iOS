@@ -79,6 +79,8 @@
         
         [UIView commitAnimations];
     }
+    
+    [game saveGame];
 }
 
 -(void)appEnteredBackground
