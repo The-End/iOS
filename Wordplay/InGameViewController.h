@@ -24,6 +24,7 @@
     NSString *actionAfterAlertView;
     BOOL textInputUp;
     NSString *inputType;
+    CustomButton *selectedButton;
     
 }
 

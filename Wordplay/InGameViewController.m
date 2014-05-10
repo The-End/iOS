@@ -157,18 +157,14 @@
 
 -(void)buttonMethod:(id)sender
 {
+    if (selectedButton == sender || selectedButton != nil) {
+        return;
+    }
+    
+    
     [self.inputTextField resignFirstResponder];
     
-    if (textInputUp) {
-        [self textBoxAnimateUp:NO];
-        textInputUp = !textInputUp;
-    }
-    else{
-        
-        [self textBoxAnimateUp:YES];
-        textInputUp = !textInputUp;
-    
-    }
+   
     
     if (![inputType isEqualToString:@"Create"]) {
         inputType = @"Create";
@@ -190,6 +186,17 @@
     if(!myTurn || selected.locked){
         return;
     }
+    if (textInputUp) {
+        [self textBoxAnimateUp:NO];
+        textInputUp = !textInputUp;
+    }
+    else{
+        
+        [self textBoxAnimateUp:YES];
+        textInputUp = !textInputUp;
+        
+    }
+    selectedButton = sender;
     
     NSString *longest = @"Insert Before";
     CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
@@ -264,33 +271,27 @@
     if ([selected.titleLabel.text isEqualToString:@"Insert Before"]){
         inputType = @"Insert Before";
         [self.inputTextField becomeFirstResponder];
-        [self textBoxAnimateUp:YES];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word before \"%@\"...", selected.word];
-        textInputUp = YES;
     }
     
     if ([selected.titleLabel.text isEqualToString:@"Insert After"]){
         inputType = @"Insert After";
         [self.inputTextField becomeFirstResponder];
-        [self textBoxAnimateUp:YES];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word after \"%@\"...", selected.word];
-        textInputUp = YES;
         }
     if ([selected.titleLabel.text isEqualToString:@"Change"]){
         inputType = @"Change";
         [self.inputTextField becomeFirstResponder];
-        [self textBoxAnimateUp:YES];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Change \"%@\" to...", selected.word];
-        textInputUp = YES;
     }
     if ([selected.titleLabel.text isEqualToString:@"Change"]) {
-        [self textBoxAnimateUp:YES];
         inputType = @"Create";
 
     }
     [self textBoxAnimateUp:YES];
     textInputUp = YES;
     [selected.superview removeFromSuperview];
+    selectedButton = nil;
     
 }
 
