@@ -54,6 +54,7 @@
         } else {
             game = foundGame;
             myTurn = [game isMyTurn];
+            [self setupViewElements];
             [self refreshGame];
         }
     }];
