@@ -32,22 +32,6 @@
     
     pointsLeft = 16;
     
-    if(!game){
-        NSLog(@"Game is nil");
-    } else {
-        NSLog(@"Game isn't nil");
-    }
-    
-    [PFGame loadGame:game WithBlock:^(PFGame *foundGame, NSError *error){
-        if(error){
-            //do something
-        } else {
-            game = foundGame;
-            myTurn = [game isMyTurn];
-            [self refreshGame];
-        }
-    }];
-    
     currentStringHeight = 0;
     currentStringLength = 0;
     [self setupViewElements];
@@ -60,6 +44,16 @@
     [moveTypes addObject:@"Insert Before"];
     [moveTypes addObject:@"Insert After"];
     [moveTypes addObject:@"Close"];
+    
+    [PFGame loadGame:game WithBlock:^(PFGame *foundGame, NSError *error){
+        if(error){
+            //do something
+        } else {
+            game = foundGame;
+            myTurn = [game isMyTurn];
+            [self refreshGame];
+        }
+    }];
     
     // Do any additional setup after loading the view.
 }

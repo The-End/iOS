@@ -129,6 +129,12 @@
 
 +(void) loadGame:(PFGame *)game WithBlock:(void(^)(PFGame *game, NSError *error))block
 {
+    
+    if(!game.objectId){
+        block(game, nil);
+        return;
+    }
+    
     PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
     [gameQuery whereKey:@"objectId" equalTo:game.objectId];
     [gameQuery includeKey:@"moves"];
