@@ -519,50 +519,44 @@
   
     if ([inputType isEqualToString:@"Create"]) {
      
-    if([word isEqualToString:@""] || temp.count > pointsLeft/4 ){
-        if ([word isEqualToString:@""]) {
+        if([word isEqualToString:@""] || temp.count > pointsLeft/4 ){
+            if ([word isEqualToString:@""]) {
            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You must enter something! Duh!"
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You must enter something! Duh!"
                                                         message:nil
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
-            [alert show];
-        }
+                [alert show];
+            }
         
-        if (temp.count > pointsLeft/4) {
-            NSString *text = [NSString stringWithFormat:@"You only have enough points to add %i words!", pointsLeft/4];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:text
+            if (temp.count > pointsLeft/4) {
+                NSString *text = [NSString stringWithFormat:@"You only have enough points to add %i words!", pointsLeft/4];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:text
                                                             message:nil
                                                            delegate:self
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles: nil];
-            [alert show];
-        }
+                [alert show];
+            }
         
     
-    }
-    for (int i = 0; i < temp.count; i ++) {
-        pointsLeft -= 4;
-        [game newCreateMoveWithWord:[temp objectAtIndex:i]];
-
-    }
+        }
+        
+        for (int i = 0; i < temp.count; i ++) {
+            pointsLeft -= 4;
+            [game newCreateMoveWithWord:[temp objectAtIndex:i]];
+        }
     
-    }
-    
-    if ([inputType isEqualToString:@"Insert Before"]) {
+    } else if ([inputType isEqualToString:@"Insert Before"]) {
         pointsLeft -= 5;
         [game newInsertWord:textField.text beforeMove:buttonForAlertView.move];
         [self refreshGame];
-    }
-    
-    if ([inputType isEqualToString:@"Insert After"]) {
+    } else if ([inputType isEqualToString:@"Insert After"]) {
         pointsLeft -= 5;
         [game newInsertWord:textField.text afterMove:buttonForAlertView.move];
         [self refreshGame];
-    }
-    
-    if ([inputType isEqualToString:@"Change"]) {
+    } else if ([inputType isEqualToString:@"Change"]) {
         pointsLeft -= 15;
         [game newSwitchMove:buttonForAlertView.move forWord:textField.text];
         [self refreshGame];
