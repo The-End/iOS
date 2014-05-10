@@ -471,7 +471,7 @@
   
     if ([inputType isEqualToString:@"Create"]) {
      
-    if([word isEqualToString:@""] || temp.count >pointsLeft/4 ){
+    if([word isEqualToString:@""] || temp.count > pointsLeft/4 ){
         if ([word isEqualToString:@""]) {
            
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You must enter something! Duh!"
