@@ -27,6 +27,7 @@
     [super viewDidLoad];
     
     [self.navigationItem setHidesBackButton:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     // Do any additional setup after loading the view.
 }

@@ -44,6 +44,10 @@
 		9362F3AD191DA86600BD61C9 /* PFGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3AC191DA86600BD61C9 /* PFGame.m */; };
 		9362F3B0191DADD900BD61C9 /* PFPlayerMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3AF191DADD900BD61C9 /* PFPlayerMove.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
+		E4E38BCD191DC97F00C85DE9 /* WordPlayLoginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BCC191DC97F00C85DE9 /* WordPlayLoginScreen.png */; };
+		E4E38BD1191DCE0100C85DE9 /* fbLoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BD0191DCE0100C85DE9 /* fbLoginButton.png */; };
+		E4E38BD3191DD3A400C85DE9 /* WordPlayBackDrop1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BD2191DD3A400C85DE9 /* WordPlayBackDrop1.png */; };
+		E4E38BD5191DDD8E00C85DE9 /* WordAppTextScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4E38BD4191DDD8E00C85DE9 /* WordAppTextScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,10 @@
 		9362F3AE191DADD900BD61C9 /* PFPlayerMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPlayerMove.h; sourceTree = "<group>"; };
 		9362F3AF191DADD900BD61C9 /* PFPlayerMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPlayerMove.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E4E38BCC191DC97F00C85DE9 /* WordPlayLoginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WordPlayLoginScreen.png; path = ../../../Pictures/WordPlayLoginScreen.png; sourceTree = "<group>"; };
+		E4E38BD0191DCE0100C85DE9 /* fbLoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fbLoginButton.png; path = ../../../Pictures/fbLoginButton.png; sourceTree = "<group>"; };
+		E4E38BD2191DD3A400C85DE9 /* WordPlayBackDrop1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WordPlayBackDrop1.png; path = ../../../Pictures/WordPlayBackDrop1.png; sourceTree = "<group>"; };
+		E4E38BD4191DDD8E00C85DE9 /* WordAppTextScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WordAppTextScreen.png; path = ../../../Pictures/WordAppTextScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +226,10 @@
 		3D4B13B818DC7F40007D3C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4E38BD4191DDD8E00C85DE9 /* WordAppTextScreen.png */,
+				E4E38BD2191DD3A400C85DE9 /* WordPlayBackDrop1.png */,
+				E4E38BD0191DCE0100C85DE9 /* fbLoginButton.png */,
+				E4E38BCC191DC97F00C85DE9 /* WordPlayLoginScreen.png */,
 				3D4B13B918DC7F40007D3C90 /* Wordplay-Info.plist */,
 				3D4B13BA18DC7F40007D3C90 /* InfoPlist.strings */,
 				3D4B13BD18DC7F40007D3C90 /* main.m */,
@@ -361,8 +373,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4B13CA18DC7F40007D3C90 /* Images.xcassets in Resources */,
+				E4E38BD5191DDD8E00C85DE9 /* WordAppTextScreen.png in Resources */,
+				E4E38BD1191DCE0100C85DE9 /* fbLoginButton.png in Resources */,
 				3D4B13BC18DC7F40007D3C90 /* InfoPlist.strings in Resources */,
+				E4E38BCD191DC97F00C85DE9 /* WordPlayLoginScreen.png in Resources */,
 				3D4B13C518DC7F40007D3C90 /* Main.storyboard in Resources */,
+				E4E38BD3191DD3A400C85DE9 /* WordPlayBackDrop1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

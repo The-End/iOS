@@ -23,11 +23,13 @@
 
 @implementation WordPlayRootViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+       
     }
     return self;
 }
@@ -35,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     if(![PFUser currentUser]){
         NSLog(@"Going to Login Controller");
         [self performSegueWithIdentifier:@"goToLoginController" sender:nil];

@@ -114,6 +114,7 @@ NSMutableArray *buttonArray;
     }
     
     [optionsMenu setBackgroundColor:[UIColor lightGrayColor]];
+    
     for (int i = 0; i < moves.count; i++){
         
         CustomButton *button = [CustomButton buttonWithType:UIButtonTypeRoundedRect];
