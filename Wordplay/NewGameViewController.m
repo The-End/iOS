@@ -104,6 +104,7 @@
     for(NSString *word in move){
         [_game newCreateMoveWithWord:word];
     }
+    [_game setActivePlayer:_game.player];
     [_game saveGame];
     
     InGameViewController *gameController = [self.storyboard instantiateViewControllerWithIdentifier:@"InGameViewController"];

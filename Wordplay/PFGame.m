@@ -18,6 +18,7 @@
 @dynamic owner;
 @dynamic moves;
 @dynamic player;
+@dynamic activePlayer;
 
 -(void) setupNewGameWithPlayer:(PFUser *) user;
 {
@@ -32,17 +33,11 @@
 
 -(BOOL)isMyTurn
 {
-    if(!self.moves || [self.moves count] == 0){
-        return true;
-    }
-    
-    NSArray *orderedMoves = [self getMovesInOrder];
-    PFMove *lastMove = [orderedMoves objectAtIndex:[orderedMoves count] - 1];\
     PFUser *currentUser = [PFUser currentUser];
-    if([lastMove.player.objectId isEqualToString:currentUser.objectId]){
-        return false;
+    if([currentUser.objectId isEqualToString:self.activePlayer.objectId]){
+        return YES;
     }
-    return true;
+    return NO;
 }
 
 -(void) setGameAsFinished

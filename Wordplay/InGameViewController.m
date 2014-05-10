@@ -127,6 +127,7 @@
 
 -(void)refreshGame
 {
+    [game saveGame];
     
     currentStringLength = 0;
     currentStringHeight = 0;
