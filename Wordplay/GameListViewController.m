@@ -49,6 +49,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
+{
+    PFGame *goToGame = [games objectAtIndex:indexPath.row];
+    NSLog(@"Game Tapped: %@", goToGame.name);
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [games count];
