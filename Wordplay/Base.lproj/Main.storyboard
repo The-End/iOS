@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fEM-ec-UgE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fEM-ec-UgE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -88,10 +88,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-W5-bV1">
-                                <rect key="frame" x="234" y="165" width="66" height="30"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordPlayBackDrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="pxc-wD-vSb">
+                                <rect key="frame" x="-9" y="-52" width="334" height="598"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-W5-bV1">
+                                <rect key="frame" x="-7" y="165" width="334" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Game On">
+                                <state key="normal" title="Game On" backgroundImage="fbLoginButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -136,11 +140,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordPlayBackDrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="T4H-Kv-Xb2">
-                                <rect key="frame" x="-7" y="-18" width="334" height="598"/>
+                                <rect key="frame" x="-7" y="-9" width="334" height="598"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="5740ADE5-93B8-4007-A9E1-DB0453F0A106" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-I2-z5s">
-                                <rect key="frame" x="-13" y="57" width="347" height="221"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordAppTextScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="kHc-S8-SKv">
+                                <rect key="frame" x="13" y="112" width="294" height="188"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
@@ -271,23 +275,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="5740ADE5-93B8-4007-A9E1-DB0453F0A106" width="294" height="188">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
-GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
-V05TQ29sb3KAAoAMEiTAAACAA4AKWnsyOTQsIDE4OH3SFQoWGFpOUy5vYmplY3RzoReABIAJ0hUKGhii
-GxyABYAGgAkQBdMgCiEiIyRXTlMuYmFzZVtOUy5yZWxhdGl2ZYAAgAiAB18Q12ZpbGU6Ly8vQXBwbGlj
-YXRpb25zL1hjb2RlLmFwcC9Db250ZW50cy9EZXZlbG9wZXIvUGxhdGZvcm1zL2lQaG9uZVNpbXVsYXRv
-ci5wbGF0Zm9ybS9EZXZlbG9wZXIvTGlicmFyeS9YY29kZS9Qcml2YXRlUGx1Z0lucy9JREVJbnRlcmZh
-Y2VCdWlsZGVyQ29jb2FUb3VjaEludGVncmF0aW9uLmlkZXBsdWdpbi9Db250ZW50cy9SZXNvdXJjZXMv
-SUJVSU1pc3NpbmdJbWFnZS50aWZm0icoKSpaJGNsYXNzbmFtZVgkY2xhc3Nlc1VOU1VSTKIrLFVOU1VS
-TFhOU09iamVjdNInKC4vV05TQXJyYXmiLizTMTIKMzQ1V05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQ
-A4AL0icoNzhXTlNDb2xvcqI3LNInKDo7V05TSW1hZ2WiOixfEA9OU0tleWVkQXJjaGl2ZXLRPj9Ucm9v
-dIABAAgAEQAaACMALQAyADcARQBLAFYAXQBkAHEAeACAAIIAhACJAIsAjQCYAJ0AqACqAKwArgCzALYA
-uAC6ALwAvgDFAM0A2QDbAN0A3wG5Ab4ByQHSAdgB2wHhAeoB7wH3AfoCAQIJAhYCGwIdAh8CJAIsAi8C
-NAI8Aj8CUQJUAlkAAAAAAAACAQAAAAAAAABAAAAAAAAAAAAAAAAAAAACWw
-</mutableData>
-        </image>
+        <image name="WordAppTextScreen.png" width="294" height="188"/>
         <image name="WordPlayBackDrop1.png" width="334" height="598"/>
         <image name="WordPlayLoginScreen.png" width="334" height="598"/>
         <image name="fbLoginButton.png" width="334" height="96"/>

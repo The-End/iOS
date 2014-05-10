@@ -50,6 +50,7 @@
 		9362F3CB191E5E6B00BD61C9 /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3CA191E5E6B00BD61C9 /* InGameViewController.m */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
+		E4D619FA191ED8C600B7F432 /* WordAppTextScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordAppTextScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 				3D3F2741191C09E300302971 /* CustomButton.m */,
 				9338AC9819089C780028120B /* Model.xcdatamodeld */,
 				3D4B13C918DC7F40007D3C90 /* Images.xcassets */,
+				E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */,
 				3D4B13B818DC7F40007D3C90 /* Supporting Files */,
 			);
 			path = Wordplay;
@@ -377,6 +380,7 @@
 			files = (
 				3D4B13CA18DC7F40007D3C90 /* Images.xcassets in Resources */,
 				9362F3C2191E50DF00BD61C9 /* WordPlayBackDrop1.png in Resources */,
+				E4D619FA191ED8C600B7F432 /* WordAppTextScreen.png in Resources */,
 				9362F3C0191E50DF00BD61C9 /* fbLoginButton.png in Resources */,
 				3D4B13BC18DC7F40007D3C90 /* InfoPlist.strings in Resources */,
 				9362F3C1191E50DF00BD61C9 /* Wordplay.mobileprovision in Resources */,
