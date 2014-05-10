@@ -100,25 +100,26 @@
         [self.parentView addSubview:button];
     }
     
+    if(game.active){
+        CustomButton *secondToLastButton = [buttons objectAtIndex:[buttons count] - 2];
+        CustomButton *lastButton = [buttons objectAtIndex:[buttons count] - 1];
+        if([secondToLastButton.move.word caseInsensitiveCompare:@"the"] == NSOrderedSame && [lastButton.move.word caseInsensitiveCompare:@"end"] == NSOrderedSame){
+            game.active = NO;
+            [game saveGame];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The End"
+                                                            message:@"Ya done did it."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [self refreshGame];
+        }
+    }
+    
 }
 
 -(void)refreshGame
 {
-    
-    if(pointsLeft < 4){
-        myTurn = NO;
-        [game saveGame];
-        [self setupViewElements];
-    }
-    
-    NSString *announcement;
-    if(myTurn){
-        announcement = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
-    } else {
-        announcement = @"It's not your turn";
-    }
-    
-    [self.pointsLeftLabel setText:announcement];
     
     currentStringLength = 0;
     currentStringHeight = 0;
@@ -126,6 +127,30 @@
     for(CustomButton *button in buttons){
         [button removeFromSuperview];
     }
+    
+    
+    NSString *announcement;
+    if(!game.active){
+        announcement = @"The End";
+        pointsLeft = 0;
+    } else if(myTurn){
+        announcement = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
+    } else {
+        PFUser *me =[PFUser currentUser];
+        if([me.objectId isEqualToString:game.owner.objectId]){
+            announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.player];
+        } else {
+            announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.owner];
+        }
+    }
+    
+    if(pointsLeft < 4){
+        myTurn = NO;
+        [game saveGame];
+        [self setupViewElements];
+    }
+    
+    [self.pointsLeftLabel setText:announcement];
     
     [self showGame];
 }
