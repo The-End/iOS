@@ -132,6 +132,11 @@
 
 -(void)buttonMethod:(id)sender
 {
+    if (selectedButton == sender) {
+        return;
+    }
+    selectedButton = sender;
+    
     [self.inputTextField resignFirstResponder];
     
     if (textInputUp) {
@@ -239,27 +244,20 @@
     if ([selected.titleLabel.text isEqualToString:@"Insert Before"]){
         inputType = @"Insert Before";
         [self.inputTextField becomeFirstResponder];
-        [self textBoxAnimateUp:YES];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word before \"%@\"...", selected.word];
-        textInputUp = YES;
     }
     
     if ([selected.titleLabel.text isEqualToString:@"Insert After"]){
         inputType = @"Insert After";
         [self.inputTextField becomeFirstResponder];
-        [self textBoxAnimateUp:YES];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word after \"%@\"...", selected.word];
-        textInputUp = YES;
         }
     if ([selected.titleLabel.text isEqualToString:@"Change"]){
         inputType = @"Change";
         [self.inputTextField becomeFirstResponder];
-        [self textBoxAnimateUp:YES];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Change \"%@\" to...", selected.word];
-        textInputUp = YES;
     }
     if ([selected.titleLabel.text isEqualToString:@"Change"]) {
-        [self textBoxAnimateUp:YES];
         inputType = @"Create";
 
     }
