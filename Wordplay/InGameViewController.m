@@ -457,7 +457,7 @@
 {
     CGRect pointsFrame = CGRectMake(0.0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, 60);
     UILabel *pointsLabel = [[UILabel alloc] initWithFrame:pointsFrame];
-    [pointsLabel setBackgroundColor:[UIColor orangeColor]];
+    [pointsLabel setBackgroundColor:[UIColor grayColor]];
     NSString *pointsRemaining = [NSString stringWithFormat: @"Loading Game"];
     [pointsLabel setText:pointsRemaining];
     self.pointsLeftLabel = pointsLabel;
