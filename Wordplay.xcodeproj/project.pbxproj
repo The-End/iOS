@@ -211,34 +211,16 @@
 		3D4B13B718DC7F40007D3C90 /* Wordplay */ = {
 			isa = PBXGroup;
 			children = (
-				3DE47B76191DE16700AE9B23 /* PFGame.h */,
-				3DE47B77191DE16700AE9B23 /* PFGame.m */,
-				3DE47B78191DE16700AE9B23 /* PFMove.h */,
-				3DE47B79191DE16700AE9B23 /* PFMove.m */,
+				9362F3C4191E512600BD61C9 /* PFObjects */,
+				9362F3C5191E513400BD61C9 /* ViewControllers */,
 				3D4B13C018DC7F40007D3C90 /* AppDelegate.h */,
 				3D4B13C118DC7F40007D3C90 /* AppDelegate.m */,
 				3D4B13C318DC7F40007D3C90 /* Main.storyboard */,
-				3D3619361914754E006FB734 /* InviteFriendsViewController.h */,
-				3D3619371914754E006FB734 /* InviteFriendsViewController.m */,
-				3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */,
-				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
 				3D41309F1911AA0200389CBA /* FBFriendPickerAppInstalled.h */,
 				3D4130A01911AA0200389CBA /* FBFriendPickerAppInstalled.m */,
 				3DCDA44B1909CF2A00C57A14 /* FriendProtocols.h */,
-				3D6BCF3F18E72045000B879B /* PastGamesViewController.h */,
-				3D6BCF4018E72045000B879B /* PastGamesViewController.m */,
-				3D6BCF3918E71FD2000B879B /* NewGameViewController.h */,
-				3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */,
-				3D22F7CF191D5C52000D6157 /* ContinuedGameViewController.h */,
-				3D22F7D0191D5C52000D6157 /* ContinuedGameViewController.m */,
 				3D3F2740191C09E300302971 /* CustomButton.h */,
 				3D3F2741191C09E300302971 /* CustomButton.m */,
-				3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */,
-				3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */,
-				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
-				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
-				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
-				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
 				9338AC9819089C780028120B /* Model.xcdatamodeld */,
 				3D4B13C918DC7F40007D3C90 /* Images.xcassets */,
 				3D4B13B818DC7F40007D3C90 /* Supporting Files */,
@@ -277,6 +259,40 @@
 				3D4B13D918DC7F40007D3C90 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9362F3C4191E512600BD61C9 /* PFObjects */ = {
+			isa = PBXGroup;
+			children = (
+				3DE47B76191DE16700AE9B23 /* PFGame.h */,
+				3DE47B77191DE16700AE9B23 /* PFGame.m */,
+				3DE47B78191DE16700AE9B23 /* PFMove.h */,
+				3DE47B79191DE16700AE9B23 /* PFMove.m */,
+			);
+			name = PFObjects;
+			sourceTree = "<group>";
+		};
+		9362F3C5191E513400BD61C9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D3619361914754E006FB734 /* InviteFriendsViewController.h */,
+				3D3619371914754E006FB734 /* InviteFriendsViewController.m */,
+				3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */,
+				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
+				3D6BCF3F18E72045000B879B /* PastGamesViewController.h */,
+				3D6BCF4018E72045000B879B /* PastGamesViewController.m */,
+				3D6BCF3918E71FD2000B879B /* NewGameViewController.h */,
+				3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */,
+				3D22F7CF191D5C52000D6157 /* ContinuedGameViewController.h */,
+				3D22F7D0191D5C52000D6157 /* ContinuedGameViewController.m */,
+				3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */,
+				3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */,
+				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
+				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
+				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
+				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
