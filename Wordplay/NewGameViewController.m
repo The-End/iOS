@@ -80,7 +80,17 @@
     gameName = _gameNameField.text;
     firstMove = _gameMoveField.text;
     
-    NSLog(@"In gameFinishedCreating");
+    NSArray *move = [firstMove componentsSeparatedByString:@" "];
+    if([move count] > 4){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Too much word"
+                                                        message:@"You can only add up to four words."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
     
     if([gameName isEqualToString:@""]){
         return;
@@ -88,10 +98,10 @@
         return;
     }
     
-    NSLog(@"Creating game");
-    
     _game.name = gameName;
-    [_game newCreateMoveWithWord:firstMove];
+    for(NSString *word in move){
+        [_game newCreateMoveWithWord:word];
+    }
     [_game saveGame];
     
     InGameViewController *gameController = [self.storyboard instantiateViewControllerWithIdentifier:@"InGameViewController"];
