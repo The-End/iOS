@@ -132,23 +132,14 @@
 
 -(void)buttonMethod:(id)sender
 {
-    if (selectedButton == sender) {
+    if (selectedButton == sender || selectedButton != nil) {
         return;
     }
-    selectedButton = sender;
+    
     
     [self.inputTextField resignFirstResponder];
     
-    if (textInputUp) {
-        [self textBoxAnimateUp:NO];
-        textInputUp = !textInputUp;
-    }
-    else{
-        
-        [self textBoxAnimateUp:YES];
-        textInputUp = !textInputUp;
-    
-    }
+   
     
     if (![inputType isEqualToString:@"Create"]) {
         inputType = @"Create";
@@ -170,6 +161,17 @@
     if(!myTurn || selected.locked){
         return;
     }
+    if (textInputUp) {
+        [self textBoxAnimateUp:NO];
+        textInputUp = !textInputUp;
+    }
+    else{
+        
+        [self textBoxAnimateUp:YES];
+        textInputUp = !textInputUp;
+        
+    }
+    selectedButton = sender;
     
     NSString *longest = @"Insert Before";
     CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
@@ -264,6 +266,7 @@
     [self textBoxAnimateUp:YES];
     textInputUp = YES;
     [selected.superview removeFromSuperview];
+    selectedButton = nil;
     
 }
 
