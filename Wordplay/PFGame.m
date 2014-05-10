@@ -113,8 +113,15 @@
 
 +(void) loadActive:(BOOL)active GamesWithBlock:(void(^)(NSArray *array, NSError *error))block
 {
-    PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
-    [gameQuery whereKey:@"active" equalTo:[NSNumber numberWithBool:active]];
+    PFQuery *gameOwnerQuery = [PFQuery queryWithClassName:@"PFGame"];
+    [gameOwnerQuery whereKey:@"active" equalTo:[NSNumber numberWithBool:active]];
+    [gameOwnerQuery whereKey: @"owner" equalTo:[PFUser currentUser]];
+    
+    PFQuery *gamePlayerQuery = [PFQuery queryWithClassName:@"PFGame"];
+    [gamePlayerQuery whereKey:@"active" equalTo:[NSNumber numberWithBool:active]];
+    [gamePlayerQuery whereKey: @"player" equalTo:[PFUser currentUser]];
+    
+    PFQuery *gameQuery = [PFQuery orQueryWithSubqueries:@[gameOwnerQuery, gamePlayerQuery]];
     [gameQuery includeKey:@"player"];
     [gameQuery includeKey:@"owner"];
     
