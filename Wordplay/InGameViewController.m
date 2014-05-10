@@ -138,11 +138,9 @@
     } else {
         PFUser *me =[PFUser currentUser];
         if([me.objectId isEqualToString:game.owner.objectId]){
-            announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.player];
-            NSLog(@"It's %@\'s turn", game.player[@"name"]);
+            announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.player[@"name"]];
         } else {
-            announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.owner];
-            NSLog(@"It's %@\'s turn", game.player[@"name"]);
+            announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.owner[@"name"]];
         }
     }
     
