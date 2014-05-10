@@ -32,6 +32,12 @@
     
     pointsLeft = 16;
     
+    if(!game){
+        NSLog(@"Game is nil");
+    } else {
+        NSLog(@"Game isn't nil");
+    }
+    
     [PFGame loadGame:game WithBlock:^(PFGame *foundGame, NSError *error){
         if(error){
             //do something

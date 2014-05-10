@@ -36,17 +36,14 @@
     [self createGame];	
 
     _gameNameField.placeholder = @"Game Name";
-    _firstMoveField.placeholder = @"Your Move";
-//    _gameNameField.delegate = self;
-//    _firstMoveField.delegate = self;
-    
-	// Do any additional setup after loading the view.
+    _gameNameField.delegate = self;
+    _gameMoveField.placeholder = @"First Move";
+    _gameMoveField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)createGame
@@ -67,33 +64,49 @@
     }];
 }
 
-- (IBAction)gameFirstMove:(id)sender
+- (IBAction)createGame:(id)sender
 {
+    [self gameFinishedCreating];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self gameFinishedCreating];
+    return YES;
+}
+
+-(void)gameFinishedCreating
+{
+    gameName = _gameNameField.text;
+    firstMove = _gameMoveField.text;
     
-    if ([_firstMoveField.text isEqualToString:@""]){
+    NSLog(@"In gameFinishedCreating");
+    
+    if([gameName isEqualToString:@""]){
+        return;
+    } else if([firstMove isEqualToString:@""]){
         return;
     }
     
-    NSLog(@"%@", _firstMoveField.text);
+    NSLog(@"Creating game");
     
-    
-}
-- (IBAction)gameNameField:(id)sender
-{
-
-    if ([_gameNameField.text isEqualToString:@""]){
-        return;
-    }
-    
-
-    
-}
-
-- (IBAction)sendData:(id)sender
-{
-    
-    [_game newCreateMoveWithWord: _firstMoveField.text];
-    _game.name = _gameNameField.text;
+    _game.name = gameName;
+    [_game newCreateMoveWithWord:firstMove];
     [_game saveGame];
+    
+    InGameViewController *gameController = [self.storyboard instantiateViewControllerWithIdentifier:@"InGameViewController"];
+    [gameController giveGame:_game];
+    [self.navigationController pushViewController:gameController animated:YES];
+    
+    NSLog(@"Pushed onto stack");
+    
+    NSMutableArray* navArray = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+    [navArray removeObjectAtIndex:1];
+    [self.navigationController setViewControllers:navArray animated:NO];
+    
+    NSLog(@"Removed from stack");
+    
+    return;
 }
+
 @end
