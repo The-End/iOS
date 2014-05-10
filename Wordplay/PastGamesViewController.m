@@ -29,6 +29,18 @@
     
     [PFGame loadActive:YES GamesWithBlock:^(NSArray *array, NSError *error){
         
+        if(!error){
+            
+            PFGame *game = [array objectAtIndex: 0];
+            
+            [PFGame loadGame:game WithBlock:^(PFGame *foundGame, NSError *newError){
+                if(!newError){
+                    NSLog(@"%@", foundGame);
+                }
+            }];
+            
+        }
+        
     }];
     
 	// Do any additional setup after loading the view.

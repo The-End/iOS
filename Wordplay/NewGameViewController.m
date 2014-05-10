@@ -67,10 +67,6 @@
     }];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *) textField{
-    NSLog(@"textFieldDidEndEditing");
-}
-
 - (IBAction)gameFirstMove:(id)sender
 {
     
@@ -80,7 +76,7 @@
     
     NSLog(@"%@", _firstMoveField.text);
     
-    [_game newCreateMoveWithWord: _firstMoveField.text forPlayer:nil];
+    [_game newCreateMoveWithWord: _firstMoveField.text];
     [_game saveGame];
     
 }

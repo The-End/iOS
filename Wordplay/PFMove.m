@@ -10,6 +10,8 @@
 
 @implementation PFMove
 
+@dynamic player;
+@dynamic time;
 @dynamic moveNumber;
 @dynamic type;
 @dynamic word;
@@ -20,6 +22,8 @@
     PFMove *newMove = [PFMove object];
     newMove.word = word;
     newMove.type = @"CREATE";
+    newMove.player = [PFUser currentUser];
+    newMove.time = [NSDate date];
     return newMove;
 }
 
@@ -28,24 +32,30 @@
     PFMove *newMove = [PFMove object];
     newMove.affectedMove = affectedMove;
     newMove.type = @"DELETE";
+    newMove.player = [PFUser currentUser];
+    newMove.time = [NSDate date];
     return newMove;
 }
 
-+(PFMove *) newInsertBeforeMove:(NSString *) word afterId:(PFMove *) afterMove
++(PFMove *) newInsertMove:(NSString *) word beforeId:(PFMove *) beforeMove
 {
     PFMove *newMove = [PFMove object];
     newMove.word = word;
-    newMove.affectedMove = afterMove;
+    newMove.affectedMove = beforeMove;
     newMove.type = @"INSERT_BEFORE";
+    newMove.player = [PFUser currentUser];
+    newMove.time = [NSDate date];
     return newMove;
 }
 
-+(PFMove *) newInsertAferMove:(NSString *) word afterId:(PFMove *) afterMove
++(PFMove *) newInsertMove:(NSString *) word afterId:(PFMove *) afterMove
 {
     PFMove *newMove = [PFMove object];
     newMove.word = word;
     newMove.affectedMove = afterMove;
     newMove.type = @"INSERT_AFTER";
+    newMove.player = [PFUser currentUser];
+    newMove.time = [NSDate date];
     return newMove;
 }
 
@@ -55,6 +65,8 @@
     PFMove *newMove = [PFMove object];
     newMove.affectedMove = lockedMove;
     newMove.type = @"LOCK";
+    newMove.player = [PFUser currentUser];
+    newMove.time = [NSDate date];
     return newMove;
 }
 
@@ -64,6 +76,8 @@
     newMove.affectedMove = switchedMove;
     newMove.word = word;
     newMove.type = @"SWITCH";
+    newMove.player = [PFUser currentUser];
+    newMove.time = [NSDate date];
     return newMove;
 }
 

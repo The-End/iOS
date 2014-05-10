@@ -11,6 +11,8 @@
 
 @interface PFMove : PFObject<PFSubclassing>
 
+@property PFUser *player;
+@property NSDate *time;
 @property int moveNumber;
 @property NSString * type;
 @property NSString * word;
@@ -20,9 +22,9 @@
 
 +(PFMove *) newDeleteMove:(PFMove *) affectedId;
 
-+(PFMove *) newInsertBeforeMove:(NSString *) word afterId:(PFMove *) afterId;
++(PFMove *) newInsertMove:(NSString *) word beforeId:(PFMove *) beforeId;
 
-+(PFMove *) newInsertAfterMove:(NSString *) word afterId:(PFMove *) afterId;
++(PFMove *) newInsertMove:(NSString *) word afterId:(PFMove *) afterId;
 
 +(PFMove *) newLockMove:(PFMove *) affectedId;
 

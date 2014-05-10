@@ -42,7 +42,7 @@
 		9362F3A7191D78B500BD61C9 /* NewGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3A6191D78B500BD61C9 /* NewGameViewController.m */; };
 		9362F3AA191D974500BD61C9 /* PFMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3A9191D974500BD61C9 /* PFMove.m */; };
 		9362F3AD191DA86600BD61C9 /* PFGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3AC191DA86600BD61C9 /* PFGame.m */; };
-		9362F3B0191DADD900BD61C9 /* PFPlayerMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3AF191DADD900BD61C9 /* PFPlayerMove.m */; };
+		9362F3B3191DC3C400BD61C9 /* PastGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3B2191DC3C400BD61C9 /* PastGamesViewController.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,8 +84,6 @@
 		3D4B13DC18DC7F40007D3C90 /* WordplayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordplayTests.m; sourceTree = "<group>"; };
 		3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveGamesViewController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/ActiveGamesViewController.h"; sourceTree = "<absolute>"; };
 		3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveGamesViewController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/ActiveGamesViewController.m"; sourceTree = "<absolute>"; };
-		3D6BCF3F18E72045000B879B /* PastGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PastGamesViewController.h; path = "/Users/mann-wood/git/407/iOS/Wordplay/PastGamesViewController.h"; sourceTree = "<absolute>"; };
-		3D6BCF4018E72045000B879B /* PastGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PastGamesViewController.m; path = "/Users/mann-wood/git/407/iOS/Wordplay/PastGamesViewController.m"; sourceTree = "<absolute>"; };
 		3D7330501904A90100EBD44C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3D7330521904A90900EBD44C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3D7330541904A90E00EBD44C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -112,8 +110,8 @@
 		9362F3A9191D974500BD61C9 /* PFMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMove.m; sourceTree = "<group>"; };
 		9362F3AB191DA86600BD61C9 /* PFGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFGame.h; sourceTree = "<group>"; };
 		9362F3AC191DA86600BD61C9 /* PFGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFGame.m; sourceTree = "<group>"; };
-		9362F3AE191DADD900BD61C9 /* PFPlayerMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPlayerMove.h; sourceTree = "<group>"; };
-		9362F3AF191DADD900BD61C9 /* PFPlayerMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPlayerMove.m; sourceTree = "<group>"; };
+		9362F3B1191DC3C400BD61C9 /* PastGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastGamesViewController.h; sourceTree = "<group>"; };
+		9362F3B2191DC3C400BD61C9 /* PastGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastGamesViewController.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -247,6 +245,8 @@
 		93CAE056190EF8CE0046A811 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9362F3B1191DC3C400BD61C9 /* PastGamesViewController.h */,
+				9362F3B2191DC3C400BD61C9 /* PastGamesViewController.m */,
 				9362F3A5191D78B500BD61C9 /* NewGameViewController.h */,
 				9362F3A6191D78B500BD61C9 /* NewGameViewController.m */,
 				9362F39F191D722B00BD61C9 /* LoginController.h */,
@@ -262,8 +262,6 @@
 				3D22F7D0191D5C52000D6157 /* ContinuedGameViewController.m */,
 				3D7330681904B6CB00EBD44C /* FBFriendsViewController.h */,
 				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
-				3D6BCF3F18E72045000B879B /* PastGamesViewController.h */,
-				3D6BCF4018E72045000B879B /* PastGamesViewController.m */,
 				3D6BCF3C18E7200C000B879B /* ActiveGamesViewController.h */,
 				3D6BCF3D18E7200C000B879B /* ActiveGamesViewController.m */,
 			);
@@ -275,8 +273,6 @@
 			children = (
 				9362F3AB191DA86600BD61C9 /* PFGame.h */,
 				9362F3AC191DA86600BD61C9 /* PFGame.m */,
-				9362F3AE191DADD900BD61C9 /* PFPlayerMove.h */,
-				9362F3AF191DADD900BD61C9 /* PFPlayerMove.m */,
 				9362F3A8191D974500BD61C9 /* PFMove.h */,
 				9362F3A9191D974500BD61C9 /* PFMove.m */,
 			);
@@ -388,9 +384,9 @@
 				9362F3AA191D974500BD61C9 /* PFMove.m in Sources */,
 				9362F39E191D6FB800BD61C9 /* WordPlayRootViewController.m in Sources */,
 				9362F3A1191D722B00BD61C9 /* LoginController.m in Sources */,
-				9362F3B0191DADD900BD61C9 /* PFPlayerMove.m in Sources */,
 				9362F3AD191DA86600BD61C9 /* PFGame.m in Sources */,
 				3D22F7D1191D5C52000D6157 /* ContinuedGameViewController.m in Sources */,
+				9362F3B3191DC3C400BD61C9 /* PastGamesViewController.m in Sources */,
 				9362F3A7191D78B500BD61C9 /* NewGameViewController.m in Sources */,
 				3D4130A11911AA0200389CBA /* FBFriendPickerAppInstalled.m in Sources */,
 			);
