@@ -143,8 +143,8 @@
     
     }
     
-    if (![inputType isEqualToString:@"Change"]) {
-        inputType = @"Change";
+    if (![inputType isEqualToString:@"Create"]) {
+        inputType = @"Create";
         [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
     }
     
@@ -217,6 +217,7 @@
                                               cancelButtonTitle:@"Yes"
                                               otherButtonTitles:@"No", nil];
         [alert show];
+        
     }
     
     if ([selected.titleLabel.text isEqualToString:@"Delete"]){
@@ -233,12 +234,37 @@
         [alert show];
     }
     
-    
-    [selected.superview removeFromSuperview];
-    if (!textInputUp){
+    if ([selected.titleLabel.text isEqualToString:@"Insert Before"]){
+        inputType = @"Insert Before";
+        [self.inputTextField becomeFirstResponder];
         [self textBoxAnimateUp:YES];
+        self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word before \"%@\"...", selected.word];
         textInputUp = YES;
     }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Insert After"]){
+        inputType = @"Insert After";
+        [self.inputTextField becomeFirstResponder];
+        [self textBoxAnimateUp:YES];
+        self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word after \"%@\"...", selected.word];
+        textInputUp = YES;
+        }
+    if ([selected.titleLabel.text isEqualToString:@"Change"]){
+        inputType = @"Change";
+        [self.inputTextField becomeFirstResponder];
+        [self textBoxAnimateUp:YES];
+        self.inputTextField.placeholder = [NSString stringWithFormat:@"Change \"%@\" to...", selected.word];
+        textInputUp = YES;
+    }
+    if ([selected.titleLabel.text isEqualToString:@"Change"]) {
+        [self textBoxAnimateUp:YES];
+        inputType = @"Create";
+
+    }
+    [self textBoxAnimateUp:YES];
+    textInputUp = YES;
+    [selected.superview removeFromSuperview];
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{\
@@ -268,11 +294,17 @@
 
     }
     
-    if([actionAfterAlertView isEqualToString:@"Lock"]){
+    if([actionAfterAlertView isEqualToString:@"Lock"] && buttonIndex == [alertView cancelButtonIndex]){
         
         pointsLeft -= 7;
         [game newLockMove:buttonForAlertView.move];
         [self refreshGame];
+    }
+    inputType =@"Create";
+    self.inputTextField.placeholder =[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4];
+    if (!textInputUp){
+        [self textBoxAnimateUp:YES];
+        textInputUp = YES;
     }
 }
 
@@ -289,7 +321,6 @@
     NSMutableArray *displayedMoves = [[NSMutableArray alloc] init];
     for(PFMove *move in moves){
         if([move.type isEqualToString:@"CREATE"]){
-            NSLog(@"Create");
             [displayedMoves addObject:move];
         } else if([move.type isEqualToString:@"INSERT_BEFORE"]){
             NSLog(@"INSERT_BEFORE");
@@ -430,7 +461,7 @@
         [self.parentViewOfText addSubview:inputText];
         self.inputTextField = inputText;
         [self.inputTextField setDelegate:self];
-        [self.inputTextField setPlaceholder:@"Add new word!"];
+        [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
     }
 
 }
@@ -464,10 +495,11 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    
     [textField resignFirstResponder];
     NSString *word = textField.text;
     NSArray *temp = [word componentsSeparatedByString:@" "];
-    NSLog(@"%@", inputType);
+    NSLog(@"%@ HERE", inputType);
    
   
     if ([inputType isEqualToString:@"Create"]) {
@@ -493,11 +525,11 @@
             [alert show];
         }
         
-        return NO;
+    
     }
     for (int i = 0; i < temp.count; i ++) {
         pointsLeft -= 4;
-        [game newCreateMoveWithWord:word];
+        [game newCreateMoveWithWord:[temp objectAtIndex:i]];
 
     }
     
@@ -521,7 +553,7 @@
         [self refreshGame];
     }
     
-    inputType = @"Change";
+    inputType = @"Create";
     [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
     
     
