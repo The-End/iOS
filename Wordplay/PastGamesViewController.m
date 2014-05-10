@@ -26,6 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [PFGame loadActive:YES GamesWithBlock:^(NSArray *array, NSError *error){
+        
+    }];
+    
 	// Do any additional setup after loading the view.
 }
 

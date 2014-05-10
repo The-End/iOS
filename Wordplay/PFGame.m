@@ -131,6 +131,35 @@
     }
 }
 
++(void) loadActive:(BOOL)active GamesWithBlock:(void(^)(NSArray *array, NSError *error))block
+{
+    PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
+    [gameQuery whereKey:@"active" equalTo:[NSNumber numberWithBool:active]];
+    
+    [gameQuery findObjectsInBackgroundWithBlock:block];
+}
+
++(void) loadGame:(PFGame *)game WithBlock:(void(^)(PFGame *game, NSError *error))block
+{
+    PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
+    [gameQuery whereKey:@"objectId" equalTo:game.objectId];
+    [gameQuery includeKey:@"playerMoves"];
+    
+    [gameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *firstError) {
+        
+        if(firstError){
+            block(nil, firstError);
+        } else {
+            
+            for(PFGame *pfGame in objects){
+                NSLog(@"%@", pfGame);
+            }
+            
+        }
+        
+    }];
+}
+
 +(NSString *)parseClassName
 {
     return @"PFGame";

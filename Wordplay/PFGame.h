@@ -40,6 +40,10 @@
 
 -(void) saveGame;
 
++(void) loadActive:(BOOL)active GamesWithBlock:(void(^)(NSArray *array, NSError *error))block;
+
++(void) loadGame:(PFGame *)game WithBlock:(void(^)(PFGame *game, NSError *error))block;
+
 +(NSString *)parseClassName;
 
 @end
