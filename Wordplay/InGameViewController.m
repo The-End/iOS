@@ -46,6 +46,14 @@
     [self setupViewElements];
     [self registerForKeyboardNotifications];
     
+    moveTypes = [[NSMutableArray alloc] init];
+    [moveTypes addObject:@"Delete"];
+    [moveTypes addObject:@"Lock"];
+    [moveTypes addObject:@"Change"];
+    [moveTypes addObject:@"Insert Before"];
+    [moveTypes addObject:@"Insert After"];
+    [moveTypes addObject:@"Close"];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -106,6 +114,182 @@
 -(void)buttonMethod:(id)sender
 {
     
+    UIScrollView *optionsMenu;
+    CustomButton *selected = (CustomButton *)sender;
+    buttonForAlertView = selected;
+    
+    for (CustomButton *button in buttons) {
+        if (button.pressed == YES) {
+            [button.associatedView removeFromSuperview];
+            button.pressed = NO;
+        }
+    }
+    selected.pressed = YES;
+    
+    NSString *longest = @"Insert Before";
+    CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
+    
+    if ((selected.frame.origin.x + longestSize.width) > (self.parentView.frame.origin.x + self.parentView.frame.size.width)){
+        optionsMenu = [[UIScrollView alloc] initWithFrame:CGRectMake((self.parentView.frame.size.width - (longestSize.width+10)),(selected.frame.origin.y + selected.frame.size.height),longestSize.width + 10,(moveTypes.count*longestSize.height + (moveTypes.count + 1)*5))];
+        
+    } else {
+        optionsMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(selected.frame.origin.x,(selected.frame.origin.y + selected.frame.size.height),longestSize.width + 10,(moveTypes.count*longestSize.height + (moveTypes.count + 1)*5))];
+    }
+    
+    [optionsMenu setBackgroundColor:[UIColor lightGrayColor]];
+    
+    for (int i = 0; i < moveTypes.count; i++){
+        
+        CustomButton *button = [CustomButton buttonWithType:UIButtonTypeRoundedRect];
+        [button addTarget:self action:@selector(activitySelected:) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:[moveTypes objectAtIndex:i] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        CGSize stringsize = [[moveTypes objectAtIndex: i] sizeWithFont:[UIFont systemFontOfSize:15]];
+        
+        
+        button.frame = CGRectMake(5, (5+i*23), stringsize.width, stringsize.height);
+        [button setBackgroundColor:[UIColor whiteColor]];
+        button.numberInSentence = selected.numberInSentence;
+        button.word = selected.titleLabel.text;
+        
+        [optionsMenu addSubview:button];
+    }
+    
+    [self.parentView addSubview:optionsMenu];
+    selected.associatedView = optionsMenu;
+    
+
+}
+
+-(void) activitySelected:(id)sender{
+    
+    CustomButton *selected = (CustomButton *)sender;
+    actionAfterAlertView = selected.titleLabel.text;
+    
+    if ([selected.titleLabel.text isEqualToString:@"Lock"]){
+        
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Are you sure you want to lock the word \""];
+        [text appendString:selected.word];
+        [text appendString:@"\"?"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:text
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"Yes"
+                                              otherButtonTitles:@"No", nil];
+        [alert show];
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Delete"]){
+        
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Are you sure you want to delete the word \""];
+        [text appendString:selected.word];
+        [text appendString:@"\"?"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:text
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"Yes"
+                                              otherButtonTitles:@"No", nil];
+        [alert show];
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Change"]){
+        
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Change \""];
+        [text appendString:selected.word];
+        [text appendString:@"\" To:"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Change" otherButtonTitles:@"Cancel", nil];
+        UITextField * alertTextField = [[UITextField alloc] init];
+        alertTextField.placeholder = @"Your input must be one word!";
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+        [alertTextField becomeFirstResponder];
+        [alert show];
+        
+        
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Insert Before"]) {
+        
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Enter word to insert before \""];
+        [text appendString:selected.word];
+        [text appendString:@"\":"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Insert" otherButtonTitles:@"Cancel", nil];
+        UITextField * alertTextField = [[UITextField alloc] init];
+        alertTextField.placeholder = @"Your input must be one word!";
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+        [alertTextField becomeFirstResponder];
+        [alert show];
+        
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Insert After"]) {
+        
+        NSMutableString *text = [[NSMutableString alloc] init];
+        [text appendString:@"Enter word to insert After \""];
+        [text appendString:selected.word];
+        [text appendString:@"\":"];
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Insert" otherButtonTitles:@"Cancel", nil];
+        UITextField * alertTextField = [[UITextField alloc] init];
+        alertTextField.placeholder = @"Your input must be one word!";
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
+        [alertTextField becomeFirstResponder];
+        [alert show];
+        
+    }
+    
+    
+    [selected.superview removeFromSuperview];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{\
+    
+    if ([actionAfterAlertView isEqualToString:@"Delete"] ){
+        if (buttonIndex == [alertView cancelButtonIndex]){
+            pointsLeft -= 10;
+            [game newDeleteMove:buttonForAlertView.move];
+            [self refreshGame];
+        }
+    }
+    
+    if([actionAfterAlertView isEqualToString:@"Change"]){
+        
+        pointsLeft -= 15;
+        [game newSwitchMove:buttonForAlertView.move forWord:[alertView textFieldAtIndex:0].text];
+        [self refreshGame];
+    }
+    
+    if([actionAfterAlertView isEqualToString:@"Insert Before"]){
+        
+        pointsLeft -= 5;
+        [game newInsertWord:[alertView textFieldAtIndex:0].text beforeMove:buttonForAlertView.move];
+        [self refreshGame];
+    }
+    
+    if([actionAfterAlertView isEqualToString:@"Insert After"]){
+        
+        pointsLeft -= 5;
+        [game newInsertWord:[alertView textFieldAtIndex:0].text afterMove:buttonForAlertView.move];
+        [self refreshGame];
+    }
+    
+    if([actionAfterAlertView isEqualToString:@"Lock"]){
+        
+        pointsLeft -= 7;
+        [game newLockMove:buttonForAlertView.move];
+        [self refreshGame];
+    }
+    
+//    if (textview){
+//        
+//        [self.lockedArray addObject:wordToPassToAlertView];
+//        
+//    }
 }
 
 -(void)makeButtonsFromGame

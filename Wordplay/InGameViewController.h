@@ -19,6 +19,9 @@
     int heightOfKeyboard;
     int currentStringLength;
     int currentStringHeight;
+    NSMutableArray *moveTypes;
+    CustomButton *buttonForAlertView;
+    NSString *actionAfterAlertView;
     
 }
 
@@ -37,6 +40,8 @@
 -(void)refreshGame;
 
 -(void)buttonMethod:(id) sender;
+
+-(void) activitySelected:(id)sender;
 
 -(void)makeButtonsFromGame;
 
