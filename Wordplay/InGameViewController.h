@@ -34,9 +34,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLeftLabel;
 
-
--(void)displayScore;
-
 -(void)updateScore;
 
 -(void)showGame;

@@ -54,46 +54,13 @@
             }
         } else if (user.isNew) {
             
-            //[self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             
-            //[self loadUserData];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];
     
 }
-
-/*- (void)loadUserData
-{
-    FBRequest *request = [FBRequest requestForMe];
-    
-    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        if (!error) {
-            // result is a dictionary with the user's Facebook data
-            NSDictionary *userData = (NSDictionary *)result;
-            
-            User *user = [User createNewUser: context];
-            
-            [user setFacebookId: userData[@"id"]];
-            [user setBirthday: userData[@"birthday"]];
-            [user setUsername: userData[@"name"]];
-            [user setMainUser: [NSNumber numberWithBool:YES]];
-            [user save: context];
-            
-        }
-    }];
-}*/
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -99,6 +99,7 @@
 
 -(void)showGame
 {
+    buttons = [[NSArray alloc] init];
     [self makeButtonsFromGame];
     
     for(CustomButton *button in buttons){
@@ -106,25 +107,26 @@
         [self.parentView addSubview:button];
     }
     
+    if(game.active){
+        CustomButton *secondToLastButton = [buttons objectAtIndex:[buttons count] - 2];
+        CustomButton *lastButton = [buttons objectAtIndex:[buttons count] - 1];
+        if([secondToLastButton.move.word caseInsensitiveCompare:@"the"] == NSOrderedSame && [lastButton.move.word caseInsensitiveCompare:@"end"] == NSOrderedSame){
+            game.active = NO;
+            [game saveGame];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The End"
+                                                            message:@"Ya done did it."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [self refreshGame];
+        }
+    }
+    
 }
 
 -(void)refreshGame
 {
-    
-    if(pointsLeft < 4){
-        myTurn = NO;
-        [game saveGame];
-        [self setupViewElements];
-    }
-    
-    NSString *announcement;
-    if(myTurn){
-        announcement = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
-    } else {
-        announcement = @"It's not your turn";
-    }
-    
-    [self.pointsLeftLabel setText:announcement];
     
     currentStringLength = 0;
     currentStringHeight = 0;
@@ -133,28 +135,44 @@
         [button removeFromSuperview];
     }
     
+    NSString *announcement;
+    if(!game.active){
+        announcement = @"The End";
+        pointsLeft = 0;
+    } else if(myTurn){
+        announcement = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
+    } else {
+        PFUser *me =[PFUser currentUser];
+        if([me.objectId isEqualToString:game.owner.objectId]){
+            announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.player];
+            NSLog(@"It's %@\'s turn", game.player[@"name"]);
+        } else {
+            announcement = [NSString stringWithFormat:@"It's %@\'s turn", game.owner];
+            NSLog(@"It's %@\'s turn", game.player[@"name"]);
+        }
+    }
+    
+    if(pointsLeft < 4){
+        myTurn = NO;
+        [game saveGame];
+        [self setupViewElements];
+    }
+    
+    [self.pointsLeftLabel setText:announcement];
+    
     [self showGame];
 }
 
 -(void)buttonMethod:(id)sender
 {
-    if (selectedButton == sender) {
+    if (selectedButton == sender || selectedButton != nil) {
         return;
     }
-    selectedButton = sender;
+    
     
     [self.inputTextField resignFirstResponder];
     
-    if (textInputUp) {
-        [self textBoxAnimateUp:NO];
-        textInputUp = !textInputUp;
-    }
-    else{
-        
-        [self textBoxAnimateUp:YES];
-        textInputUp = !textInputUp;
-    
-    }
+   
     
     if (![inputType isEqualToString:@"Create"]) {
         inputType = @"Create";
@@ -176,6 +194,17 @@
     if(!myTurn || selected.locked){
         return;
     }
+    if (textInputUp) {
+        [self textBoxAnimateUp:NO];
+        textInputUp = !textInputUp;
+    }
+    else{
+        
+        [self textBoxAnimateUp:YES];
+        textInputUp = !textInputUp;
+        
+    }
+    selectedButton = sender;
     
     NSString *longest = @"Insert Before";
     CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
@@ -270,6 +299,7 @@
     [self textBoxAnimateUp:YES];
     textInputUp = YES;
     [selected.superview removeFromSuperview];
+    selectedButton = nil;
     
 }
 
@@ -281,23 +311,6 @@
             [game newDeleteMove:buttonForAlertView.move];
             [self refreshGame];
         }
-    }
-    
-    if([actionAfterAlertView isEqualToString:@"Change"]){
-        
-        pointsLeft -= 15;
-        //[game newSwitchMove:buttonForAlertView.move forWord:[alertView textFieldAtIndex:0].text];
-        [self refreshGame];
-    }
-    
-    if([actionAfterAlertView isEqualToString:@"Insert Before"]){
-        
-
-    }
-    
-    if([actionAfterAlertView isEqualToString:@"Insert After"]){
-        
-
     }
     
     if([actionAfterAlertView isEqualToString:@"Lock"] && buttonIndex == [alertView cancelButtonIndex]){
@@ -329,38 +342,34 @@
         if([move.type isEqualToString:@"CREATE"]){
             [displayedMoves addObject:move];
         } else if([move.type isEqualToString:@"INSERT_BEFORE"]){
-            NSLog(@"INSERT_BEFORE");
             
             int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
             [displayedMoves insertObject:move atIndex:index];
             
         } else if([move.type isEqualToString:@"INSERT_AFTER"]){
-            NSLog(@"INSERT_AFTER");
             
             int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
             [displayedMoves insertObject:move atIndex:index + 1];
             
         } else if([move.type isEqualToString:@"SWITCH"]){
-            NSLog(@"SWITCH");
             
             int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
             [displayedMoves removeObjectAtIndex:index];
             [displayedMoves insertObject:move atIndex:index];
             
         } else if([move.type isEqualToString:@"DELETE"]){
-            NSLog(@"DELETE");
+            
             int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
             [displayedMoves removeObjectAtIndex:index];
         }if([move.type isEqualToString:@"LOCK"]){
+            
             [displayedMoves addObject:move];
-            NSLog(@"found lock move in moves");
         }
     }
     
     for(PFMove *move in displayedMoves){
         
         if([move.type isEqualToString:@"LOCK"]){
-            NSLog(@"Found Lock Move in displayed Moves");
             CustomButton *button = [self findButtonInArray:buttonsArray WithMove:move.affectedMove];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             button.locked = YES;
