@@ -284,10 +284,7 @@
         [self.inputTextField becomeFirstResponder];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Change \"%@\" to...", selected.word];
     }
-    if ([selected.titleLabel.text isEqualToString:@"Change"]) {
-        inputType = @"Create";
-
-    }
+   
     [self textBoxAnimateUp:YES];
     textInputUp = YES;
     [selected.superview removeFromSuperview];
@@ -307,9 +304,7 @@
     
     if([actionAfterAlertView isEqualToString:@"Change"]){
         
-        pointsLeft -= 15;
-        //[game newSwitchMove:buttonForAlertView.move forWord:[alertView textFieldAtIndex:0].text];
-        [self refreshGame];
+    
     }
     
     if([actionAfterAlertView isEqualToString:@"Insert Before"]){
@@ -529,7 +524,18 @@
     NSArray *temp = [word componentsSeparatedByString:@" "];
     NSLog(@"%@ HERE", inputType);
    
-  
+    
+    if ([inputType isEqualToString:@"Change"] && [word isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Move. Cannot change word to nothing! Duh!"
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        inputType = @"Create";
+        return YES;
+    }
+    
     if ([inputType isEqualToString:@"Create"]) {
      
     if([word isEqualToString:@""] || temp.count > pointsLeft/4 ){
@@ -566,19 +572,19 @@
     if ([inputType isEqualToString:@"Insert Before"]) {
         pointsLeft -= 5;
         [game newInsertWord:textField.text beforeMove:buttonForAlertView.move];
-        [self refreshGame];
+        
     }
     
     if ([inputType isEqualToString:@"Insert After"]) {
         pointsLeft -= 5;
         [game newInsertWord:textField.text afterMove:buttonForAlertView.move];
-        [self refreshGame];
+        
     }
     
     if ([inputType isEqualToString:@"Change"]) {
         pointsLeft -= 15;
         [game newSwitchMove:buttonForAlertView.move forWord:textField.text];
-        [self refreshGame];
+
     }
     
     inputType = @"Create";
