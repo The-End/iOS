@@ -30,6 +30,21 @@
     
 }
 
+-(BOOL)isMyTurn
+{
+    if(!self.moves || [self.moves count] == 0){
+        return true;
+    }
+    
+    NSArray *orderedMoves = [self getMovesInOrder];
+    PFMove *lastMove = [orderedMoves objectAtIndex:[orderedMoves count] - 1];\
+    PFUser *currentUser = [PFUser currentUser];
+    if([lastMove.player.objectId isEqualToString:currentUser.objectId]){
+        return false;
+    }
+    return true;
+}
+
 -(void) setGameAsFinished
 {
     self.active = NO;
@@ -114,6 +129,12 @@
 
 +(void) loadGame:(PFGame *)game WithBlock:(void(^)(PFGame *game, NSError *error))block
 {
+    
+    if(!game.objectId){
+        block(game, nil);
+        return;
+    }
+    
     PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
     [gameQuery whereKey:@"objectId" equalTo:game.objectId];
     [gameQuery includeKey:@"moves"];

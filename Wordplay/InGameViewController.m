@@ -33,15 +33,6 @@
     
     pointsLeft = 16;
     
-    [PFGame loadGame:game WithBlock:^(PFGame *foundGame, NSError *error){
-        if(error){
-            //do something
-        } else {
-            game = foundGame;
-            [self showGame];
-        }
-    }];
-    
     currentStringHeight = 0;
     currentStringLength = 0;
     [self setupViewElements];
@@ -56,6 +47,16 @@
     [moveTypes addObject:@"Close"];
     textInputUp = YES;
     inputType = [NSString stringWithFormat:@"Create"];
+    
+    [PFGame loadGame:game WithBlock:^(PFGame *foundGame, NSError *error){
+        if(error){
+            //do something
+        } else {
+            game = foundGame;
+            myTurn = [game isMyTurn];
+            [self refreshGame];
+        }
+    }];
     
     // Do any additional setup after loading the view.
 }
@@ -147,6 +148,10 @@
         }
     }
     selected.pressed = YES;
+    
+    if(!myTurn || selected.locked){
+        return;
+    }
     
     NSString *longest = @"Insert Before";
     CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
@@ -341,10 +346,49 @@
     PFUser *currentUser = [PFUser currentUser];
     UIColor *myColor = [UIColor greenColor];
     UIColor *theirColor = [UIColor redColor];
+    
+    NSMutableArray *displayedMoves = [[NSMutableArray alloc] init];
     for(PFMove *move in moves){
-        
         if([move.type isEqualToString:@"CREATE"]){
+            NSLog(@"Create");
+            [displayedMoves addObject:move];
+        } else if([move.type isEqualToString:@"INSERT_BEFORE"]){
+            NSLog(@"INSERT_BEFORE");
             
+            int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
+            [displayedMoves insertObject:move atIndex:index];
+            
+        } else if([move.type isEqualToString:@"INSERT_AFTER"]){
+            NSLog(@"INSERT_AFTER");
+            
+            int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
+            [displayedMoves insertObject:move atIndex:index + 1];
+            
+        } else if([move.type isEqualToString:@"SWITCH"]){
+            NSLog(@"SWITCH");
+            
+            int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
+            [displayedMoves removeObjectAtIndex:index];
+            [displayedMoves insertObject:move atIndex:index];
+            
+        } else if([move.type isEqualToString:@"DELETE"]){
+            NSLog(@"DELETE");
+            int index = [self getIndexOfMove:move.affectedMove inArray:displayedMoves];
+            [displayedMoves removeObjectAtIndex:index];
+        }if([move.type isEqualToString:@"LOCK"]){
+            [displayedMoves addObject:move];
+            NSLog(@"found lock move in moves");
+        }
+    }
+    
+    for(PFMove *move in displayedMoves){
+        
+        if([move.type isEqualToString:@"LOCK"]){
+            NSLog(@"Found Lock Move in displayed Moves");
+            CustomButton *button = [self findButtonInArray:buttonsArray WithMove:move.affectedMove];
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            button.locked = YES;
+        } else {
             CustomButton *button = [self makeButtonWithWord:move.word];
             button.move = move;
             if([currentUser.objectId isEqualToString:move.player.objectId]){
@@ -353,22 +397,35 @@
                 [button setTitleColor:theirColor forState:UIControlStateNormal];
             }
             [buttonsArray addObject:button];
-            
-        } else if([move.type isEqualToString:@"INSERT_BEFORE"]){
-            
-        } else if([move.type isEqualToString:@"INSERT_AFTER"]){
-            
-        } else if([move.type isEqualToString:@"SWITCH"]){
-            
-        } else if([move.type isEqualToString:@"LOCK"]){
-            
-        } else if([move.type isEqualToString:@"DELETE"]){
-            
         }
-        
     }
     
     buttons = buttonsArray;
+}
+
+-(int)getIndexOfMove:(PFMove *)searchingFor inArray:(NSMutableArray *) array
+{
+    for(int i = 0; i < array.count; i++){
+        PFMove *found = [array objectAtIndex:i];
+        if([searchingFor.objectId isEqualToString:found.objectId]){
+            NSLog(@"Searching for:%@\nFound:%@\nAt index:%i", searchingFor, found, i);
+            return i;
+        }
+    }
+    
+    NSLog(@"Search failed: %@", searchingFor);
+    
+    return -1;
+}
+
+-(CustomButton *)findButtonInArray:(NSArray *)array WithMove:(PFMove *)move
+{
+    for(CustomButton *button in array){
+        if([button.move.objectId isEqualToString:move.objectId]){
+            return button;
+        }
+    }
+    return nil;
 }
 
 -(CustomButton *)makeButtonWithWord:(NSString *)word
@@ -409,7 +466,7 @@
     CGRect pointsFrame = CGRectMake(0.0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, 60);
     UILabel *pointsLabel = [[UILabel alloc] initWithFrame:pointsFrame];
     [pointsLabel setBackgroundColor:[UIColor orangeColor]];
-    NSString *pointsRemaining = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
+    NSString *pointsRemaining = [NSString stringWithFormat: @"Loading Game"];
     [pointsLabel setText:pointsRemaining];
     self.pointsLeftLabel = pointsLabel;
     [self.view addSubview:pointsLabel];

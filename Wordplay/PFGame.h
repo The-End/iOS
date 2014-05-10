@@ -21,6 +21,8 @@
 @property NSMutableArray * moves;
 @property PFUser * player;
 
+-(BOOL) isMyTurn;
+
 -(void) setGameAsFinished;
 
 -(void) setupNewGameWithPlayer:(PFUser *) user;

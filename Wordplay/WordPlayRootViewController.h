@@ -20,9 +20,6 @@
 
 - (IBAction)LogOutButtonAction:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
-@property NSMutableData *profilePictureData;
-
 @property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
 -(void) goToNewGame;
 - (IBAction)pastGamesButtonPushed:(id)sender;

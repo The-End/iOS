@@ -9,13 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "PFGame.h"
+#import "InGameViewController.h"
 
-@interface NewGameViewController : UIViewController //<UITextFieldDelegate>
- 
+@interface NewGameViewController : UIViewController <UITextFieldDelegate>
+{
+    NSString *gameName;
+    NSString *firstMove;
+}
+
 @property NSString * selectedFriendFacebookId;
-@property (strong) PFGame * game;
+@property PFGame * game;
 
 @property (weak, nonatomic) IBOutlet UITextField *gameNameField;
-@property (weak, nonatomic) IBOutlet UITextField *firstMoveField;
+@property (weak, nonatomic) IBOutlet UITextField *gameMoveField;
+
+- (IBAction)createGame:(id)sender;
 
 @end

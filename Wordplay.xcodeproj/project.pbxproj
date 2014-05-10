@@ -342,6 +342,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Blake Martin";
 				TargetAttributes = {
+					3D4B13AD18DC7F40007D3C90 = {
+						DevelopmentTeam = 9JS68U5Z7P;
+					};
 					3D4B13CE18DC7F40007D3C90 = {
 						TestTargetID = 3D4B13AD18DC7F40007D3C90;
 					};
@@ -537,7 +540,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/afs/cs.wisc.edu/u/b/l/blakem/Desktop/Wordplay/FacebookSDK,
@@ -549,6 +553,8 @@
 				INFOPLIST_FILE = "Wordplay/Wordplay-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -558,7 +564,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/afs/cs.wisc.edu/u/b/l/blakem/Desktop/Wordplay/FacebookSDK,
@@ -570,6 +577,8 @@
 				INFOPLIST_FILE = "Wordplay/Wordplay-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

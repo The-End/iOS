@@ -12,7 +12,7 @@
 
 @interface InGameViewController : UIViewController <UITextFieldDelegate>
 {
-    
+    BOOL myTurn;
     PFGame *game;
     int pointsLeft;
     NSArray *buttons;
