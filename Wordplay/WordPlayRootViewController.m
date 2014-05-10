@@ -41,13 +41,32 @@
         [self performSegueWithIdentifier:@"goToLoginController" sender:nil];
     } else {
         
-        /*NSURL *profileUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", user.facebookId]];
+        NSLog(@"Have user, loading");
         
-        profilePictureData = [[NSMutableData alloc] init];
-        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:profileUrl
-                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                              timeoutInterval:2.0f];
-        NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];*/
+        FBRequest *request = [FBRequest requestForMe];
+        
+        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            
+            if(error){
+                NSLog(@"Error getting me from Facebook via Parse");
+            } else {
+                NSDictionary *userData = (NSDictionary *) result;
+                
+                PFUser *user = [PFUser currentUser];
+                [user setObject:userData[@"id"] forKey:@"facebookId"];
+                
+                NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
+                
+                
+                _profilePictureData = [[NSMutableData alloc] init];
+                NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
+                                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                                      timeoutInterval:2.0f];
+                [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+            }
+            
+        }];
+        
     }
     
 }
@@ -205,9 +224,9 @@
 -(void) goToNewGame{
     
     NewGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"NewGameViewController"];
-    temp.selectedFriendsNewGame = selectedFriends;
-    NSLog(@"Selected friends: %@", temp.selectedFriendsNewGame);
-    NSLog(@"STEP 1");
+    NSDictionary *friendData = [selectedFriends objectAtIndex:0];
+    NSString *facebookId = [friendData objectForKey:@"id"];
+    temp.selectedFriendFacebookId = facebookId;
 
     [self.navigationController pushViewController:temp animated:YES];
     
@@ -223,6 +242,5 @@
     // Set the image in the header imageView
     _profilePicture.image = [UIImage imageWithData:_profilePictureData];
 }
-
 
 @end

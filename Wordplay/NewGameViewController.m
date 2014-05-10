@@ -32,33 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     NSLog(@"STEP 2");
-    moves = [[NSMutableArray alloc] init];
-    [moves addObject:@"Delete"];
-    [moves addObject:@"Lock"];
-    [moves addObject:@"Change"];
-    [moves addObject:@"Insert After"];
-    [moves addObject:@"Insert Before"];
-    [moves addObject:@"Close"];
     
-    //FBRequest *request = [FBRequest requestForGraphPath:@"/me/friends?fields=installed"];
-    
-    NSString *testString = [NSString stringWithFormat:@"This is a test string for our app This is a test string for our app This is a test string for our app"];
-    NSArray *testArray = [testString componentsSeparatedByString: @" "];
-    NSMutableArray *test = [testArray mutableCopy];
-    NSMutableArray *locked = [[NSMutableArray alloc] init];
-    for (int i = 0; i < testArray.count; i++) {
-        if (i % 2) {
-            [locked addObject:@"locked"];
-        }
-        else {
-        
-            [locked addObject:@"npot"];
-        }
-    }
-    [self displaySentencefromArray:test withMoves: locked];
-
-    [self createGame];
+    [self createGame];	
 
     _gameNameField.placeholder = @"Game Name";
     _firstMoveField.placeholder = @"Your Move";
