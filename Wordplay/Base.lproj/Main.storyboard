@@ -88,14 +88,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordPlayBackDrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="pxc-wD-vSb">
-                                <rect key="frame" x="-9" y="-52" width="334" height="598"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordPlayBackDrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="7z7-Wh-4EX">
+                                <rect key="frame" x="-6" y="-11" width="334" height="598"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-W5-bV1">
-                                <rect key="frame" x="-7" y="165" width="334" height="96"/>
+                                <rect key="frame" x="-7" y="345" width="334" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Game On" backgroundImage="fbLoginButton.png">
+                                <state key="normal" title="Let's Play!" backgroundImage="fbLoginButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -103,17 +103,21 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WdE-o2-oTf">
-                                <rect key="frame" x="20" y="89" width="280" height="30"/>
+                                <rect key="frame" x="20" y="254" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBG-5H-sJs">
-                                <rect key="frame" x="20" y="127" width="280" height="30"/>
+                                <rect key="frame" x="20" y="292" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smiley.png" translatesAutoresizingMaskIntoConstraints="NO" id="kVr-6e-p0g">
+                                <rect key="frame" x="72" y="79" width="177" height="179"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -144,7 +148,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordAppTextScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="kHc-S8-SKv">
-                                <rect key="frame" x="13" y="112" width="294" height="188"/>
+                                <rect key="frame" x="13" y="98" width="294" height="188"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
@@ -279,6 +283,7 @@
         <image name="WordPlayBackDrop1.png" width="334" height="598"/>
         <image name="WordPlayLoginScreen.png" width="334" height="598"/>
         <image name="fbLoginButton.png" width="334" height="96"/>
+        <image name="smiley.png" width="177" height="179"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

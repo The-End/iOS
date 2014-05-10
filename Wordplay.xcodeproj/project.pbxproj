@@ -51,6 +51,8 @@
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
 		E4D619FA191ED8C600B7F432 /* WordAppTextScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */; };
+		E4D619FE191EDF5700B7F432 /* WordPlayLogo1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619FD191EDF5700B7F432 /* WordPlayLogo1.png */; };
+		E4D61A00191EE07000B7F432 /* smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619FF191EE07000B7F432 /* smiley.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,8 @@
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordAppTextScreen.png; sourceTree = "<group>"; };
+		E4D619FD191EDF5700B7F432 /* WordPlayLogo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordPlayLogo1.png; sourceTree = "<group>"; };
+		E4D619FF191EE07000B7F432 /* smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,8 @@
 		3D4B13B818DC7F40007D3C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4D619FF191EE07000B7F432 /* smiley.png */,
+				E4D619FD191EDF5700B7F432 /* WordPlayLogo1.png */,
 				9362F3BC191E50DF00BD61C9 /* fbLoginButton.png */,
 				9362F3BD191E50DF00BD61C9 /* Wordplay.mobileprovision */,
 				9362F3BE191E50DF00BD61C9 /* WordPlayBackDrop1.png */,
@@ -384,7 +390,9 @@
 				9362F3C0191E50DF00BD61C9 /* fbLoginButton.png in Resources */,
 				3D4B13BC18DC7F40007D3C90 /* InfoPlist.strings in Resources */,
 				9362F3C1191E50DF00BD61C9 /* Wordplay.mobileprovision in Resources */,
+				E4D619FE191EDF5700B7F432 /* WordPlayLogo1.png in Resources */,
 				9362F3C3191E50DF00BD61C9 /* WordPlayLoginScreen.png in Resources */,
+				E4D61A00191EE07000B7F432 /* smiley.png in Resources */,
 				3D4B13C518DC7F40007D3C90 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
