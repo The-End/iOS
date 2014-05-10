@@ -121,7 +121,7 @@
     [gamePlayerQuery whereKey:@"active" equalTo:[NSNumber numberWithBool:active]];
     [gamePlayerQuery whereKey: @"player" equalTo:[PFUser currentUser]];
     
-    PFQuery *gameQuery = [PFQuery orQueryWithSubqueries:@[gameOwnerQuery, gameOwnerQuery]];
+    PFQuery *gameQuery = [PFQuery orQueryWithSubqueries:@[gameOwnerQuery, gamePlayerQuery]];
     [gameQuery includeKey:@"player"];
     [gameQuery includeKey:@"owner"];
     
