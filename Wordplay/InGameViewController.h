@@ -12,7 +12,7 @@
 
 @interface InGameViewController : UIViewController <UITextFieldDelegate>
 {
-    
+    BOOL myTurn;
     PFGame *game;
     int pointsLeft;
     NSArray *buttons;
@@ -30,8 +30,6 @@
 @property (weak, nonatomic) IBOutlet UIView *parentViewOfText;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLeftLabel;
-
--(void)displayScore;
 
 -(void)updateScore;
 

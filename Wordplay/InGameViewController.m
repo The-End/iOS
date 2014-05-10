@@ -37,7 +37,8 @@
             //do something
         } else {
             game = foundGame;
-            [self showGame];
+            myTurn = [game isMyTurn];
+            [self refreshGame];
         }
     }];
     
@@ -98,8 +99,19 @@
 -(void)refreshGame
 {
     
-    NSString *pointsRemaining = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
-    [self.pointsLeftLabel setText:pointsRemaining];
+    if(pointsLeft < 4){
+        myTurn = NO;
+        [self setupViewElements];
+    }
+    
+    NSString *announcement;
+    if(myTurn){
+        announcement = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
+    } else {
+        announcement = @"It's not your turn";
+    }
+    
+    [self.pointsLeftLabel setText:announcement];
     
     currentStringLength = 0;
     currentStringHeight = 0;
@@ -126,7 +138,7 @@
     }
     selected.pressed = YES;
     
-    if(selected.locked){
+    if(!myTurn || selected.locked){
         return;
     }
     
@@ -425,7 +437,7 @@
     CGRect pointsFrame = CGRectMake(0.0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, 60);
     UILabel *pointsLabel = [[UILabel alloc] initWithFrame:pointsFrame];
     [pointsLabel setBackgroundColor:[UIColor orangeColor]];
-    NSString *pointsRemaining = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
+    NSString *pointsRemaining = [NSString stringWithFormat: @"Loading Game"];
     [pointsLabel setText:pointsRemaining];
     self.pointsLeftLabel = pointsLabel;
     [self.view addSubview:pointsLabel];
@@ -442,14 +454,16 @@
     [self.view addSubview:textParent];
     self.parentViewOfText = textParent;
     
-    CGRect textRect = CGRectMake(10.0, 0.0, self.view.frame.size.width - 20, textParentFrame.size.height);
-    UITextField *inputText = [[UITextField alloc] initWithFrame:textRect];
-    [inputText setBackgroundColor:[UIColor whiteColor]];
-    [inputText setAlpha:0.5];
-    [self.parentViewOfText addSubview:inputText];
-    self.inputTextField = inputText;
-    [self.inputTextField setDelegate:self];
-    [self.inputTextField setPlaceholder:@"Add new word!"];
+    if(myTurn){
+        CGRect textRect = CGRectMake(10.0, 0.0, self.view.frame.size.width - 20, textParentFrame.size.height);
+        UITextField *inputText = [[UITextField alloc] initWithFrame:textRect];
+        [inputText setBackgroundColor:[UIColor whiteColor]];
+        [inputText setAlpha:0.5];
+        [self.parentViewOfText addSubview:inputText];
+        self.inputTextField = inputText;
+        [self.inputTextField setDelegate:self];
+        [self.inputTextField setPlaceholder:@"Add new word!"];
+    }
 
 }
 

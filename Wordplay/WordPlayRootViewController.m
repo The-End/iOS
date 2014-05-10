@@ -64,15 +64,6 @@
                 
                 PFUser *user = [PFUser currentUser];
                 [user setObject:userData[@"id"] forKey:@"facebookId"];
-                
-                NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", userData[@"id"]]];
-                
-                
-                _profilePictureData = [[NSMutableData alloc] init];
-                NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL
-                                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                                      timeoutInterval:2.0f];
-                [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
             }
             
         }];
@@ -250,17 +241,6 @@
     GameListViewController *activeGames = [self.storyboard instantiateViewControllerWithIdentifier:@"GameListViewController"];
     activeGames.active = YES;
     [self.navigationController pushViewController:activeGames animated:YES];
-}
-
-// Called every time a chunk of the data is received
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [_profilePictureData appendData:data]; // Build the image
-}
-
-// Called when the entire image is finished downloading
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // Set the image in the header imageView
-    _profilePicture.image = [UIImage imageWithData:_profilePictureData];
 }
 
 @end
