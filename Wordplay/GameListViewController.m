@@ -52,10 +52,18 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
     
-    ContinuedGameViewController *gameController = [self.storyboard instantiateViewControllerWithIdentifier:@"ContinuedGameViewController"];
+    InGameViewController *gameController = [self.storyboard instantiateViewControllerWithIdentifier:@"InGameViewController"];
     [gameController giveGame:[games objectAtIndex:indexPath.row]];
     
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
+                           forView:self.navigationController.view cache:NO];
+    
     [self.navigationController pushViewController:gameController animated:YES];
+    [UIView commitAnimations];
     
 }
 

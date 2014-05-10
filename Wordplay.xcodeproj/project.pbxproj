@@ -47,6 +47,7 @@
 		9362F3C2191E50DF00BD61C9 /* WordPlayBackDrop1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9362F3BE191E50DF00BD61C9 /* WordPlayBackDrop1.png */; };
 		9362F3C3191E50DF00BD61C9 /* WordPlayLoginScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 9362F3BF191E50DF00BD61C9 /* WordPlayLoginScreen.png */; };
 		9362F3C8191E525B00BD61C9 /* GameListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3C7191E525B00BD61C9 /* GameListViewController.m */; };
+		9362F3CB191E5E6B00BD61C9 /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3CA191E5E6B00BD61C9 /* InGameViewController.m */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,8 @@
 		9362F3BF191E50DF00BD61C9 /* WordPlayLoginScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordPlayLoginScreen.png; sourceTree = "<group>"; };
 		9362F3C6191E525B00BD61C9 /* GameListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListViewController.h; sourceTree = "<group>"; };
 		9362F3C7191E525B00BD61C9 /* GameListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListViewController.m; sourceTree = "<group>"; };
+		9362F3C9191E5E6B00BD61C9 /* InGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InGameViewController.h; sourceTree = "<group>"; };
+		9362F3CA191E5E6B00BD61C9 /* InGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InGameViewController.m; sourceTree = "<group>"; };
 		93BEF4DC18DCAEDB00F14022 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -278,14 +281,16 @@
 				3D7330691904B6CB00EBD44C /* FBFriendsViewController.m */,
 				3D6BCF3918E71FD2000B879B /* NewGameViewController.h */,
 				3D6BCF3A18E71FD2000B879B /* NewGameViewController.m */,
-				3D22F7CF191D5C52000D6157 /* ContinuedGameViewController.h */,
-				3D22F7D0191D5C52000D6157 /* ContinuedGameViewController.m */,
 				93BEF4DC18DCAEDB00F14022 /* LoginController.h */,
 				93BEF4DD18DCAEDB00F14022 /* LoginController.m */,
 				3D4B15DB18DC8C83007D3C90 /* WordPlayRootViewController.h */,
 				3D4B15DC18DC8C83007D3C90 /* WordPlayRootViewController.m */,
 				9362F3C6191E525B00BD61C9 /* GameListViewController.h */,
 				9362F3C7191E525B00BD61C9 /* GameListViewController.m */,
+				9362F3C9191E5E6B00BD61C9 /* InGameViewController.h */,
+				9362F3CA191E5E6B00BD61C9 /* InGameViewController.m */,
+				3D22F7CF191D5C52000D6157 /* ContinuedGameViewController.h */,
+				3D22F7D0191D5C52000D6157 /* ContinuedGameViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 				3D22F7D1191D5C52000D6157 /* ContinuedGameViewController.m in Sources */,
 				93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */,
 				3D6BCF3B18E71FD2000B879B /* NewGameViewController.m in Sources */,
+				9362F3CB191E5E6B00BD61C9 /* InGameViewController.m in Sources */,
 				3D4130A11911AA0200389CBA /* FBFriendPickerAppInstalled.m in Sources */,
 				3D4B15DD18DC8C83007D3C90 /* WordPlayRootViewController.m in Sources */,
 				3DE47B7B191DE16700AE9B23 /* PFMove.m in Sources */,

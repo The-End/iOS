@@ -39,7 +39,7 @@
 
 -(void) saveGame;
 
--(NSArray *) getMovesInOrder;
+-(NSArray *) getMovesInOrder;\
 
 +(void) loadActive:(BOOL)active GamesWithBlock:(void(^)(NSArray *array, NSError *error))block;
 

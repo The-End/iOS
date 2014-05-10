@@ -98,6 +98,19 @@
     }
 }
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    if(animated){
+        [UIView beginAnimations:@"View Flip" context:nil];
+        [UIView setAnimationDuration:0.80];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    
+        [UIView commitAnimations];
+    }
+}
+
 -(void) buttonMethod:(id)sender{
     
     UIScrollView *optionsMenu;
@@ -294,9 +307,6 @@
             previousButton = button;
             
         }
-        
-        
-        
         
         if (i > 0){
             

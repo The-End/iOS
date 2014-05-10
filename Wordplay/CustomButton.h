@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFMove.h"
 
 @interface CustomButton : UIButton
 
@@ -16,5 +17,6 @@
 @property int numberInSentence;
 @property UIScrollView *associatedView;
 @property NSMutableArray *sentence;
+@property PFMove *move;
 
 @end

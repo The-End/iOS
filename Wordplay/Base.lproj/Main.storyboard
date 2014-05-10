@@ -95,11 +95,10 @@
             </objects>
             <point key="canvasLocation" x="2547" y="-375"/>
         </scene>
-        <!--Continued Game View Controller-->
+        <!--In Game View Controller-->
         <scene sceneID="77c-xl-jS4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-JU-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="ContinuedGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mjN-sp-6Mi" customClass="ContinuedGameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mjN-sp-6Mi" customClass="InGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rf7-Uw-Nwn"/>
                         <viewControllerLayoutGuide type="bottom" id="kY2-Eo-zZ0"/>
@@ -112,7 +111,7 @@
                                 <rect key="frame" x="-7" y="-18" width="334" height="598"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="403EA3DF-17C8-4C24-B01E-93572B90A128" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-I2-z5s">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="910F501B-6EE0-4672-B7BD-C1EB50581F51" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-I2-z5s">
                                 <rect key="frame" x="-13" y="57" width="347" height="221"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
@@ -121,6 +120,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hWZ-Ef-c4i"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-JU-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3115" y="374"/>
         </scene>
@@ -247,7 +247,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="403EA3DF-17C8-4C24-B01E-93572B90A128" width="294" height="188">
+        <image name="910F501B-6EE0-4672-B7BD-C1EB50581F51" width="294" height="188">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
