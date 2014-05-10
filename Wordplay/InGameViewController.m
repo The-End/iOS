@@ -153,6 +153,14 @@
     
     if(pointsLeft < 4){
         myTurn = NO;
+        PFUser *user;
+        PFUser *me = [PFUser currentUser];
+        if([me.objectId isEqualToString:game.owner.objectId]){
+            user = game.player;
+        } else {
+            user = game.owner;
+        }
+        [game setActivePlayer:user];
         [game saveGame];
         [self setupViewElements];
     }
