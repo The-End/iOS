@@ -102,10 +102,19 @@
 -(void)refreshGame
 {
     
-    NSString *pointsRemaining = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
-    [self.pointsLeftLabel setText:pointsRemaining];
-    [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
+    if(pointsLeft < 4){
+        myTurn = NO;
+        [self setupViewElements];
+    }
     
+    NSString *announcement;
+    if(myTurn){
+        announcement = [NSString stringWithFormat: @"You have %i points remaining this round", pointsLeft];
+    } else {
+        announcement = @"It's not your turn";
+    }
+    
+    [self.pointsLeftLabel setText:announcement];
     
     currentStringLength = 0;
     currentStringHeight = 0;
@@ -483,14 +492,16 @@
     [self.view addSubview:textParent];
     self.parentViewOfText = textParent;
     
-    CGRect textRect = CGRectMake(10.0, 0.0, self.view.frame.size.width - 20, textParentFrame.size.height);
-    UITextField *inputText = [[UITextField alloc] initWithFrame:textRect];
-    [inputText setBackgroundColor:[UIColor whiteColor]];
-    [inputText setAlpha:0.5];
-    [self.parentViewOfText addSubview:inputText];
-    self.inputTextField = inputText;
-    [self.inputTextField setDelegate:self];
-    [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
+    if(myTurn){
+        CGRect textRect = CGRectMake(10.0, 0.0, self.view.frame.size.width - 20, textParentFrame.size.height);
+        UITextField *inputText = [[UITextField alloc] initWithFrame:textRect];
+        [inputText setBackgroundColor:[UIColor whiteColor]];
+        [inputText setAlpha:0.5];
+        [self.parentViewOfText addSubview:inputText];
+        self.inputTextField = inputText;
+        [self.inputTextField setDelegate:self];
+        [self.inputTextField setPlaceholder:@"Add new word!"];
+    }
 
 }
 
