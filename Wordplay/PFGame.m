@@ -56,7 +56,6 @@
     PFMove *createMove = [PFMove newCreateMove:word];
     createMove.moveNumber = [self.moves count];
     [self.moves addObject:createMove];
-    [self saveGame];
 }
 
 -(void) newDeleteMove:(PFMove *) move
@@ -65,7 +64,6 @@
     PFMove *deleteMove = [PFMove newDeleteMove:move];
     deleteMove.moveNumber = [self.moves count];
     [self.moves addObject:deleteMove];
-    [self saveGame];
 }
 
 -(void) newInsertWord:(NSString *) word beforeMove:(PFMove *) beforeMove
@@ -73,7 +71,6 @@
     PFMove *insertMove = [PFMove newInsertMove:word beforeId:beforeMove];
     insertMove.moveNumber = [self.moves count];
     [self.moves addObject:insertMove];
-    [self saveGame];
 }
 
 -(void) newInsertWord:(NSString *) word afterMove:(PFMove *) afterMove
@@ -81,7 +78,6 @@
     PFMove *insertMove = [PFMove newInsertMove:word afterId:afterMove];
     insertMove.moveNumber = [self.moves count];
     [self.moves addObject:insertMove];
-    [self saveGame];
 }
 
 -(void) newLockMove:(PFMove *) lockedMove
@@ -89,7 +85,6 @@
     PFMove *lockMove = [PFMove newLockMove:lockedMove];
     lockMove.moveNumber = [self.moves count];
     [self.moves addObject:lockMove];
-    [self saveGame];
 }
 
 -(void) newSwitchMove:(PFMove *) switched forWord:(NSString *) word
@@ -97,7 +92,6 @@
     PFMove *switchMove = [PFMove newSwitchMove:word onMove:switched];
     switchMove.moveNumber = [self.moves count];
     [self.moves addObject:switchMove];
-    [self saveGame];
 }
 
 -(void) saveGame

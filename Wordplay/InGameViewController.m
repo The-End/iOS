@@ -104,6 +104,7 @@
     
     if(pointsLeft < 4){
         myTurn = NO;
+        [game saveGame];
         [self setupViewElements];
     }
     
@@ -231,71 +232,9 @@
         [alert show];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Change"]){
-        
-        inputType = @"Change";
-        [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Change \"%@\" to...", selected.word]];
-        [self.inputTextField becomeFirstResponder];
-//        NSMutableString *text = [[NSMutableString alloc] init];
-//        [text appendString:@"Are you sure you want to change \""];
-//        [text appendString:selected.word];
-//        [text appendString:@"\" To (ADD WORD)?"];
-//        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Change" otherButtonTitles:@"Cancel", nil];
-        //UITextField * alertTextField = [[UITextField alloc] init];
-//        alertTextField.placeholder = @"Your input must be one word!";
-//        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-//        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
-//        [alertTextField becomeFirstResponder];
-//        [alert show];
-        
-        
-    }
-    
-    if ([selected.titleLabel.text isEqualToString:@"Insert Before"]) {
-        
-        inputType = @"Insert Before";
-        
-        [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Insert before \"%@\"...", selected.word]];
-        [self.inputTextField becomeFirstResponder];
-//        NSMutableString *text = [[NSMutableString alloc] init];
-//        [text appendString:@"Are you sure you want to insert (ADD WORD) before \""];
-//        [text appendString:selected.word];
-//        [text appendString:@"\"?"];
-//        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Insert" otherButtonTitles:@"Cancel", nil];
-//        UITextField * alertTextField = [[UITextField alloc] init];
-//        alertTextField.placeholder = @"Your input must be one word!";
-//        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-//        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
-//        [alertTextField becomeFirstResponder];
-//        [alert show];
-        
-    }
-    
-    if ([selected.titleLabel.text isEqualToString:@"Insert After"]) {
-        
-        
-        inputType = @"Insert After";
-        
-        [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Insert after \"%@\"...", selected.word]];
-        [self.inputTextField becomeFirstResponder];
-//        NSMutableString *text = [[NSMutableString alloc] init];
-//        [text appendString:@"Are you sure you want to insert (ADD WORD) after \""];
-//        [text appendString:selected.word];
-//        [text appendString:@"\"?"];
-//        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:text message:nil delegate:self cancelButtonTitle:@"Insert" otherButtonTitles:@"Cancel", nil];
-//        UITextField * alertTextField = [[UITextField alloc] init];
-//        alertTextField.placeholder = @"Your input must be one word!";
-//        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-//        alertTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
-//        [alertTextField becomeFirstResponder];
-//        [alert show];
-        
-    }
-    
     
     [selected.superview removeFromSuperview];
     if (!textInputUp){
-        
         [self textBoxAnimateUp:YES];
         textInputUp = YES;
     }
@@ -320,30 +259,20 @@
     
     if([actionAfterAlertView isEqualToString:@"Insert Before"]){
         
-        pointsLeft -= 5;
-        //[game newInsertWord:[alertView textFieldAtIndex:0].text beforeMove:buttonForAlertView.move];
-        [self refreshGame];
+
     }
     
     if([actionAfterAlertView isEqualToString:@"Insert After"]){
         
-        pointsLeft -= 5;
-        //[game newInsertWord:[alertView textFieldAtIndex:0].text afterMove:buttonForAlertView.move];
-        [self refreshGame];
+
     }
     
     if([actionAfterAlertView isEqualToString:@"Lock"]){
         
         pointsLeft -= 7;
-        //[game newLockMove:buttonForAlertView.move];
+        [game newLockMove:buttonForAlertView.move];
         [self refreshGame];
     }
-    
-//    if (textview){
-//        
-//        [self.lockedArray addObject:wordToPassToAlertView];
-//        
-//    }
 }
 
 -(void)makeButtonsFromGame
@@ -574,17 +503,21 @@
     }
     
     if ([inputType isEqualToString:@"Insert Before"]) {
-        
-        
-        
+        pointsLeft -= 5;
+        [game newInsertWord:textField.text beforeMove:buttonForAlertView.move];
+        [self refreshGame];
     }
     
     if ([inputType isEqualToString:@"Insert After"]) {
-        
+        pointsLeft -= 5;
+        [game newInsertWord:textField.text afterMove:buttonForAlertView.move];
+        [self refreshGame];
     }
     
     if ([inputType isEqualToString:@"Change"]) {
-        
+        pointsLeft -= 15;
+        [game newSwitchMove:buttonForAlertView.move forWord:textField.text];
+        [self refreshGame];
     }
     
     inputType = @"Change";
