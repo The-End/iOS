@@ -220,10 +220,6 @@
     return YES;
 }
 
-
-
-
-
 -(void) goToNewGame{
     
     NewGameViewController *temp = [self.storyboard instantiateViewControllerWithIdentifier:@"NewGameViewController"];

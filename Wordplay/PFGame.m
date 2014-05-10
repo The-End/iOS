@@ -81,10 +81,21 @@
     }
 }
 
+-(NSArray *) getMovesInOrder
+{
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"moveNumber"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    return [self.moves sortedArrayUsingDescriptors:sortDescriptors];
+}
+
 +(void) loadActive:(BOOL)active GamesWithBlock:(void(^)(NSArray *array, NSError *error))block
 {
     PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
     [gameQuery whereKey:@"active" equalTo:[NSNumber numberWithBool:active]];
+    [gameQuery includeKey:@"player"];
+    [gameQuery includeKey:@"owner"];
     
     [gameQuery findObjectsInBackgroundWithBlock:block];
 }
@@ -94,6 +105,8 @@
     PFQuery *gameQuery = [PFQuery queryWithClassName:@"PFGame"];
     [gameQuery whereKey:@"objectId" equalTo:game.objectId];
     [gameQuery includeKey:@"moves"];
+    [gameQuery includeKey:@"player"];
+    [gameQuery includeKey:@"owner"];
     
     [gameQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *firstError) {
         
