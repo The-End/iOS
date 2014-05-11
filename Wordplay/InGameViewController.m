@@ -489,7 +489,7 @@
     CustomButton *button = [[CustomButton alloc] init];
     [button setTitle:word forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
-    CGSize stringSize = [word sizeWithFont:[UIFont systemFontOfSize:20]];
+    CGSize stringSize = [word sizeWithFont:[UIFont systemFontOfSize:16]];
     
     float x = 0.0;
     if(stringSize.width + currentStringLength + 3 <= self.parentView.frame.size.width){

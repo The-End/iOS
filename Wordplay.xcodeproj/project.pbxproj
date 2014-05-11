@@ -50,6 +50,7 @@
 		9362F3CB191E5E6B00BD61C9 /* InGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9362F3CA191E5E6B00BD61C9 /* InGameViewController.m */; };
 		93BEF4DE18DCAEDB00F14022 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BEF4DD18DCAEDB00F14022 /* LoginController.m */; };
 		93E9B714190897F60064F384 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E9B713190897F60064F384 /* CoreData.framework */; };
+		E46D4E9D191F530000BE2C34 /* WordPlayMenuBackDrop.png in Resources */ = {isa = PBXBuildFile; fileRef = E46D4E9C191F530000BE2C34 /* WordPlayMenuBackDrop.png */; };
 		E4D619FA191ED8C600B7F432 /* WordAppTextScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */; };
 		E4D619FE191EDF5700B7F432 /* WordPlayLogo1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619FD191EDF5700B7F432 /* WordPlayLogo1.png */; };
 		E4D61A00191EE07000B7F432 /* smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619FF191EE07000B7F432 /* smiley.png */; };
@@ -132,6 +133,7 @@
 		93BEF4DD18DCAEDB00F14022 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		93E9B713190897F60064F384 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E46D4E92191F41CB00BE2C34 /* chatscreenOpacity80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatscreenOpacity80.png; sourceTree = "<group>"; };
+		E46D4E9C191F530000BE2C34 /* WordPlayMenuBackDrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordPlayMenuBackDrop.png; sourceTree = "<group>"; };
 		E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordAppTextScreen.png; sourceTree = "<group>"; };
 		E4D619FD191EDF5700B7F432 /* WordPlayLogo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordPlayLogo1.png; sourceTree = "<group>"; };
 		E4D619FF191EE07000B7F432 /* smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley.png; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		3D4B13B818DC7F40007D3C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E46D4E9C191F530000BE2C34 /* WordPlayMenuBackDrop.png */,
 				E46D4E92191F41CB00BE2C34 /* chatscreenOpacity80.png */,
 				E4D61A07191EFB0600B7F432 /* backdrop1.png */,
 				E4D61A05191EF90B00B7F432 /* WordPlayBackDrop2.png */,
@@ -398,7 +401,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E46D4E93191F41CB00BE2C34 /* chatscreenOpacity80.png in Resources */,
 				3D4B13CA18DC7F40007D3C90 /* Images.xcassets in Resources */,
 				E4D61A04191EF76C00B7F432 /* chatbackdrop.png in Resources */,
 				9362F3C2191E50DF00BD61C9 /* WordPlayBackDrop1.png in Resources */,
@@ -408,6 +410,7 @@
 				9362F3C0191E50DF00BD61C9 /* fbLoginButton.png in Resources */,
 				3D4B13BC18DC7F40007D3C90 /* InfoPlist.strings in Resources */,
 				9362F3C1191E50DF00BD61C9 /* Wordplay.mobileprovision in Resources */,
+				E46D4E9D191F530000BE2C34 /* WordPlayMenuBackDrop.png in Resources */,
 				E4D61A08191EFB0600B7F432 /* backdrop1.png in Resources */,
 				E4D619FE191EDF5700B7F432 /* WordPlayLogo1.png in Resources */,
 				9362F3C3191E50DF00BD61C9 /* WordPlayLoginScreen.png in Resources */,
