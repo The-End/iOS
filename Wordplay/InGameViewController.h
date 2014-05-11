@@ -25,7 +25,7 @@
     BOOL textInputUp;
     NSString *inputType;
     CustomButton *selectedButton;
-    BOOL userMoved;
+    BOOL turnEnding;
     
 }
 
