@@ -106,7 +106,7 @@
         [self.parentView addSubview:button];
     }
     
-    if(game.active){
+    if(game.active && buttons.count >= 2){
         CustomButton *secondToLastButton = [buttons objectAtIndex:[buttons count] - 2];
         CustomButton *lastButton = [buttons objectAtIndex:[buttons count] - 1];
         if([secondToLastButton.move.word caseInsensitiveCompare:@"the"] == NSOrderedSame && [lastButton.move.word caseInsensitiveCompare:@"end"] == NSOrderedSame){
@@ -174,8 +174,6 @@
     
     [self.inputTextField resignFirstResponder];
     
-   
-    
     if (![inputType isEqualToString:@"Create"]) {
         inputType = @"Create";
         [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
@@ -189,6 +187,8 @@
         if (button.pressed == YES) {
             [button.associatedView removeFromSuperview];
             button.pressed = NO;
+            textInputUp = !textInputUp;
+            break;
         }
     }
     selected.pressed = YES;
