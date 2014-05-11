@@ -431,7 +431,7 @@
         
         if([move.type isEqualToString:@"LOCK"]){
             CustomButton *button = [self findButtonInArray:buttonsArray WithMove:move.affectedMove];
-            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             button.locked = YES;
         } else {
             CustomButton *button = [self makeButtonWithWord:move.word];
@@ -510,7 +510,8 @@
 {
     CGRect pointsFrame = CGRectMake(0.0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, 60);
     UILabel *pointsLabel = [[UILabel alloc] initWithFrame:pointsFrame];
-    [pointsLabel setBackgroundColor:[UIColor orangeColor]];
+    [pointsLabel setBackgroundColor:[UIColor blackColor]];
+    [pointsLabel setTextColor:[UIColor whiteColor]];
     NSString *pointsRemaining = [NSString stringWithFormat: @"Loading Game"];
     [pointsLabel setText:pointsRemaining];
     self.pointsLeftLabel = pointsLabel;
