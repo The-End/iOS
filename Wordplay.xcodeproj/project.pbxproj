@@ -53,6 +53,7 @@
 		E4D619FA191ED8C600B7F432 /* WordAppTextScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */; };
 		E4D619FE191EDF5700B7F432 /* WordPlayLogo1.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619FD191EDF5700B7F432 /* WordPlayLogo1.png */; };
 		E4D61A00191EE07000B7F432 /* smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D619FF191EE07000B7F432 /* smiley.png */; };
+		E4D61A02191EF46400B7F432 /* chatscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D61A01191EF46400B7F432 /* chatscreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		E4D619F9191ED8C600B7F432 /* WordAppTextScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordAppTextScreen.png; sourceTree = "<group>"; };
 		E4D619FD191EDF5700B7F432 /* WordPlayLogo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WordPlayLogo1.png; sourceTree = "<group>"; };
 		E4D619FF191EE07000B7F432 /* smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smiley.png; sourceTree = "<group>"; };
+		E4D61A01191EF46400B7F432 /* chatscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatscreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 		3D4B13B818DC7F40007D3C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4D61A01191EF46400B7F432 /* chatscreen.png */,
 				E4D619FF191EE07000B7F432 /* smiley.png */,
 				E4D619FD191EDF5700B7F432 /* WordPlayLogo1.png */,
 				9362F3BC191E50DF00BD61C9 /* fbLoginButton.png */,
@@ -387,6 +390,7 @@
 				3D4B13CA18DC7F40007D3C90 /* Images.xcassets in Resources */,
 				9362F3C2191E50DF00BD61C9 /* WordPlayBackDrop1.png in Resources */,
 				E4D619FA191ED8C600B7F432 /* WordAppTextScreen.png in Resources */,
+				E4D61A02191EF46400B7F432 /* chatscreen.png in Resources */,
 				9362F3C0191E50DF00BD61C9 /* fbLoginButton.png in Resources */,
 				3D4B13BC18DC7F40007D3C90 /* InfoPlist.strings in Resources */,
 				9362F3C1191E50DF00BD61C9 /* Wordplay.mobileprovision in Resources */,

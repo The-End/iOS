@@ -143,6 +143,10 @@
                                 <rect key="frame" x="-7" y="-9" width="334" height="598"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="chatscreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-9T-4KA">
+                                <rect key="frame" x="2" y="132" width="316" height="390"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -278,6 +282,7 @@
         <image name="WordPlayBackDrop1.png" width="334" height="598"/>
         <image name="WordPlayLoginScreen.png" width="334" height="598"/>
         <image name="WordPlayLogo1.png" width="249" height="177"/>
+        <image name="chatscreen.png" width="316" height="390"/>
         <image name="fbLoginButton.png" width="334" height="96"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
