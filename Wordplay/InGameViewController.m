@@ -171,7 +171,6 @@
         return;
     }
     
-    
     [self.inputTextField resignFirstResponder];
     
     if (![inputType isEqualToString:@"Create"]) {
@@ -183,11 +182,12 @@
     CustomButton *selected = (CustomButton *)sender;
     buttonForAlertView = selected;
     
+    BOOL needToHideTextBox = YES;
     for (CustomButton *button in buttons) {
         if (button.pressed == YES) {
             [button.associatedView removeFromSuperview];
             button.pressed = NO;
-            textInputUp = !textInputUp;
+            needToHideTextBox = NO;
             break;
         }
     }
@@ -196,16 +196,12 @@
     if(!myTurn || selected.locked){
         return;
     }
-    if (textInputUp) {
+    NSLog(@"NeedToHideTextBox: %d", needToHideTextBox);
+    if(needToHideTextBox){
+        NSLog(@"NeedToHideTextBox: %d", needToHideTextBox);
         [self textBoxAnimateUp:NO];
-        textInputUp = !textInputUp;
     }
-    else{
-        
-        [self textBoxAnimateUp:YES];
-        textInputUp = !textInputUp;
-        
-    }
+    
     selectedButton = sender;
     
     NSString *longest = @"Insert Before";
@@ -338,6 +334,7 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
+    selectedButton.pressed = NO;
     [self textBoxAnimateUp:YES];
     textInputUp = YES;
     [selected.superview removeFromSuperview];
