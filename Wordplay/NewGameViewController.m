@@ -80,6 +80,12 @@
     gameName = _gameNameField.text;
     firstMove = _gameMoveField.text;
     
+    if([gameName isEqualToString:@""]){
+        return;
+    } else if([firstMove isEqualToString:@""]){
+        return;
+    }
+    
     NSArray *move = [firstMove componentsSeparatedByString:@" "];
     if([move count] > 4){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Too much word"
@@ -88,13 +94,6 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        return;
-    }
-    
-    
-    if([gameName isEqualToString:@""]){
-        return;
-    } else if([firstMove isEqualToString:@""]){
         return;
     }
     
