@@ -32,7 +32,10 @@
     [super viewDidLoad];
     
     pointsLeft = 16;
-    userMoved = NO;
+    turnEnding = NO;
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Finish Turn" style:UIBarButtonItemStylePlain target:self action:@selector(changeTurnPopup:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
     
     // Do any additional setup after loading the view.
 }
@@ -90,7 +93,7 @@
         [UIView commitAnimations];
     }
     
-    [self changeTurn];
+    [self changeTurn:NO];
     [game saveGame];
 }
 
@@ -134,10 +137,6 @@
 {
     [game saveGame];
     
-    if(pointsLeft != 16){
-        userMoved = YES;
-    }
-    
     currentStringLength = 0;
     currentStringHeight = 0;
     
@@ -146,8 +145,8 @@
     }
     
     
-    if(pointsLeft < 4){
-        [self changeTurn];
+    if(pointsLeft < 4 && [game isMyTurn]){
+        [self changeTurn:NO];
         [self setupViewElements];
     }
     
@@ -348,7 +347,15 @@
     
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{\
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(turnEnding){
+        if(buttonIndex == [alertView cancelButtonIndex]) {
+            [self changeTurn:YES];
+        } else {
+            turnEnding = NO;
+        }
+    }
     
     if ([actionAfterAlertView isEqualToString:@"Delete"] && pointsLeft/10 != 0){
         if (buttonIndex == [alertView cancelButtonIndex]){
@@ -727,10 +734,22 @@
     return YES;
 }
 
--(void)changeTurn
+-(void)changeTurnPopup:(id)selector
 {
     
-    if(userMoved){
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You Sure?"
+                                                    message:@"You've got more points. This doesn't have to be the end."
+                                                   delegate:self
+                                          cancelButtonTitle:@"I'm done"
+                                          otherButtonTitles:@"Cancel", nil];
+    [alert show];
+    turnEnding = YES;
+    
+}
+
+-(void)changeTurn:(BOOL) forceChange
+{
+    if(forceChange || pointsLeft != 16){
         myTurn = NO;
         PFUser *user;
         PFUser *me = [PFUser currentUser];
@@ -739,9 +758,11 @@
         } else {
             user = game.owner;
         }
-        
+    
         [game setActivePlayer:user];
         [game saveGame];
+    
+        [self refreshGame];
     }
 }
 /*
