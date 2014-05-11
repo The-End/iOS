@@ -112,7 +112,7 @@
         [self.parentView addSubview:button];
     }
     
-    if(game.active){
+    if(game.active && buttons.count >= 2){
         CustomButton *secondToLastButton = [buttons objectAtIndex:[buttons count] - 2];
         CustomButton *lastButton = [buttons objectAtIndex:[buttons count] - 1];
         if([secondToLastButton.move.word caseInsensitiveCompare:@"the"] == NSOrderedSame && [lastButton.move.word caseInsensitiveCompare:@"end"] == NSOrderedSame){
@@ -177,10 +177,7 @@
         return;
     }
     
-    
     [self.inputTextField resignFirstResponder];
-    
-   
     
     if (![inputType isEqualToString:@"Create"]) {
         inputType = @"Create";
@@ -191,10 +188,13 @@
     CustomButton *selected = (CustomButton *)sender;
     buttonForAlertView = selected;
     
+    BOOL needToHideTextBox = YES;
     for (CustomButton *button in buttons) {
         if (button.pressed == YES) {
             [button.associatedView removeFromSuperview];
             button.pressed = NO;
+            needToHideTextBox = NO;
+            break;
         }
     }
     selected.pressed = YES;
@@ -202,16 +202,12 @@
     if(!myTurn || selected.locked){
         return;
     }
-    if (textInputUp) {
+    NSLog(@"NeedToHideTextBox: %d", needToHideTextBox);
+    if(needToHideTextBox){
+        NSLog(@"NeedToHideTextBox: %d", needToHideTextBox);
         [self textBoxAnimateUp:NO];
-        textInputUp = !textInputUp;
     }
-    else{
-        
-        [self textBoxAnimateUp:YES];
-        textInputUp = !textInputUp;
-        
-    }
+    
     selectedButton = sender;
     
     NSString *longest = @"Insert Before";
@@ -246,7 +242,6 @@
     [self.parentView addSubview:optionsMenu];
     selected.associatedView = optionsMenu;
     
-
 }
 
 -(void) activitySelected:(id)sender{
@@ -345,6 +340,7 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
+    selectedButton.pressed = NO;
     [self textBoxAnimateUp:YES];
     textInputUp = YES;
     [selected.superview removeFromSuperview];
