@@ -68,7 +68,13 @@
         }
     }];
 }
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UIView * txt in self.view.subviews){
+        if ([txt isKindOfClass:[UITextField class]] && [txt isFirstResponder]) {
+            [txt resignFirstResponder];
+        }
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -380,8 +386,9 @@
     NSMutableArray *buttonsArray = [[NSMutableArray alloc] init];
     
     PFUser *currentUser = [PFUser currentUser];
-    UIColor *myColor = [UIColor greenColor];
-    UIColor *theirColor = [UIColor redColor];
+    UIColor *myColor = [UIColor colorWithRed:0.238 green:0.686 blue:0.891 alpha:1.000];
+    UIColor *theirColor = [UIColor colorWithWhite:0.600 alpha:1.000];
+    
     
     NSMutableArray *displayedMoves = [[NSMutableArray alloc] init];
     for(PFMove *move in moves){
@@ -423,9 +430,12 @@
             CustomButton *button = [self makeButtonWithWord:move.word];
             button.move = move;
             if([currentUser.objectId isEqualToString:move.player.objectId]){
-                [button setTitleColor:myColor forState:UIControlStateNormal];
+                [button setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
+                [button setBackgroundColor:myColor];
             } else {
-                [button setTitleColor:theirColor forState:UIControlStateNormal];
+                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [button setBackgroundColor:theirColor];
+                
             }
             [buttonsArray addObject:button];
         }
@@ -464,7 +474,7 @@
     CustomButton *button = [[CustomButton alloc] init];
     [button setTitle:word forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
-    CGSize stringSize = [word sizeWithFont:[UIFont systemFontOfSize:14]];
+    CGSize stringSize = [word sizeWithFont:[UIFont systemFontOfSize:16]];
     
     float x = 0.0;
     if(stringSize.width + currentStringLength + 3 <= self.parentView.frame.size.width){
@@ -496,7 +506,8 @@
 {
     CGRect pointsFrame = CGRectMake(0.0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, 60);
     UILabel *pointsLabel = [[UILabel alloc] initWithFrame:pointsFrame];
-    [pointsLabel setBackgroundColor:[UIColor orangeColor]];
+    [pointsLabel setBackgroundColor:[UIColor colorWithWhite:0.298 alpha:1.000]];
+    [pointsLabel setTextColor:[UIColor whiteColor]];
     NSString *pointsRemaining = [NSString stringWithFormat: @"Loading Game"];
     [pointsLabel setText:pointsRemaining];
     self.pointsLeftLabel = pointsLabel;
