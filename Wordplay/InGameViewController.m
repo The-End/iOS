@@ -32,7 +32,13 @@
     [super viewDidLoad];
     
     pointsLeft = 16;
+    userMoved = NO;
     
+    // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     currentStringHeight = 0;
     currentStringLength = 0;
     [self setupViewElements];
@@ -58,8 +64,6 @@
             [self refreshGame];
         }
     }];
-    
-    // Do any additional setup after loading the view.
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UIView * txt in self.view.subviews){
@@ -130,6 +134,10 @@
 {
     [game saveGame];
     
+    if(pointsLeft != 16){
+        userMoved = YES;
+    }
+    
     currentStringLength = 0;
     currentStringHeight = 0;
     
@@ -165,7 +173,7 @@
 
 -(void)buttonMethod:(id)sender
 {
-    if (selectedButton == sender || selectedButton != nil) {
+    if (selectedButton == sender) {
         return;
     }
     
@@ -246,7 +254,7 @@
     CustomButton *selected = (CustomButton *)sender;
     actionAfterAlertView = selected.titleLabel.text;
     
-    if ([selected.titleLabel.text isEqualToString:@"Lock"]){
+    if ([selected.titleLabel.text isEqualToString:@"Lock"] && pointsLeft/7 != 0){
         
         
         NSMutableString *text = [[NSMutableString alloc] init];
@@ -262,7 +270,7 @@
         
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Delete"]){
+    if ([selected.titleLabel.text isEqualToString:@"Delete"] && pointsLeft/10 != 0){
         
         NSMutableString *text = [[NSMutableString alloc] init];
         [text appendString:@"Are you sure you want to delete the word \""];
@@ -276,25 +284,66 @@
         [alert show];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Insert Before"]){
+    if ([selected.titleLabel.text isEqualToString:@"Insert Before"] && pointsLeft/5 != 0){
         inputType = @"Insert Before";
         [self.inputTextField becomeFirstResponder];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word before \"%@\"...", selected.word];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Insert After"]){
+    if ([selected.titleLabel.text isEqualToString:@"Insert After"] && pointsLeft/5 != 0){
         inputType = @"Insert After";
         [self.inputTextField becomeFirstResponder];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word after \"%@\"...", selected.word];
         }
-    if ([selected.titleLabel.text isEqualToString:@"Change"]){
+    if ([selected.titleLabel.text isEqualToString:@"Change"] && pointsLeft/15 != 0){
         inputType = @"Change";
         [self.inputTextField becomeFirstResponder];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Change \"%@\" to...", selected.word];
     }
-    if ([selected.titleLabel.text isEqualToString:@"Change"]) {
-        inputType = @"Create";
-
+    
+    if ([selected.titleLabel.text isEqualToString:@"Delete"] && pointsLeft/10 == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to delete \"%@\"", selected.word]
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Insert Before"] && pointsLeft/5 == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to insert a word before \"%@\"", selected.word ]
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Insert After"] && pointsLeft/5 == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to insert a word after \"%@\"", selected.word ]
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Change"] && pointsLeft/15 == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to change \"%@\".", selected.word ]
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Lock"] && pointsLeft/7 == 0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to lock \"%@\".", selected.word ]
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
     [self textBoxAnimateUp:YES];
     textInputUp = YES;
@@ -305,7 +354,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{\
     
-    if ([actionAfterAlertView isEqualToString:@"Delete"] ){
+    if ([actionAfterAlertView isEqualToString:@"Delete"] && pointsLeft/10 != 0){
         if (buttonIndex == [alertView cancelButtonIndex]){
             pointsLeft -= 10;
             [game newDeleteMove:buttonForAlertView.move];
@@ -313,7 +362,22 @@
         }
     }
     
-    if([actionAfterAlertView isEqualToString:@"Lock"] && buttonIndex == [alertView cancelButtonIndex]){
+    if([actionAfterAlertView isEqualToString:@"Change"]){
+        
+    
+    }
+    
+    if([actionAfterAlertView isEqualToString:@"Insert Before"]){
+        
+
+    }
+    
+    if([actionAfterAlertView isEqualToString:@"Insert After"]){
+        
+
+    }
+    
+    if([actionAfterAlertView isEqualToString:@"Lock"] && buttonIndex == [alertView cancelButtonIndex] && pointsLeft/7 != 0){
         
         pointsLeft -= 7;
         [game newLockMove:buttonForAlertView.move];
@@ -473,6 +537,7 @@
         UITextField *inputText = [[UITextField alloc] initWithFrame:textRect];
         [inputText setBackgroundColor:[UIColor whiteColor]];
         [inputText setAlpha:0.5];
+        inputText.autocapitalizationType = UITextAutocapitalizationTypeNone;
         [self.parentViewOfText addSubview:inputText];
         self.inputTextField = inputText;
         [self.inputTextField setDelegate:self];
@@ -516,7 +581,49 @@
     NSArray *temp = [word componentsSeparatedByString:@" "];
     NSLog(@"%@ HERE", inputType);
    
-  
+    if (temp.count > pointsLeft/4){
+    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Invalid Move. You cannot add more than %i words!", pointsLeft/4]
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        inputType = @"Create";
+        [textField setText:@""];
+        return YES;
+    
+    }
+    if ([word isEqualToString:@""]) {
+        if ([inputType isEqualToString:@"Change"]) {
+            
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Move. Cannot change word to nothing! Duh!"
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+        
+        
+        }
+        
+        if ([inputType isEqualToString:@"Insert After"] || [inputType isEqualToString:@"Insert Before"]) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Move. You cannot insert nothing! Duh!"
+                                                            message:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+            [alert show];
+            
+            
+        }
+        
+        
+        inputType = @"Create";
+        return YES;
+    }
+    
     if ([inputType isEqualToString:@"Create"]) {
      
         if([word isEqualToString:@""] || temp.count > pointsLeft/4 ){
@@ -551,15 +658,19 @@
     } else if ([inputType isEqualToString:@"Insert Before"]) {
         pointsLeft -= 5;
         [game newInsertWord:textField.text beforeMove:buttonForAlertView.move];
-        [self refreshGame];
-    } else if ([inputType isEqualToString:@"Insert After"]) {
+        
+    }
+    
+    if ([inputType isEqualToString:@"Insert After"]) {
         pointsLeft -= 5;
         [game newInsertWord:textField.text afterMove:buttonForAlertView.move];
-        [self refreshGame];
-    } else if ([inputType isEqualToString:@"Change"]) {
+        
+    }
+    
+    if ([inputType isEqualToString:@"Change"]) {
         pointsLeft -= 15;
         [game newSwitchMove:buttonForAlertView.move forWord:textField.text];
-        [self refreshGame];
+
     }
     
     inputType = @"Create";
@@ -610,21 +721,27 @@
         return NO;
     }
     }
+    
+    
     return YES;
 }
 
 -(void)changeTurn
 {
-    myTurn = NO;
-    PFUser *user;
-    PFUser *me = [PFUser currentUser];
-    if([me.objectId isEqualToString:game.owner.objectId]){
-        user = game.player;
-    } else {
-        user = game.owner;
+    
+    if(userMoved){
+        myTurn = NO;
+        PFUser *user;
+        PFUser *me = [PFUser currentUser];
+        if([me.objectId isEqualToString:game.owner.objectId]){
+            user = game.player;
+        } else {
+            user = game.owner;
+        }
+        
+        [game setActivePlayer:user];
+        [game saveGame];
     }
-    [game setActivePlayer:user];
-    [game saveGame];
 }
 /*
 #pragma mark - Navigation
