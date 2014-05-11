@@ -159,7 +159,7 @@
 
 -(void)buttonMethod:(id)sender
 {
-    if (selectedButton == sender || selectedButton != nil) {
+    if (selectedButton == sender) {
         return;
     }
     
@@ -314,8 +314,17 @@
         [alert show];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Change"] && pointsLeft/5 == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to change\"%@\".", selected.word ]
+    if ([selected.titleLabel.text isEqualToString:@"Change"] && pointsLeft/15 == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to change \"%@\".", selected.word ]
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    if ([selected.titleLabel.text isEqualToString:@"Lock"] && pointsLeft/7 == 0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to lock \"%@\".", selected.word ]
                                                         message:nil
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
@@ -571,13 +580,32 @@
         return YES;
     
     }
-    if ([inputType isEqualToString:@"Change"] && [word isEqualToString:@""]) {
+    if ([word isEqualToString:@""]) {
+        if ([inputType isEqualToString:@"Change"]) {
+            
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Move. Cannot change word to nothing! Duh!"
                                                         message:nil
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
         [alert show];
+        
+        
+        }
+        
+        if ([inputType isEqualToString:@"Insert After"] || [inputType isEqualToString:@"Insert Before"]) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Move. You cannot insert nothing! Duh!"
+                                                            message:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+            [alert show];
+            
+            
+        }
+        
+        
         inputType = @"Create";
         return YES;
     }
@@ -679,6 +707,8 @@
         return NO;
     }
     }
+    
+    
     return YES;
 }
 
