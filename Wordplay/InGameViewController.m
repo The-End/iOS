@@ -32,6 +32,7 @@
     [super viewDidLoad];
     
     pointsLeft = 16;
+    userMoved = NO;
     
     // Do any additional setup after loading the view.
 }
@@ -129,8 +130,6 @@
     
     if(pointsLeft != 16){
         userMoved = YES;
-    } else {
-        userMoved = NO;
     }
     
     currentStringLength = 0;
@@ -619,6 +618,7 @@
 
 -(void)changeTurn
 {
+    
     if(userMoved){
         myTurn = NO;
         PFUser *user;
