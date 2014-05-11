@@ -34,8 +34,17 @@
     pointsLeft = 16;
     turnEnding = NO;
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Finish Turn" style:UIBarButtonItemStylePlain target:self action:@selector(changeTurnPopup:)];
-    self.navigationItem.rightBarButtonItem = anotherButton;
+    if ([game isMyTurn]){
+        UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Finish Turn" style:UIBarButtonItemStylePlain target:self action:@selector(changeTurnPopup:)];
+        self.navigationItem.rightBarButtonItem = anotherButton;
+        NSLog(@"Button Created");
+    }
+    
+    if (![game isMyTurn]){
+        UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(changeTurnPopup:)];
+        self.navigationItem.rightBarButtonItem = anotherButton;
+        NSLog(@"Button Created");
+    }
     
     // Do any additional setup after loading the view.
 }
@@ -724,6 +733,10 @@
 -(void)changeTurnPopup:(id)selector
 {
     
+    if (![game isMyTurn]){
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You Sure?"
                                                     message:@"You've got more points. This doesn't have to be the end."
                                                    delegate:self
@@ -742,6 +755,7 @@
         PFUser *me = [PFUser currentUser];
         if (!forceChange) {
             morePoints = YES;
+            
         }
         if([me.objectId isEqualToString:game.owner.objectId]){
             user = game.player;
@@ -753,6 +767,7 @@
         [game saveGame];
     
         if (!morePoints) {
+    
             [self refreshGame];
         }
         

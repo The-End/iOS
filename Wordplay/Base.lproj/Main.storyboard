@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fEM-ec-UgE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fEM-ec-UgE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -89,11 +89,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordPlayBackDrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="7z7-Wh-4EX">
+                                <rect key="frame" x="-6" y="-11" width="334" height="598"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-W5-bV1">
-                                <rect key="frame" x="169" y="165" width="131" height="30"/>
+                                <rect key="frame" x="-7" y="221" width="334" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Game On" backgroundImage="fbLoginButton.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Let's Play!" backgroundImage="fbLoginButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -139,10 +142,6 @@
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordPlayBackDrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="zVS-aj-Dz7">
                                 <rect key="frame" x="-7" y="-8" width="334" height="598"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="C17CD13F-0908-47F0-837B-9765F7142E23" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-I2-z5s">
-                                <rect key="frame" x="-13" y="57" width="347" height="221"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
@@ -266,6 +265,8 @@
                                 <rect key="frame" x="0.0" y="62" width="320" height="418"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="separatorColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexColor" red="0.31481541140000002" green="0.61871246550000003" blue="0.6298828125" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -281,28 +282,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C17CD13F-0908-47F0-837B-9765F7142E23" width="294" height="188">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
-GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
-V05TQ29sb3KAAoAMEiTAAACAA4AKWnsyOTQsIDE4OH3SFQoWGFpOUy5vYmplY3RzoReABIAJ0hUKGhii
-GxyABYAGgAkQBdMgCiEiIyRXTlMuYmFzZVtOUy5yZWxhdGl2ZYAAgAiAB18Q12ZpbGU6Ly8vQXBwbGlj
-YXRpb25zL1hjb2RlLmFwcC9Db250ZW50cy9EZXZlbG9wZXIvUGxhdGZvcm1zL2lQaG9uZVNpbXVsYXRv
-ci5wbGF0Zm9ybS9EZXZlbG9wZXIvTGlicmFyeS9YY29kZS9Qcml2YXRlUGx1Z0lucy9JREVJbnRlcmZh
-Y2VCdWlsZGVyQ29jb2FUb3VjaEludGVncmF0aW9uLmlkZXBsdWdpbi9Db250ZW50cy9SZXNvdXJjZXMv
-SUJVSU1pc3NpbmdJbWFnZS50aWZm0icoKSpaJGNsYXNzbmFtZVgkY2xhc3Nlc1VOU1VSTKIrLFVOU1VS
-TFhOU09iamVjdNInKC4vV05TQXJyYXmiLizTMTIKMzQ1V05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQ
-A4AL0icoNzhXTlNDb2xvcqI3LNInKDo7V05TSW1hZ2WiOixfEA9OU0tleWVkQXJjaGl2ZXLRPj9Ucm9v
-dIABAAgAEQAaACMALQAyADcARQBLAFYAXQBkAHEAeACAAIIAhACJAIsAjQCYAJ0AqACqAKwArgCzALYA
-uAC6ALwAvgDFAM0A2QDbAN0A3wG5Ab4ByQHSAdgB2wHhAeoB7wH3AfoCAQIJAhYCGwIdAh8CJAIsAi8C
-NAI8Aj8CUQJUAlkAAAAAAAACAQAAAAAAAABAAAAAAAAAAAAAAAAAAAACWw
-</mutableData>
-        </image>
         <image name="WordPlayBackDrop1.png" width="334" height="598"/>
         <image name="WordPlayLoginScreen.png" width="334" height="598"/>
         <image name="WordPlayLogo1.png" width="249" height="177"/>
         <image name="WordPlayMenuBackDrop.png" width="334" height="598"/>
-        <image name="chatscreen.png" width="316" height="390"/>
         <image name="fbLoginButton.png" width="334" height="96"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -87,13 +87,24 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
     }
     
     PFGame *game = [games objectAtIndex:indexPath.row];
     cell.backgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"fbloginbutton.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
+    
     cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.text = game.name;
+    cell.textLabel.text = [NSString stringWithFormat: @"\"%@\"", game.name];
+    PFUser *me =[PFUser currentUser];
+    NSString *announcement;
+    if([me.objectId isEqualToString:game.owner.objectId]){
+        announcement = [NSString stringWithFormat:@"Opponent: %@", game.player[@"name"]];
+    } else {
+        announcement = [NSString stringWithFormat:@"Opponent: %@", game.owner[@"name"]];
+    }
+    cell.detailTextLabel.text = [NSString stringWithFormat:announcement];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:8];
     return cell;
 }
 

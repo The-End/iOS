@@ -26,6 +26,7 @@
     NSString *inputType;
     CustomButton *selectedButton;
     BOOL turnEnding;
+    BOOL morePoints;
     
 }
 
