@@ -166,7 +166,8 @@
 
 -(void)buttonMethod:(id)sender
 {
-    if (selectedButton == sender) {
+    CustomButton *selected = (CustomButton *)sender;
+    if (selectedButton == sender || selected.locked || !myTurn) {
         return;
     }
     
@@ -174,11 +175,10 @@
     
     if (![inputType isEqualToString:@"Create"]) {
         inputType = @"Create";
-        [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
+        [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words...", pointsLeft/4]];
     }
     
     UIScrollView *optionsMenu;
-    CustomButton *selected = (CustomButton *)sender;
     buttonForAlertView = selected;
     
     BOOL needToHideTextBox = YES;
@@ -192,9 +192,7 @@
     }
     selected.pressed = YES;
     
-    if(!myTurn || selected.locked){
-        return;
-    }
+    
     NSLog(@"NeedToHideTextBox: %d", needToHideTextBox);
     if(needToHideTextBox){
         NSLog(@"NeedToHideTextBox: %d", needToHideTextBox);
@@ -359,20 +357,7 @@
         }
     }
     
-    if([actionAfterAlertView isEqualToString:@"Change"]){
-        
     
-    }
-    
-    if([actionAfterAlertView isEqualToString:@"Insert Before"]){
-        
-
-    }
-    
-    if([actionAfterAlertView isEqualToString:@"Insert After"]){
-        
-
-    }
     
     if([actionAfterAlertView isEqualToString:@"Lock"] && buttonIndex == [alertView cancelButtonIndex] && pointsLeft/7 != 0){
         
@@ -381,7 +366,7 @@
         [self refreshGame];
     }
     inputType =@"Create";
-    self.inputTextField.placeholder =[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4];
+    self.inputTextField.placeholder =[NSString stringWithFormat:@"Add up to %i words...", pointsLeft/4];
     if (!textInputUp){
         [self textBoxAnimateUp:YES];
         textInputUp = YES;
@@ -538,7 +523,7 @@
         [self.parentViewOfText addSubview:inputText];
         self.inputTextField = inputText;
         [self.inputTextField setDelegate:self];
-        [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
+        [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words...", pointsLeft/4]];
     }
 
 }
@@ -671,7 +656,7 @@
     }
     
     inputType = @"Create";
-    [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words!", pointsLeft/4]];
+    [self.inputTextField setPlaceholder:[NSString stringWithFormat:@"Add up to %i words...", pointsLeft/4]];
     
     
     [self refreshGame];

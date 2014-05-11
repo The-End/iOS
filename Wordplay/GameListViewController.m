@@ -29,6 +29,7 @@
     
     [self.gameTable setDataSource:self];
     [self.gameTable setDelegate:self];
+    self.gameTable.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WordPlayBackDrop1.png"]];
     
     [PFGame loadActive:self.active GamesWithBlock:^(NSArray *returnedGames, NSError *error){
         
@@ -67,10 +68,16 @@
     
 }
 
+//-(void) tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section{
+//
+//        tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+
     return [games count];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,10 +91,22 @@
     }
     
     PFGame *game = [games objectAtIndex:indexPath.row];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"fbloginbutton.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = game.name;
     return cell;
 }
 
+
+-(void) viewWillAppear:(BOOL)animated{
+    
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WordPlayBackDrop1.png"]];
+    int numberOfGames = [games count];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+    //self.tableView.frame = CGRectMake(5, self.navigationController.navigationBar.frame.size.height + 10, self.view.frame.size.width - 10, numberOfGames * self.tableView.cell.size.height);
+    
+}
 /*
 #pragma mark - Navigation
 

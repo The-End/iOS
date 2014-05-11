@@ -118,5 +118,14 @@
     
     return;
 }
+-(void) viewWillAppear:(BOOL)animated{
+
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WordPlayBackDrop1.png"]];
+    
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+    
+
+}
 
 @end
