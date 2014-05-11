@@ -628,6 +628,7 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles: nil];
                 [alert show];
+                return YES;
             }
         
             if (temp.count > pointsLeft/4) {
@@ -638,8 +639,9 @@
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles: nil];
                 [alert show];
+                return YES;
             }
-        
+            
     
         }
         
@@ -738,6 +740,9 @@
         myTurn = NO;
         PFUser *user;
         PFUser *me = [PFUser currentUser];
+        if (!forceChange) {
+            morePoints = YES;
+        }
         if([me.objectId isEqualToString:game.owner.objectId]){
             user = game.player;
         } else {
@@ -747,7 +752,11 @@
         [game setActivePlayer:user];
         [game saveGame];
     
-        [self refreshGame];
+        if (!morePoints) {
+            [self refreshGame];
+        }
+        
+        
     }
 }
 /*
