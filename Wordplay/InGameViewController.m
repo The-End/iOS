@@ -32,7 +32,13 @@
     [super viewDidLoad];
     
     pointsLeft = 16;
+    userMoved = NO;
     
+    // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     currentStringHeight = 0;
     currentStringLength = 0;
     [self setupViewElements];
@@ -58,8 +64,6 @@
             [self refreshGame];
         }
     }];
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -123,6 +127,10 @@
 -(void)refreshGame
 {
     [game saveGame];
+    
+    if(pointsLeft != 16){
+        userMoved = YES;
+    }
     
     currentStringLength = 0;
     currentStringHeight = 0;
@@ -714,16 +722,20 @@
 
 -(void)changeTurn
 {
-    myTurn = NO;
-    PFUser *user;
-    PFUser *me = [PFUser currentUser];
-    if([me.objectId isEqualToString:game.owner.objectId]){
-        user = game.player;
-    } else {
-        user = game.owner;
+    
+    if(userMoved){
+        myTurn = NO;
+        PFUser *user;
+        PFUser *me = [PFUser currentUser];
+        if([me.objectId isEqualToString:game.owner.objectId]){
+            user = game.player;
+        } else {
+            user = game.owner;
+        }
+        
+        [game setActivePlayer:user];
+        [game saveGame];
     }
-    [game setActivePlayer:user];
-    [game saveGame];
 }
 /*
 #pragma mark - Navigation
