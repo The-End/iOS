@@ -30,7 +30,8 @@
                     <view key="view" contentMode="scaleToFill" id="tje-UI-f3a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="JhI-fY-XgL"/>
                 </viewController>
@@ -130,6 +131,7 @@
         <!--In Game View Controller-->
         <scene sceneID="77c-xl-jS4">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-JU-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="InGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mjN-sp-6Mi" customClass="InGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rf7-Uw-Nwn"/>
@@ -139,8 +141,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="backdrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="EGL-72-l1c">
-                                <rect key="frame" x="-7" y="-7" width="334" height="598"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="WordPlayBackDrop1.png" translatesAutoresizingMaskIntoConstraints="NO" id="zVS-aj-Dz7">
+                                <rect key="frame" x="-7" y="-8" width="334" height="598"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="chatscreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="jHy-0d-Gwt">
+                                <rect key="frame" x="2" y="101" width="316" height="390"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
@@ -148,7 +154,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="hWZ-Ef-c4i"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aq3-JU-NdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3115" y="374"/>
         </scene>
@@ -260,6 +265,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexColor" red="0.31481541140000002" green="0.61871246550000003" blue="0.6298828125" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -278,7 +286,7 @@
         <image name="WordPlayBackDrop1.png" width="334" height="598"/>
         <image name="WordPlayLoginScreen.png" width="334" height="598"/>
         <image name="WordPlayLogo1.png" width="249" height="177"/>
-        <image name="backdrop1.png" width="334" height="598"/>
+        <image name="chatscreen.png" width="316" height="390"/>
         <image name="fbLoginButton.png" width="334" height="96"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

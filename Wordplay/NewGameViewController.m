@@ -35,9 +35,9 @@
     
     [self createGame];	
 
-    _gameNameField.placeholder = @"Game Name";
+    _gameNameField.placeholder = @"Enter your WordPlay Title";
     _gameNameField.delegate = self;
-    _gameMoveField.placeholder = @"First Move";
+    _gameMoveField.placeholder = @"Start off your Play with up to 4 words";
     _gameMoveField.delegate = self;
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
