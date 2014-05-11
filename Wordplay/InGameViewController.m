@@ -719,7 +719,7 @@
 -(void)changeTurn
 {
     
-    if(userMoved){
+    if(pointsLeft != 16){
         myTurn = NO;
         PFUser *user;
         PFUser *me = [PFUser currentUser];
