@@ -57,11 +57,11 @@
     [self registerForKeyboardNotifications];
     
     moveTypes = [[NSMutableArray alloc] init];
-    [moveTypes addObject:@"Delete"];
-    [moveTypes addObject:@"Lock"];
-    [moveTypes addObject:@"Change"];
-    [moveTypes addObject:@"Insert Before"];
-    [moveTypes addObject:@"Insert After"];
+    [moveTypes addObject:@"Delete(10)"];
+    [moveTypes addObject:@"Lock(7)"];
+    [moveTypes addObject:@"Change(15)"];
+    [moveTypes addObject:@"Insert Before(5)"];
+    [moveTypes addObject:@"Insert After(5)"];
     [moveTypes addObject:@"Close"];
     textInputUp = YES;
     inputType = [NSString stringWithFormat:@"Create"];
@@ -216,7 +216,7 @@
     
     selectedButton = sender;
     
-    NSString *longest = @"Insert Before";
+    NSString *longest = @"Insert Before(5)";
     CGSize longestSize = [longest sizeWithFont:[UIFont systemFontOfSize:15]];
     
     if ((selected.frame.origin.x + longestSize.width) > (self.parentView.frame.origin.x + self.parentView.frame.size.width)){
@@ -226,7 +226,7 @@
         optionsMenu = [[UIScrollView alloc] initWithFrame:CGRectMake(selected.frame.origin.x,(selected.frame.origin.y + selected.frame.size.height),longestSize.width + 10,(moveTypes.count*longestSize.height + (moveTypes.count + 1)*5))];
     }
     
-    [optionsMenu setBackgroundColor:[UIColor lightGrayColor]];
+    [optionsMenu setBackgroundColor:[UIColor colorWithWhite:0.800 alpha:1.000]];
     
     for (int i = 0; i < moveTypes.count; i++){
         
@@ -238,7 +238,7 @@
         
         
         button.frame = CGRectMake(5, (5+i*23), stringsize.width, stringsize.height);
-        [button setBackgroundColor:[UIColor whiteColor]];
+        //[button setBackgroundColor:[UIColor whiteColor]];
         button.numberInSentence = selected.numberInSentence;
         button.word = selected.titleLabel.text;
         
@@ -255,7 +255,7 @@
     CustomButton *selected = (CustomButton *)sender;
     actionAfterAlertView = selected.titleLabel.text;
     
-    if ([selected.titleLabel.text isEqualToString:@"Lock"] && pointsLeft/7 != 0){
+    if ([selected.titleLabel.text isEqualToString:@"Lock(7)"] && pointsLeft/7 != 0){
         
         
         NSMutableString *text = [[NSMutableString alloc] init];
@@ -271,7 +271,7 @@
         
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Delete"] && pointsLeft/10 != 0){
+    if ([selected.titleLabel.text isEqualToString:@"Delete(10)"] && pointsLeft/10 != 0){
         
         NSMutableString *text = [[NSMutableString alloc] init];
         [text appendString:@"Are you sure you want to delete the word \""];
@@ -285,24 +285,24 @@
         [alert show];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Insert Before"] && pointsLeft/5 != 0){
-        inputType = @"Insert Before";
+    if ([selected.titleLabel.text isEqualToString:@"Insert Before(5)"] && pointsLeft/5 != 0){
+        inputType = @"Insert Before(5)";
         [self.inputTextField becomeFirstResponder];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word before \"%@\"...", selected.word];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Insert After"] && pointsLeft/5 != 0){
-        inputType = @"Insert After";
+    if ([selected.titleLabel.text isEqualToString:@"Insert After(5)"] && pointsLeft/5 != 0){
+        inputType = @"Insert After(5)";
         [self.inputTextField becomeFirstResponder];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Insert a word after \"%@\"...", selected.word];
         }
-    if ([selected.titleLabel.text isEqualToString:@"Change"] && pointsLeft/15 != 0){
-        inputType = @"Change";
+    if ([selected.titleLabel.text isEqualToString:@"Change(15)"] && pointsLeft/15 != 0){
+        inputType = @"Change(15)";
         [self.inputTextField becomeFirstResponder];
         self.inputTextField.placeholder = [NSString stringWithFormat:@"Change \"%@\" to...", selected.word];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Delete"] && pointsLeft/10 == 0) {
+    if ([selected.titleLabel.text isEqualToString:@"Delete(10)"] && pointsLeft/10 == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to delete \"%@\"", selected.word]
                                                         message:nil
                                                        delegate:self
@@ -311,7 +311,7 @@
         [alert show];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Insert Before"] && pointsLeft/5 == 0) {
+    if ([selected.titleLabel.text isEqualToString:@"Insert Before(5)"] && pointsLeft/5 == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to insert a word before \"%@\"", selected.word ]
                                                         message:nil
                                                        delegate:self
@@ -320,7 +320,7 @@
         [alert show];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Insert After"] && pointsLeft/5 == 0) {
+    if ([selected.titleLabel.text isEqualToString:@"Insert After(5)"] && pointsLeft/5 == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to insert a word after \"%@\"", selected.word ]
                                                         message:nil
                                                        delegate:self
@@ -329,7 +329,7 @@
         [alert show];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Change"] && pointsLeft/15 == 0) {
+    if ([selected.titleLabel.text isEqualToString:@"Change(15)"] && pointsLeft/15 == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to change \"%@\".", selected.word ]
                                                         message:nil
                                                        delegate:self
@@ -338,7 +338,7 @@
         [alert show];
     }
     
-    if ([selected.titleLabel.text isEqualToString:@"Lock"] && pointsLeft/7 == 0){
+    if ([selected.titleLabel.text isEqualToString:@"Lock(7)"] && pointsLeft/7 == 0){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"You do not have enough points to lock \"%@\".", selected.word ]
                                                         message:nil
                                                        delegate:self
@@ -364,7 +364,7 @@
         }
     }
     
-    if ([actionAfterAlertView isEqualToString:@"Delete"] && pointsLeft/10 != 0){
+    if ([actionAfterAlertView isEqualToString:@"Delete(10)"] && pointsLeft/10 != 0){
         if (buttonIndex == [alertView cancelButtonIndex]){
             pointsLeft -= 10;
             [game newDeleteMove:buttonForAlertView.move];
@@ -374,7 +374,7 @@
     
     
     
-    if([actionAfterAlertView isEqualToString:@"Lock"] && buttonIndex == [alertView cancelButtonIndex] && pointsLeft/7 != 0){
+    if([actionAfterAlertView isEqualToString:@"Lock(7)"] && buttonIndex == [alertView cancelButtonIndex] && pointsLeft/7 != 0){
         
         pointsLeft -= 7;
         [game newLockMove:buttonForAlertView.move];
@@ -597,7 +597,7 @@
     
     }
     if ([word isEqualToString:@""]) {
-        if ([inputType isEqualToString:@"Change"]) {
+        if ([inputType isEqualToString:@"Change(15)"]) {
             
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Move. Cannot change word to nothing! Duh!"
                                                         message:nil
@@ -609,7 +609,7 @@
         
         }
         
-        if ([inputType isEqualToString:@"Insert After"] || [inputType isEqualToString:@"Insert Before"]) {
+        if ([inputType isEqualToString:@"Insert After(5)"] || [inputType isEqualToString:@"Insert Before(5)"]) {
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Move. You cannot insert nothing! Duh!"
                                                             message:nil
@@ -659,19 +659,19 @@
             [game newCreateMoveWithWord:[temp objectAtIndex:i]];
         }
     
-    } else if ([inputType isEqualToString:@"Insert Before"]) {
+    } else if ([inputType isEqualToString:@"Insert Before(5)"]) {
         pointsLeft -= 5;
         [game newInsertWord:textField.text beforeMove:buttonForAlertView.move];
         
     }
     
-    if ([inputType isEqualToString:@"Insert After"]) {
+    if ([inputType isEqualToString:@"Insert After(5)"]) {
         pointsLeft -= 5;
         [game newInsertWord:textField.text afterMove:buttonForAlertView.move];
         
     }
     
-    if ([inputType isEqualToString:@"Change"]) {
+    if ([inputType isEqualToString:@"Change(15)"]) {
         pointsLeft -= 15;
         [game newSwitchMove:buttonForAlertView.move forWord:textField.text];
 
